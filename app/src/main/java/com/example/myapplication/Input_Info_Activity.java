@@ -63,6 +63,7 @@ public class Input_Info_Activity extends AppCompatActivity {
                //if all the information is complete
                else{
                    Toast.makeText(Input_Info_Activity.this, "Completed", Toast.LENGTH_SHORT).show();
+                   //test
                }
 
             }
