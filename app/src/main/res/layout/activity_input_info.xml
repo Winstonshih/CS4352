@@ -7,9 +7,139 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical"
-    android:background="@color/black"
+android:orientation="vertical"
     tools:context=".Input_Info_Activity">
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="left"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:text="Financial Information"
+            android:textSize="35dp"
+            android:textStyle="bold">
+
+        </TextView>
+        <EditText
+            android:id="@+id/Income"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_edittext"
+            android:drawableLeft="@drawable/baseline_attach_money_24"
+            android:drawablePadding="8dp"
+            android:hint="Income"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background" />
+        <TextView
+            android:id="@+id/Expense_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="left"
+            android:layout_marginRight="10dp"
+            android:padding="5dp"
+            android:text="Expenses"
+            android:textSize="30dp"
+            android:textStyle="bold">
+        </TextView>
+        <EditText
+            android:id="@+id/Food"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_edittext"
+            android:drawableLeft="@drawable/baseline_control_point_24"
+            android:drawablePadding="8dp"
+            android:hint="Food"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:textColorHighlight="@color/cardview_dark_background" />
+        <EditText
+            android:id="@+id/mortage"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_edittext"
+            android:drawableLeft="@drawable/baseline_control_point_24"
+            android:drawablePadding="8dp"
+            android:hint="Mortage / Rent"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:textColorHighlight="@color/cardview_dark_background" />
+        <EditText
+            android:id="@+id/waterBill"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_edittext"
+            android:drawableLeft="@drawable/baseline_control_point_24"
+            android:drawablePadding="8dp"
+            android:hint="Water Bill"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:textColorHighlight="@color/cardview_dark_background" />
+        <EditText
+            android:id="@+id/electricBill"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_edittext"
+            android:drawableLeft="@drawable/baseline_control_point_24"
+            android:drawablePadding="8dp"
+            android:hint="Electric Bill"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:textColorHighlight="@color/cardview_dark_background" />
+        <EditText
+            android:id="@+id/gasBill"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_edittext"
+            android:drawableLeft="@drawable/baseline_control_point_24"
+            android:drawablePadding="8dp"
+            android:hint="Gas Bill"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:textColorHighlight="@color/cardview_dark_background" />
+        <EditText
+            android:id="@+id/internetBill"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/custom_edittext"
+            android:drawableLeft="@drawable/baseline_control_point_24"
+            android:drawablePadding="8dp"
+            android:hint="Internet Bill"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:textColorHighlight="@color/cardview_dark_background" />
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="0dp"
+            android:backgroundTint="@color/sky_blue"
+            android:text="Next"
+            android:textSize="20sp"
+            app:cornerRadius="20dp" />
+
 </LinearLayout>
+
+
+
+
+
