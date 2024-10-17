@@ -17,7 +17,7 @@ public class Input_Subscriptions_Activity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_input_subscriptions);
+        setContentView(R.layout.activity_input_subscriptions2);
         netflix=findViewById(R.id.Netflix);
         spotify=findViewById(R.id.Spotify);
         hulu=findViewById(R.id.Hulu);
@@ -49,8 +49,8 @@ public class Input_Subscriptions_Activity2 extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Intent intent=new Intent(Input_Subscriptions_Activity2.this,main_game_page.class);
-                startActivity(intent);
+                Intent intent1=new Intent(Input_Subscriptions_Activity2.this,Input_Subscriptions_Activity3.class);
+                startActivity(intent1);
 
             }
         });
