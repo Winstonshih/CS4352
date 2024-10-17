@@ -6,6 +6,7 @@ package com.example.myapplication;
 
 import static java.lang.Integer.parseInt;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -64,6 +65,8 @@ public class Input_Info_Activity extends AppCompatActivity {
                else{
                    Toast.makeText(Input_Info_Activity.this, "Completed", Toast.LENGTH_SHORT).show();
                    //test
+                   Intent intent=new Intent(Input_Info_Activity.this,Input_Subscriptions_Activity.class);
+                   startActivity(intent);
                }
 
             }
