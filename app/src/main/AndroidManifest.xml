@@ -13,6 +13,12 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".main_game_page"
+            android:exported="false" />
+        <activity
+            android:name=".activity_input_subscriptions2"
+            android:exported="false" />
+        <activity
             android:name=".Input_Subscriptions_Activity"
             android:exported="false" />
         <activity
