@@ -46,7 +46,17 @@ public class Input_Subscriptions_Activity6 extends AppCompatActivity {
                 else
                 {
                     Toast.makeText(Input_Subscriptions_Activity6.this, "Completed", Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(Input_Subscriptions_Activity6.this,main_game_page.class);
+                    editor.putLong("sub netflix", Long.parseLong(netflix.getText().toString()));
+                    editor.putLong("sub spotify", Long.parseLong(spotify.getText().toString()));
+                    editor.putLong("sub amazon", Long.parseLong(amazon.getText().toString()));
+                    editor.putLong("sub hulu", Long.parseLong(hulu.getText().toString()));
+                    editor.putLong("sub addsub", Long.parseLong(addSub.getText().toString()));
+                    editor.putLong("sub addsub2", Long.parseLong(addSub2.getText().toString()));
+                    editor.putLong("sub addsub3", Long.parseLong(addSub3.getText().toString()));
+                    editor.putLong("sub addsub4", Long.parseLong(addSub4.getText().toString()));
+                    editor.putLong("sub addsub5", Long.parseLong(addSub5.getText().toString()));
+                    editor.apply();
+                    Intent intent=new Intent(Input_Subscriptions_Activity6.this,User_intro_Display.class);
                     startActivity(intent);
                 }
             }
