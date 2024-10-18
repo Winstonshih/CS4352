@@ -64,17 +64,17 @@ public class Input_Subscriptions_Activity extends AppCompatActivity {
                 }
             }
         });
-//        // addMore will be implemented later
-//        addMore=findViewById(R.id.addMore);
-//        addMore.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v)
-//            {
-//                //later dues to shortage on time
-//                Intent intent1=new Intent(Input_Subscriptions_Activity.this,Input_Subscriptions_Activity2.class);
-//                startActivity(intent1);
+        // addMore will be implemented later
+       addMore=findViewById(R.id.addMore);
+       addMore.setOnClickListener(new View.OnClickListener(){
+            @Override
+           public void onClick(View v)
+            {
+                //later dues to shortage on time
+                Intent intent1=new Intent(Input_Subscriptions_Activity.this,Input_Subscriptions_Activity2.class);
+                startActivity(intent1);
 //
-//            }
-//        });
+            }
+        });
     }
 }

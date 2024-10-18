@@ -13,6 +13,16 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".Input_Subscriptions_Activity6"
+            android:exported="false"
+            android:theme="@style/Theme.MyApplication" />
+        <activity
+            android:name=".Input_Subscriptions_Activity5"
+            android:exported="false" />
+        <activity
+            android:name=".Input_Subscriptions_Activity4"
+            android:exported="false" />
+        <activity
             android:name=".User_intro_Display"
             android:exported="false" />
         <activity

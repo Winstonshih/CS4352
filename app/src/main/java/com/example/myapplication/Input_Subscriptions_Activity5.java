@@ -5,20 +5,19 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
+public class Input_Subscriptions_Activity5 extends AppCompatActivity {
 
-public class Input_Subscriptions_Activity2 extends AppCompatActivity {
-    EditText netflix, spotify, hulu, amazon, addSub;
+    EditText netflix, spotify, hulu, amazon, addSub, addSub2, addSub3, addSub4;
     Button submit, addMore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_input_subscriptions2);
+        setContentView(R.layout.activity_input_subscriptions5);
         netflix=findViewById(R.id.Netflix);
         spotify=findViewById(R.id.Spotify);
         hulu=findViewById(R.id.Hulu);
@@ -26,6 +25,9 @@ public class Input_Subscriptions_Activity2 extends AppCompatActivity {
         submit=findViewById(R.id.submit);
         addMore=findViewById(R.id.addMore);
         addSub=findViewById(R.id.addSub);
+        addSub2=findViewById(R.id.addSub2);
+        addSub3=findViewById(R.id.addSub3);
+        addSub4=findViewById(R.id.addSub4);
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         submit.setOnClickListener(new View.OnClickListener(){
@@ -34,20 +36,15 @@ public class Input_Subscriptions_Activity2 extends AppCompatActivity {
             {
                 if(netflix.getText().toString().isEmpty()||spotify.getText().toString().isEmpty()||
                         amazon.getText().toString().isEmpty()||hulu.getText().toString().isEmpty()||
-                        addSub.getText().toString().isEmpty())
+                        addSub.getText().toString().isEmpty()|| addSub2.getText().toString().isEmpty()
+                        || addSub3.getText().toString().isEmpty()||addSub4.getText().toString().isEmpty())
                 {
-                    Toast.makeText(Input_Subscriptions_Activity2.this, "Missing Information", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Input_Subscriptions_Activity5.this, "Missing Information", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    Toast.makeText(Input_Subscriptions_Activity2.this, "Completed", Toast.LENGTH_SHORT).show();
-                    editor.putLong("sub netflix", Long.parseLong(netflix.getText().toString()));
-                    editor.putLong("sub spotify", Long.parseLong(spotify.getText().toString()));
-                    editor.putLong("sub amazon", Long.parseLong(amazon.getText().toString()));
-                    editor.putLong("sub hulu", Long.parseLong(hulu.getText().toString()));
-                    editor.putLong("sub addsub", Long.parseLong(addSub.getText().toString()));
-                    editor.apply();
-                    Intent intent=new Intent(Input_Subscriptions_Activity2.this,User_intro_Display.class);
+                    Toast.makeText(Input_Subscriptions_Activity5.this, "Completed", Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(Input_Subscriptions_Activity5.this,main_game_page.class);
                     startActivity(intent);
                 }
             }
@@ -58,8 +55,8 @@ public class Input_Subscriptions_Activity2 extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Intent intent1=new Intent(Input_Subscriptions_Activity2.this,Input_Subscriptions_Activity3.class);
-                startActivity(intent1);
+                Intent intent=new Intent(Input_Subscriptions_Activity5.this,Input_Subscriptions_Activity6.class);
+                startActivity(intent);
 
             }
         });
