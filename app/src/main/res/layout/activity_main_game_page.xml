@@ -5,6 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_red"
     tools:context=".main_game_page">
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
