@@ -32,7 +32,7 @@ public class SecondFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // Set a click listener on the "buttonSecond" button to navigate back to the FirstFragment
-        binding.buttonSecond.setOnClickListener(v ->
+        binding.buttonSecond.setOnClickListener(v -> 
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment)
         );

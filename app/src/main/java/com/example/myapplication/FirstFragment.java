@@ -32,9 +32,9 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Set up a click listener for the "buttonFirst" button.
+        // Set up a click listener for the "buttonFirst" button. 
         // When clicked, it navigates to the SecondFragment using NavController.
-        binding.buttonFirst.setOnClickListener(v ->
+        binding.buttonFirst.setOnClickListener(v -> 
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment)
         );
