@@ -11,69 +11,85 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.Map;
+
 public class Input_Subscriptions_Activity extends AppCompatActivity {
-    EditText netflix, spotify, hulu, amazon;
+    EditText sub_name, sub_amount, sub_name_2, sub_amount_2, sub_name_3, sub_amount_3;
     Button submit, addMore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_input_subscriptions);
-        //initializing the variables
-        netflix=findViewById(R.id.Netflix);
-        spotify=findViewById(R.id.Spotify);
-        hulu=findViewById(R.id.Hulu);
-        amazon=findViewById(R.id.AmazonPrime);
-        //our buttons
-        submit=findViewById(R.id.submit);
-        addMore=findViewById(R.id.addMore);
-        //shared preferences
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        //all our name and amount
+        sub_name = findViewById(R.id.sub_name);
+        sub_amount = findViewById(R.id.sub_amount);
+        sub_name_2 = findViewById(R.id.sub_name_2);
+        sub_amount_2 = findViewById(R.id.sub_amount_2);
+        sub_name_3 = findViewById(R.id.sub_name_3);
+        sub_amount_3 = findViewById(R.id.sub_amount_3);
+        submit = findViewById(R.id.submit);
+        addMore = findViewById(R.id.addMore);
+
+        //create the subscription sharable
+        SharedPreferences sharedPreferences = getSharedPreferences("subscriptions", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        //when submit is clicked
-        submit.setOnClickListener(new View.OnClickListener(){
+        //clear first to make sure its empty
+        editor.clear();
+        //when they click on submit
+        submit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View view) {
+                //get the name and amount
+                String name;
+                Long amount;
+                boolean completed = false;
+                int allcompleted = 0;
 
-                if(netflix.getText().toString().isEmpty()||spotify.getText().toString().isEmpty()||
-                        amazon.getText().toString().isEmpty()||hulu.getText().toString().isEmpty())
-                {
-                    Toast.makeText(Input_Subscriptions_Activity.this, "Missing Information", Toast.LENGTH_SHORT).show();
+                //if at least one of them is completed then it can continue
+                if(!sub_name.getText().toString().equals("") && !sub_amount.getText().toString().equals("")){
+                    name = sub_name.getText().toString();
+                    amount = Long.parseLong(sub_amount.getText().toString());
+                    editor.putLong(name, amount);
+                    completed = true;
+                    allcompleted++;
                 }
-                //when there is no missing information
-                else
-                {
-                    //display that is completed
-                    Toast.makeText(Input_Subscriptions_Activity.this, "Completed", Toast.LENGTH_SHORT).show();
-                    //save the subscriptions in shared preferences
-                    editor.putLong("sub netflix", Long.parseLong(netflix.getText().toString()));
-                    editor.putLong("sub spotify", Long.parseLong(spotify.getText().toString()));
-                    editor.putLong("sub amazon", Long.parseLong(amazon.getText().toString()));
-                    editor.putLong("sub hulu", Long.parseLong(hulu.getText().toString()));
+                if(!sub_name_2.getText().toString().equals("") && !sub_amount_2.getText().toString().equals("")){
+                    name = sub_name_2.getText().toString();
+                    amount = Long.parseLong(sub_amount_2.getText().toString());
+                    editor.putLong(name, amount);
+                    completed = true;
+                    allcompleted++;
+                }
+                if(!sub_name_3.getText().toString().equals("") && !sub_amount_3.getText().toString().equals("")){
+                    name = sub_name_3.getText().toString();
+                    amount = Long.parseLong(sub_amount_3.getText().toString());
+                    editor.putLong(name, amount);
+                    completed = true;
+                    allcompleted++;
+                }
+
+                //for if statement that if the at least one have been completed
+                if (completed){
+                    //apply the changes
                     editor.apply();
-                    //move to the next activity
-                    Intent intent=new Intent(Input_Subscriptions_Activity.this,User_intro_Display.class);
+                    //check if all of them have been saved
+                    System.out.println("subs");
+                    Map<String, ?> allEntries = sharedPreferences.getAll();
+                    for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+                        System.out.println(entry.getKey());
+                        System.out.println(entry.getValue());
+                    }
+                    System.out.println("subs");
+                    //go to the next activity
+                    Intent intent = new Intent(Input_Subscriptions_Activity.this, User_intro_Display.class);
                     startActivity(intent);
-                    //test if they saved
-//                    System.out.println(sharedPreferences.getLong("sub netflix", 0));
-//                    System.out.println(sharedPreferences.getLong("sub spotify", 0));
-//                    System.out.println(sharedPreferences.getLong("sub amazon", 0));
-//                    System.out.println(sharedPreferences.getLong("sub hulu", 0));
                 }
-            }
-        });
-        // addMore will be implemented later
-       addMore=findViewById(R.id.addMore);
-       addMore.setOnClickListener(new View.OnClickListener(){
-            @Override
-           public void onClick(View v)
-            {
-                //later dues to shortage on time
-                Intent intent1=new Intent(Input_Subscriptions_Activity.this,Input_Subscriptions_Activity2.class);
-                startActivity(intent1);
-//
+                else{
+                    Toast.makeText(Input_Subscriptions_Activity.this, "Please fill in at least one subscription", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
     }

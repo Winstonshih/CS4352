@@ -1,7 +1,10 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -10,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 public class main_game_page extends AppCompatActivity{
+    ImageButton personImage;
     private Button claim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,5 +28,18 @@ public class main_game_page extends AppCompatActivity{
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyAdapter(getApplicationContext(), items));
 
+
+
+
+        //Ruben Part when they click on the the image
+        personImage = (ImageButton) findViewById(R.id.personImage);
+        personImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //go to the stats page
+                Intent intent = new Intent(main_game_page.this, main_character_stats_page.class);
+                startActivity(intent);
+            }
+        });
     }
 }

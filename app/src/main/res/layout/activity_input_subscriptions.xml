@@ -21,60 +21,99 @@
         android:padding="10dp"
         android:text="Subscriptions"
         android:textSize="35dp"
-        android:textStyle="bold"></TextView>
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="left"
+        android:layout_marginRight="10dp"
+        android:gravity="top"
+android:paddingLeft="10dp"
+        android:text="Per Month"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/Netflix"
+        android:id="@+id/sub_name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/baseline_control_point_24"
         android:drawablePadding="8dp"
-        android:hint="Netflix"
+        android:hint="Subscrition name"
         android:padding="8dp"
         android:textColor="@color/black"
+        android:textColorHighlight="@color/cardview_dark_background" />
+
+    <EditText
+        android:id="@+id/sub_amount"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_edittext"
+        android:drawableLeft="@drawable/baseline_control_point_24"
+        android:drawablePadding="8dp"
+        android:hint="Amount"
         android:inputType="number"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:textColorHighlight="@color/cardview_dark_background" />
+
+    <EditText
+        android:id="@+id/sub_name_2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_edittext"
+        android:drawableLeft="@drawable/baseline_control_point_24"
+        android:drawablePadding="8dp"
+        android:hint="Subscription name"
+        android:padding="8dp"
+        android:textColor="@color/black"
         android:textColorHighlight="@color/cardview_dark_background" />
     <EditText
-        android:id="@+id/Hulu"
+        android:id="@+id/sub_amount_2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/baseline_control_point_24"
         android:drawablePadding="8dp"
-        android:hint="Hulu"
+        android:hint="Amount"
         android:padding="8dp"
         android:textColor="@color/black"
         android:inputType="number"
+        android:textColorHighlight="@color/cardview_dark_background" />
+
+    <EditText
+        android:id="@+id/sub_name_3"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_edittext"
+        android:drawableLeft="@drawable/baseline_control_point_24"
+        android:drawablePadding="8dp"
+        android:hint="Subscription name"
+        android:padding="8dp"
+        android:textColor="@color/black"
         android:textColorHighlight="@color/cardview_dark_background" />
     <EditText
-        android:id="@+id/AmazonPrime"
+        android:id="@+id/sub_amount_3"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/baseline_control_point_24"
         android:drawablePadding="8dp"
-        android:hint="Amazon Prime"
+        android:hint="Amount"
         android:padding="8dp"
         android:textColor="@color/black"
         android:inputType="number"
         android:textColorHighlight="@color/cardview_dark_background" />
-    <EditText
-        android:id="@+id/Spotify"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/custom_edittext"
-        android:drawableLeft="@drawable/baseline_control_point_24"
-        android:drawablePadding="8dp"
-        android:hint="Spotify"
-        android:padding="8dp"
-        android:textColor="@color/black"
-        android:inputType="number"
-        android:textColorHighlight="@color/cardview_dark_background" />
+
     <Button
         android:id="@+id/addMore"
         android:layout_width="match_parent"
@@ -89,7 +128,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="0dp"
-        android:backgroundTint="@color/sky_blue"
+        android:backgroundTint="@color/dark_green"
         android:text="Submit"
         android:textSize="20sp"
         app:cornerRadius="20dp" />

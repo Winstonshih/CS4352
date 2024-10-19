@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class Input_Subscriptions_Activity2 extends AppCompatActivity {
-    EditText netflix, spotify, hulu, amazon, addSub;
+    EditText netflix, spotify, hulu, amazon, addSub, addSub_type;
     Button submit, addMore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +26,24 @@ public class Input_Subscriptions_Activity2 extends AppCompatActivity {
         submit=findViewById(R.id.submit);
         addMore=findViewById(R.id.addMore);
         addSub=findViewById(R.id.addSub);
-        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("subscriptions", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        //set the default values
+        if(sharedPreferences.getLong("netflix",0)!= 0){
+            netflix.setText(String.valueOf(sharedPreferences.getLong("netflix",0)));
+        }
+        if(sharedPreferences.getLong("spotify",0)!= 0) {
+            spotify.setText(String.valueOf(sharedPreferences.getLong("spotify",0)));
+        }
+        if(sharedPreferences.getLong("hulu",0)!= 0) {
+            hulu.setText(String.valueOf(sharedPreferences.getLong("hulu",0)));
+        }
+        if(sharedPreferences.getLong("amazon",0)!= 0) {
+            amazon.setText(String.valueOf(sharedPreferences.getLong("amazon",0)));
+        }
+
+
         submit.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
@@ -41,11 +57,11 @@ public class Input_Subscriptions_Activity2 extends AppCompatActivity {
                 else
                 {
                     Toast.makeText(Input_Subscriptions_Activity2.this, "Completed", Toast.LENGTH_SHORT).show();
-                    editor.putLong("sub netflix", Long.parseLong(netflix.getText().toString()));
-                    editor.putLong("sub spotify", Long.parseLong(spotify.getText().toString()));
-                    editor.putLong("sub amazon", Long.parseLong(amazon.getText().toString()));
-                    editor.putLong("sub hulu", Long.parseLong(hulu.getText().toString()));
-                    editor.putLong("sub addsub", Long.parseLong(addSub.getText().toString()));
+                    editor.putLong("netflix", Long.parseLong(netflix.getText().toString()));
+                    editor.putLong("spotify", Long.parseLong(spotify.getText().toString()));
+                    editor.putLong("amazon", Long.parseLong(amazon.getText().toString()));
+                    editor.putLong("hulu", Long.parseLong(hulu.getText().toString()));
+                    editor.putLong("addsub", Long.parseLong(addSub.getText().toString()));
                     editor.apply();
                     Intent intent=new Intent(Input_Subscriptions_Activity2.this,User_intro_Display.class);
                     startActivity(intent);
