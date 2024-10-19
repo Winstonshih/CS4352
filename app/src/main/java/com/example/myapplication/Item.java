@@ -4,7 +4,6 @@ public class Item {
     String task;
     String reward;
     int image;
-
     public Item(String t, String r, int i) {
         task=t;
         reward=r;

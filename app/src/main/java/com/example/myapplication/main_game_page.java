@@ -1,15 +1,16 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.widget.Button;
+
 import java.util.List;
 import java.util.ArrayList;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-public class main_game_page extends AppCompatActivity {
-
-
+public class main_game_page extends AppCompatActivity{
+    private Button claim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,5 +23,6 @@ public class main_game_page extends AppCompatActivity {
         items.add(new Item("Add $20 to Savings Account.", "Diamond pants (+10 Protection)", R.drawable.upgradedpants));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyAdapter(getApplicationContext(), items));
+
     }
 }
