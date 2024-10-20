@@ -28,7 +28,35 @@ public class main_game_page extends AppCompatActivity{
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyAdapter(getApplicationContext(), items));
 
+        // Inventory Button: Navigate to Inventory Page
+        Button inventoryButton = findViewById(R.id.inventoryButton);
+        inventoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(main_character_stats_page.this, inventory_page.class);
+                startActivity(intent);
+            }
+        });
 
+        // Rewards Button: Navigate to Rewards Page
+        Button rewardsButton = findViewById(R.id.rewardsButton);
+        rewardsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(main_character_stats_page.this, rewards_page.class);
+                startActivity(intent);
+            }
+        });
+
+        // Home Button: Navigate to Main Game Page
+        Button homeButton = findViewById(R.id.homeButton);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(main_character_stats_page.this, main_game_page.class);
+                startActivity(intent);
+            }
+        });
 
 
         //Ruben Part when they click on the the image

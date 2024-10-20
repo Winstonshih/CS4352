@@ -1,10 +1,37 @@
 <resources>
     <string name="app_name">My Application</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="character_model">Character model</string>
+    <string name="inventory">INVENTORY</string>
+    <string name="rewards">REWARDS</string>
+    <string name="home_logo_icon">Home Logo Icon</string>
+    <string name="hp_icon">HP Icon</string>
+    <string name="hp_text">HP: 50</string>
+    <string name="helmet_icon">Helmet Icon</string>
+    <string name="protect_10">PROTECT: 10</string>
+    <string name="sword_icon">Sword Icon</string>
+    <string name="attack_10">ATTACK: 10</string>
+    <string name="armor_icon">Armor Icon</string>
+    <string name="defense_10">DEFENSE: 10</string>
+    <string name="pants_icon">Pants Icon</string>
+    <string name="armor_player_icon">Armor Player Icon</string>
+    <string name="pants_player_icon">Pants Player Icon</string>
+    <string name="helmet_player_icon">Helmet Player Icon</string>
+    <string name="helmets">HELMETS</string>
+    <string name="helmet_1">Helmet 1</string>
+    <string name="helmet_2">Helmet 2</string>
+    <string name="chest_armor">CHEST ARMOR</string>
+    <string name="chest_armor_1">Chest Armor 1</string>
+    <string name="chest_armor_2">Chest Armor 2</string>
+    <string name="pants">PANTS</string>
+    <string name="pants_1">Pants 1</string>
+    <string name="pants_2">Pants 2</string>
+    <string name="weapons">WEAPONS</string>
+    <string name="weapon_1">Weapon 1</string>
+
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
