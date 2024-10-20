@@ -13,8 +13,8 @@
 
     <ImageButton
         android:id="@+id/personImage"
-        android:layout_width="228dp"
-        android:layout_height="200dp"
+        android:layout_width="273dp"
+        android:layout_height="374dp"
         android:background="@android:color/transparent"
         android:contentDescription="@string/app_name"
         android:scaleType="fitCenter"
@@ -25,6 +25,42 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.551"
         app:srcCompat="@drawable/person" />
+
+    <ImageView
+        android:id="@+id/armorImage2"
+        android:layout_width="129dp"
+        android:layout_height="136dp"
+        android:layout_marginTop="88dp"
+        android:contentDescription="@string/armor_player_icon"
+        android:src="@drawable/armor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/helmetImage2" />
+
+    <ImageView
+        android:id="@+id/pantsImage2"
+        android:layout_width="139dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="160dp"
+        android:contentDescription="@string/pants_player_icon"
+        android:src="@drawable/pants"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/helmetImage2" />
+
+    <ImageView
+        android:id="@+id/helmetImage2"
+        android:layout_width="89dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="4dp"
+        android:contentDescription="@string/helmet_player_icon"
+        android:src="@drawable/helmet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -56,6 +92,56 @@
             android:nestedScrollingEnabled="true"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     </LinearLayout>
+
+
+    <Button
+
+        android:id="@+id/inventoryButton"
+        android:layout_width="164dp"
+        android:layout_height="87dp"
+        android:backgroundTint="#6bcef2"
+        android:padding="0dp"
+        android:shape="rectangle"
+        android:text="@string/inventory"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+
+        android:id="@+id/rewardsButton"
+        android:layout_width="164dp"
+        android:layout_height="87dp"
+        android:backgroundTint="#6bcef2"
+        android:padding="8dp"
+        android:shape="rectangle"
+        android:text="@string/rewards"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="87dp"
+        android:layout_height="87dp"
+        android:backgroundTint="#6bcef2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rewardsButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/homeIcon"
+        android:layout_width="87dp"
+        android:layout_height="87dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/home_logo_icon"
+        android:src="@drawable/baseline_home_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/rewardsButton"
+        app:layout_constraintStart_toEndOf="@+id/inventoryButton" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
