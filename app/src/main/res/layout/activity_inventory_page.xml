@@ -5,6 +5,192 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
     tools:context=".inventory_page">
+
+    <TextView
+        android:id="@+id/inventoryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="@string/inventory"
+        android:textColor="@android:color/black"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/inventoryTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Helmets Section -->
+        <TextView
+            android:id="@+id/helmetsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/helmets"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="16dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:id="@+id/helmet1"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/helmet"
+                android:contentDescription="@string/helmet_1" />
+
+            <ImageView
+                android:id="@+id/helmet2"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/upgradedhelmet"
+                android:contentDescription="@string/helmet_2"
+                android:layout_marginStart="16dp"/>
+        </LinearLayout>
+
+        <!-- Chest Armor Section -->
+        <TextView
+            android:id="@+id/chestArmorLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chest_armor"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="16dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:id="@+id/armor1"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/armor"
+                android:contentDescription="@string/chest_armor_1" />
+
+            <ImageView
+                android:id="@+id/armor2"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/upgradedarmor"
+                android:contentDescription="@string/chest_armor_2"
+                android:layout_marginStart="16dp"/>
+        </LinearLayout>
+
+        <!-- Pants Section -->
+        <TextView
+            android:id="@+id/pantsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pants"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="16dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:id="@+id/pants1"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/pants"
+                android:contentDescription="@string/pants_1" />
+
+            <ImageView
+                android:id="@+id/pants2"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/upgradedpants"
+                android:contentDescription="@string/pants_2"
+                android:layout_marginStart="16dp"/>
+        </LinearLayout>
+
+        <!-- Weapons Section -->
+        <TextView
+            android:id="@+id/weaponsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weapons"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="16dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:id="@+id/weapon1"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/sword"
+                android:contentDescription="@string/weapon_1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/rewardsButton"
+        android:layout_width="164dp"
+        android:layout_height="87dp"
+        android:backgroundTint="#6bcef2"
+        android:padding="8dp"
+        android:shape="rectangle"
+        android:text="@string/rewards"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="87dp"
+        android:layout_height="87dp"
+        android:backgroundTint="#6bcef2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rewardsButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/homeIcon"
+        android:layout_width="87dp"
+        android:layout_height="87dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/home_logo_icon"
+        android:src="@drawable/baseline_home_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/rewardsButton" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
