@@ -36,7 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
             @Override
             public void onClick(View v) {
                 // Show a Toast message
-                Toast.makeText(context, "Clicked on " + item.getTask(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "You need to " +item.getTask()+" to get "+item.getReward()+".", Toast.LENGTH_SHORT).show();
                 showPopup(v);
             }
         });

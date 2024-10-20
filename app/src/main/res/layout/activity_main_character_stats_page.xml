@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:background="@drawable/sky_background"
     tools:context=".main_character_stats_page"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/main">
 
     <ImageView
         android:id="@+id/characterImage"
