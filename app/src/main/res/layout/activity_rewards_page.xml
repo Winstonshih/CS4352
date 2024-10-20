@@ -187,7 +187,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/locked7Text"
+                    android:id="@+id/locked8Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LOCKED"
@@ -206,7 +206,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/locked7Text"
+                    android:id="@+id/locked9Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LOCKED"
@@ -225,7 +225,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/locked7Text"
+                    android:id="@+id/locked10Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LOCKED"
@@ -244,7 +244,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/locked7Text"
+                    android:id="@+id/locked11Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LOCKED"
@@ -263,7 +263,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/locked7Text"
+                    android:id="@+id/locked12Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LOCKED"
@@ -282,7 +282,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/locked7Text"
+                    android:id="@+id/locked13Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LOCKED"
@@ -301,7 +301,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/locked7Text"
+                    android:id="@+id/locked14Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LOCKED"
@@ -320,7 +320,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/locked7Text"
+                    android:id="@+id/locked15Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LOCKED"
@@ -339,7 +339,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/locked7Text"
+                    android:id="@+id/locked16Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LOCKED"
@@ -358,7 +358,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/locked7Text"
+                    android:id="@+id/locked17Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LOCKED"
@@ -377,7 +377,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/locked7Text"
+                    android:id="@+id/locked18Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LOCKED"
@@ -396,7 +396,7 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/locked7Text"
+                    android:id="@+id/locked19Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="LOCKED"

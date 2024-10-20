@@ -33,7 +33,7 @@ public class main_game_page extends AppCompatActivity{
         inventoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(main_character_stats_page.this, inventory_page.class);
+                Intent intent = new Intent(main_game_page.this, inventory_page.class);
                 startActivity(intent);
             }
         });
@@ -43,7 +43,7 @@ public class main_game_page extends AppCompatActivity{
         rewardsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(main_character_stats_page.this, rewards_page.class);
+                Intent intent = new Intent(main_game_page.this, rewards_page.class);
                 startActivity(intent);
             }
         });
@@ -53,7 +53,7 @@ public class main_game_page extends AppCompatActivity{
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(main_character_stats_page.this, main_game_page.class);
+                Intent intent = new Intent(main_game_page.this, main_game_page.class);
                 startActivity(intent);
             }
         });

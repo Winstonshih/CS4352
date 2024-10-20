@@ -28,7 +28,7 @@ public class rewards_page extends AppCompatActivity {
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(main_character_stats_page.this, main_game_page.class);
+                Intent intent = new Intent(rewards_page.this, main_game_page.class);
                 startActivity(intent);
             }
         });
