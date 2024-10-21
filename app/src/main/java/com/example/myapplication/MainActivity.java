@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     // these is our user and password that is already set
 EditText username;
 EditText password;
-Button loginButton;
+Button loginButton, signUpButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +44,15 @@ Button loginButton;
                     Toast.makeText(MainActivity.this, "Log in Failed!", Toast.LENGTH_SHORT).show();
                 }
             }
-
         });
-
+        signUpButton=findViewById(R.id.signupButton);
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent i=new Intent(MainActivity.this, SignUp.class);
+                startActivity(i);
+                Toast.makeText(MainActivity.this, "Sign up successful!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
