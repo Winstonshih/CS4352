@@ -4,19 +4,24 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
-
+import android.view.LayoutInflater;
+import com.example.myapplication.databinding.ActivityInputSubscriptionsBinding;
+//import java.util.ArrayList; For saving subscription data later.
 import java.util.Map;
 
 public class Input_Subscriptions_Activity extends AppCompatActivity {
     EditText sub_name, sub_amount, sub_name_2, sub_amount_2, sub_name_3, sub_amount_3;
     Button submit, addMore;
-
+    LinearLayout subscriptionContainer;
+    private com.example.myapplication.databinding.ActivityInputSubscriptionsBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +36,7 @@ public class Input_Subscriptions_Activity extends AppCompatActivity {
         sub_amount_3 = findViewById(R.id.sub_amount_3);
         submit = findViewById(R.id.submit);
         addMore = findViewById(R.id.addMore);
-
+        subscriptionContainer = findViewById(R.id.main);
         //create the subscription sharable
         SharedPreferences sharedPreferences = getSharedPreferences("subscriptions", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -92,5 +97,17 @@ public class Input_Subscriptions_Activity extends AppCompatActivity {
 
             }
         });
+        binding = ActivityInputSubscriptionsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        binding.addMore.setOnClickListener(v -> addMoreSub());
+
+    }
+    private void addMoreSub()
+    {
+        LayoutInflater i = LayoutInflater.from(this);
+        View view = i.inflate(R.layout.add_subscription, null);
+        LinearLayout subscriptionCon=findViewById(R.id.subscriptionContainer);
+        subscriptionCon.addView(view);
+
     }
 }
