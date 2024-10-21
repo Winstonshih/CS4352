@@ -3,31 +3,39 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.widget.Button;
-import android.widget.EditText;
-import android.view.LayoutInflater;
+
 import com.example.myapplication.databinding.ActivityInputSubscriptionsBinding;
-//import java.util.ArrayList; For saving subscription data later.
+
 import java.util.Map;
 
 public class Input_Subscriptions_Activity extends AppCompatActivity {
+
     EditText sub_name, sub_amount, sub_name_2, sub_amount_2, sub_name_3, sub_amount_3;
     Button submit, addMore;
+
     LinearLayout subscriptionContainer;
-    private com.example.myapplication.databinding.ActivityInputSubscriptionsBinding binding;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+    private ActivityInputSubscriptionsBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+
+        // Set the layout using setContentView
         setContentView(R.layout.activity_input_subscriptions);
-        //all our name and amount
+
+        // Initialize EditText and Button views using findViewById()
         sub_name = findViewById(R.id.sub_name);
         sub_amount = findViewById(R.id.sub_amount);
         sub_name_2 = findViewById(R.id.sub_name_2);
@@ -36,78 +44,76 @@ public class Input_Subscriptions_Activity extends AppCompatActivity {
         sub_amount_3 = findViewById(R.id.sub_amount_3);
         submit = findViewById(R.id.submit);
         addMore = findViewById(R.id.addMore);
-        subscriptionContainer = findViewById(R.id.main);
-        //create the subscription sharable
-        SharedPreferences sharedPreferences = getSharedPreferences("subscriptions", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        //clear first to make sure its empty
+        subscriptionContainer = findViewById(R.id.subscriptionContainer);
+
+        // Initialize shared preferences
+        sharedPreferences = getSharedPreferences("subscriptions", MODE_PRIVATE);
+        editor = sharedPreferences.edit();
         editor.clear();
-        //when they click on submit
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //get the name and amount
-                String name;
-                Long amount;
-                boolean completed = false;
-                int allcompleted = 0;
 
-                //if at least one of them is completed then it can continue
-                if(!sub_name.getText().toString().equals("") && !sub_amount.getText().toString().equals("")){
-                    name = sub_name.getText().toString();
-                    amount = Long.parseLong(sub_amount.getText().toString());
-                    editor.putLong(name, amount);
-                    completed = true;
-                    allcompleted++;
-                }
-                if(!sub_name_2.getText().toString().equals("") && !sub_amount_2.getText().toString().equals("")){
-                    name = sub_name_2.getText().toString();
-                    amount = Long.parseLong(sub_amount_2.getText().toString());
-                    editor.putLong(name, amount);
-                    completed = true;
-                    allcompleted++;
-                }
-                if(!sub_name_3.getText().toString().equals("") && !sub_amount_3.getText().toString().equals("")){
-                    name = sub_name_3.getText().toString();
-                    amount = Long.parseLong(sub_amount_3.getText().toString());
-                    editor.putLong(name, amount);
-                    completed = true;
-                    allcompleted++;
-                }
+        // Set submit button click listener
+        submit.setOnClickListener(view -> handleSubmit());
 
-                //for if statement that if the at least one have been completed
-                if (completed){
-                    //apply the changes
-                    editor.apply();
-                    //check if all of them have been saved
-                    System.out.println("subs");
-                    Map<String, ?> allEntries = sharedPreferences.getAll();
-                    for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-                        System.out.println(entry.getKey());
-                        System.out.println(entry.getValue());
-                    }
-                    System.out.println("subs");
-                    //go to the next activity
-                    Intent intent = new Intent(Input_Subscriptions_Activity.this, User_intro_Display.class);
-                    startActivity(intent);
-                }
-                else{
-                    Toast.makeText(Input_Subscriptions_Activity.this, "Please fill in at least one subscription", Toast.LENGTH_LONG).show();
-                }
-
-            }
-        });
+        // Initialize View Binding for dynamic view addition
         binding = ActivityInputSubscriptionsBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        binding.addMore.setOnClickListener(v -> addMoreSub());
 
+        // Set addMore button click listener using View Binding for dynamic subscription
+        addMore.setOnClickListener(view -> addMoreSub());
     }
-    private void addMoreSub()
-    {
-        LayoutInflater i = LayoutInflater.from(this);
-        View view = i.inflate(R.layout.add_subscription, null);
-        LinearLayout subscriptionCon=findViewById(R.id.subscriptionContainer);
-        subscriptionCon.addView(view);
 
+    private void handleSubmit() {
+        // Get the name and amount
+        String name;
+        Long amount;
+        boolean completed = false;
+        int allCompleted = 0;
+
+        // Check if the first subscription is filled
+        if (!sub_name.getText().toString().isEmpty() && !sub_amount.getText().toString().isEmpty()) {
+            name = sub_name.getText().toString();
+            amount = Long.parseLong(sub_amount.getText().toString());
+            editor.putLong(name, amount);
+            completed = true;
+            allCompleted++;
+        }
+        // Similarly check for other subscriptions
+        if (!sub_name_2.getText().toString().isEmpty() && !sub_amount_2.getText().toString().isEmpty()) {
+            name = sub_name_2.getText().toString();
+            amount = Long.parseLong(sub_amount_2.getText().toString());
+            editor.putLong(name, amount);
+            completed = true;
+            allCompleted++;
+        }
+        if (!sub_name_3.getText().toString().isEmpty() && !sub_amount_3.getText().toString().isEmpty()) {
+            name = sub_name_3.getText().toString();
+            amount = Long.parseLong(sub_amount_3.getText().toString());
+            editor.putLong(name, amount);
+            completed = true;
+            allCompleted++;
+        }
+
+        // Apply the changes if at least one subscription is completed
+        if (completed) {
+            editor.apply();
+            // Log the saved subscriptions for debugging purposes
+            Map<String, ?> allEntries = sharedPreferences.getAll();
+            for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+            }
+
+            // Proceed to the next activity
+            Intent intent = new Intent(Input_Subscriptions_Activity.this, User_intro_Display.class);
+            startActivity(intent);
+        } else {
+            // Show a toast message if no subscriptions are filled
+            Toast.makeText(this, "Please fill in at least one subscription", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void addMoreSub() {
+        // Inflate the additional subscription layout and add it to the container
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = inflater.inflate(R.layout.add_subscription, null);
+        subscriptionContainer.addView(view);
     }
 }
