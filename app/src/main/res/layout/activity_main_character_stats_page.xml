@@ -13,7 +13,7 @@
         android:layout_width="271dp"
         android:layout_height="320dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:contentDescription="@string/character_model"
         android:src="@drawable/person"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,13 +74,13 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="368dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="12dp"
         android:contentDescription="@string/hp_icon"
         android:src="@drawable/health"
         app:layout_constraintEnd_toStartOf="@+id/hpText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/characterImage" />
 
     <TextView
         android:id="@+id/hpText"
@@ -232,7 +232,7 @@
         android:id="@+id/helmetImage2"
         android:layout_width="89dp"
         android:layout_height="102dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="32dp"
         android:contentDescription="@string/helmet_player_icon"
         android:src="@drawable/helmet"
         app:layout_constraintEnd_toEndOf="parent"
