@@ -32,7 +32,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/popup_text"
+        android:id="@+id/helmet1stats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#454749"
@@ -43,7 +43,7 @@
         tools:layout_editor_absoluteY="238dp" />
 
     <TextView
-        android:id="@+id/popup_text2"
+        android:id="@+id/close"
         android:layout_width="126dp"
         android:layout_height="68dp"
         android:background="#000000"
