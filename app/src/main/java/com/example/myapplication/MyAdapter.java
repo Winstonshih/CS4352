@@ -49,6 +49,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
         popUpWindow.showAsDropDown(v);
         Button close=popUpView.findViewById(R.id.no);
         close.setOnClickListener(a -> popUpWindow.dismiss());
+        Button yes=popUpView.findViewById(R.id.yes);
+        yes.setOnClickListener(b->popUpWindow.dismiss());
     }
     @Override
     public int getItemCount() {
