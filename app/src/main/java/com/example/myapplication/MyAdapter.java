@@ -16,42 +16,63 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
     public MyAdapter(Context context, List<Item> items) {
         this.context = context;
-        this.items=items;
+        this.items = items;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_view,parent,false));
+        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.item_view, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.taskView.setText(items.get(position).getTask());
-        holder.rewardView.setText(items.get(position).getReward());
-        holder.imageView.setImageResource(items.get(position).getImage());
-        Item item=items.get(position);
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {  // Make position final
+        Item item = items.get(position);
         holder.taskView.setText(item.getTask());
+        holder.rewardView.setText(item.getReward());
+        holder.imageView.setImageResource(item.getImage());
+
+        // Claim button logic
         holder.claim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Show a Toast message
-                Toast.makeText(context, "You need to " +item.getTask()+" to get "+item.getReward()+".", Toast.LENGTH_SHORT).show();
-                showPopup(v);
+                Toast.makeText(context, "You need to " + item.getTask() + " to get " + item.getReward() + ".", Toast.LENGTH_SHORT).show();
+                showPopup(v, position);  // Pass the final position to the popup
             }
         });
     }
-    private void showPopup(View v)
-    {
-        View popUpView=LayoutInflater.from(context).inflate(R.layout.dialog,null);
-        PopupWindow popUpWindow= new PopupWindow(popUpView,ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-        popUpWindow.showAsDropDown(v);
-        Button close=popUpView.findViewById(R.id.no);
-        close.setOnClickListener(a -> popUpWindow.dismiss());
-        Button yes=popUpView.findViewById(R.id.yes);
-        yes.setOnClickListener(b->popUpWindow.dismiss());
+
+    // Method to remove item from the list
+    public void removeItem(int position) {
+        items.remove(position);  // Remove the item from the list
+        notifyItemRemoved(position);  // Notify the adapter that the item has been removed
+        notifyItemRangeChanged(position, items.size());  // Update the remaining items in the list
     }
+
+    // Popup window for claim with delete functionality
+    private void showPopup(View v, final int position) {  // Accept final position
+        View popUpView = LayoutInflater.from(context).inflate(R.layout.dialog, null);
+        PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        popUpWindow.showAsDropDown(v);
+        Item item=items.get(position);
+        // Button "Yes" to delete the item
+        Button deleteButton = popUpView.findViewById(R.id.yes);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeItem(position);  // Delete the item
+                popUpWindow.dismiss();  // Close the popup
+                Toast.makeText(context, "You completed " +item.getTask()+" and got "+item.getReward()+".", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Close button
+        Button close = popUpView.findViewById(R.id.no);
+        close.setOnClickListener(a -> popUpWindow.dismiss());
+
+    }
+
     @Override
     public int getItemCount() {
         return items.size();
