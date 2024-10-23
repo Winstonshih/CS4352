@@ -37,6 +37,7 @@ public class User_intro_Display extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         SharedPreferences preferences = getSharedPreferences("subscriptions", MODE_PRIVATE);
         SharedPreferences.Editor editor_s = preferences.edit();
+
         //to get all expenses
         Map<String, ?> money_tracker = sharedPreferences.getAll();
         Map<String, ?> subscriptions = preferences.getAll();
@@ -111,7 +112,7 @@ public class User_intro_Display extends AppCompatActivity {
                                        }
         );
     }
-
+//add the new sharable
 
 
 
