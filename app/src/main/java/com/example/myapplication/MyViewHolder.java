@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MyViewHolder extends RecyclerView.ViewHolder {
     TextView taskView;
     TextView rewardView;
-    ImageView imageView;
+    ImageView imageView, pantsImage2, helmetImage2, armorImage2;
     Button claim;
     public MyViewHolder(View itemView) {
         super(itemView);
@@ -17,5 +17,8 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         rewardView = itemView.findViewById(R.id.reward);
         imageView = itemView.findViewById(R.id.imageview);
         claim=itemView.findViewById(R.id.claim);
+        helmetImage2=itemView.findViewById(R.id.helmetImage2);
+        pantsImage2=itemView.findViewById(R.id.pantsImage2);
+        armorImage2=itemView.findViewById(R.id.armorImage2);
     }
 }

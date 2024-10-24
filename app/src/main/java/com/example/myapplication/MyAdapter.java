@@ -4,6 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.content.Context;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
         holder.taskView.setText(item.getTask());
         holder.rewardView.setText(item.getReward());
         holder.imageView.setImageResource(item.getImage());
+        //holder.helmetImage2.setVisibility(item.isClaimed() ? View.VISIBLE : View.INVISIBLE);
 
         // Claim button logic
         holder.claim.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +40,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
             public void onClick(View v) {
                 // Show a Toast message
                 Toast.makeText(context, "You need to " + item.getTask() + " to get " + item.getReward() + ".", Toast.LENGTH_SHORT).show();
-                showPopup(v, position);  // Pass the final position to the popup
+                showPopup(v, holder, position);  // Pass the final position to the popup
             }
         });
     }
@@ -51,7 +53,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
     }
 
     // Popup window for claim with delete functionality
-    private void showPopup(View v, final int position) {  // Accept final position
+    private void showPopup(View v, MyViewHolder holder, final int position) {  // Accept final position
         View popUpView = LayoutInflater.from(context).inflate(R.layout.dialog, null);
         PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         popUpWindow.showAsDropDown(v);
@@ -61,6 +63,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                item.setClaimed(true);
+                //holder.imageView.setVisibility(View.VISIBLE);
                 removeItem(position);  // Delete the item
                 popUpWindow.dismiss();  // Close the popup
                 Toast.makeText(context, "You completed " +item.getTask()+" and got "+item.getReward()+".", Toast.LENGTH_SHORT).show();

@@ -48,5 +48,121 @@ public class inventory_page extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //Procedure for clicking on helmet 1 for stats.
+        ImageView helmet1=findViewById(R.id.helmet1);
+        helmet1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.base_helmet_popup, null);
+                PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                popUpWindow.showAsDropDown(v);
+                Button helmet1Close=popUpView.findViewById(R.id.helmetclose); // Ensure your dialog layout has a button with this ID
+                helmet1Close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popUpWindow.dismiss();
+                    }
+                });
+            }
+        });
+        //Procedure for clicking on armor 1 for stats.
+        ImageView armor1=findViewById(R.id.armor1);
+        armor1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.base_chestplate_popup, null);
+                PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                popUpWindow.showAsDropDown(v);
+                Button armor1Close=popUpView.findViewById(R.id.armorclose); // Ensure your dialog layout has a button with this ID
+                armor1Close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popUpWindow.dismiss();
+                    }
+                });
+            }
+        });
+        //Procedure for clicking on pants 1 for stats.
+        ImageView pants1=findViewById(R.id.pants1);
+        pants1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.base_pants_popup, null);
+                PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                popUpWindow.showAsDropDown(v);
+                Button pants1Close=popUpView.findViewById(R.id.pantsclose); // Ensure your dialog layout has a button with this ID
+                pants1Close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popUpWindow.dismiss();
+                    }
+                });
+            }
+        });
+        //Procedure for clicking on secret unlockable sword for stats.
+        ImageView weapon1=findViewById(R.id.weapon1);
+        weapon1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.sword_popup, null);
+                PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                popUpWindow.showAsDropDown(v);
+                Button weapon1Close=popUpView.findViewById(R.id.swordclose); // Ensure your dialog layout has a button with this ID
+                weapon1Close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popUpWindow.dismiss();
+                    }
+                });
+            }
+        });
+        ImageView pants2=findViewById(R.id.pants2);
+        pants2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.upgraded_pants_popup, null);
+                PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                popUpWindow.showAsDropDown(v);
+                Button pants2Close=popUpView.findViewById(R.id.upgradedpantsclose); // Ensure your dialog layout has a button with this ID
+                pants2Close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popUpWindow.dismiss();
+                    }
+                });
+            }
+        });
+        ImageView armor2=findViewById(R.id.armor2);
+        armor2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.upgraded_chestplate_popup, null);
+                PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                popUpWindow.showAsDropDown(v);
+                Button armor2Close=popUpView.findViewById(R.id.upgradedarmorclose); // Ensure your dialog layout has a button with this ID
+                armor2Close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popUpWindow.dismiss();
+                    }
+                });
+            }
+        });
+        ImageView helmet2=findViewById(R.id.helmet2);
+        helmet2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.upgraded_helmet_popup, null);
+                PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                popUpWindow.showAsDropDown(v);
+                Button helmet2Close=popUpView.findViewById(R.id.upgradedhelmetclose); // Ensure your dialog layout has a button with this ID
+                helmet2Close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popUpWindow.dismiss();
+                    }
+                });
+            }
+        });
     }
 }

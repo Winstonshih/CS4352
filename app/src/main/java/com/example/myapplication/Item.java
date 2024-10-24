@@ -4,10 +4,12 @@ public class Item {
     String task;
     String reward;
     int image;
-    public Item(String t, String r, int i) {
+    private boolean claimed;
+    public Item(String t, String r, int i, boolean c) {
         task=t;
         reward=r;
         image=i;
+        claimed=c;
     }
 
     public String getTask() {
@@ -32,5 +34,13 @@ public class Item {
 
     public void setImage(int image) {
         this.image = image;
+    }
+    public boolean isClaimed()
+    {
+        return claimed;
+    }
+    public void setClaimed(boolean c)
+    {
+        claimed=c;
     }
 }

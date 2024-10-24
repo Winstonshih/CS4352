@@ -8,4 +8,6 @@
     <color name="purple">#801ad1</color>
     <color name="dark_green">#088e27</color>
     <color name="dark_red">#8e0808</color>
+    <color name="custom_red">#FF0000</color> <!-- Bright Red -->
+
 </resources>

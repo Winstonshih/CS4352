@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -14,19 +15,24 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 public class main_game_page extends AppCompatActivity{
     ImageButton personImage;
-    private Button claim;
+    private ImageView armorImage2, pantsImage2, helmetImage2;
+    private MyAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_game_page);
         RecyclerView recyclerView=findViewById(R.id.recyclerview);
+        armorImage2 = findViewById(R.id.armorImage2);
+        pantsImage2 = findViewById(R.id.pantsImage2);
+        helmetImage2 = findViewById(R.id.helmetImage2);
         List<Item> items=new ArrayList<Item>();
-        items.add(new Item("Close a subscription", "Diamond helmet (+10 Protection)", R.drawable.upgradedhelmet));
-        items.add(new Item("Make a Savings Account", "Diamond Armor (+10 Protection)", R.drawable.upgradedarmor));
-        items.add(new Item("Add $20 to Savings Account", "Diamond pants (+10 Protection)", R.drawable.upgradedpants));
+        items.add(new Item("Close a subscription", "Diamond helmet (+10 Protection)", R.drawable.upgradedhelmet, false));
+        items.add(new Item("Make a Savings Account", "Diamond Armor (+10 Protection)", R.drawable.upgradedarmor, false));
+        items.add(new Item("Add $20 to Savings Account", "Diamond pants (+10 Protection)", R.drawable.upgradedpants, false));
+        MyAdapter adapter = new MyAdapter(this, items);
+        recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdapter(getApplicationContext(), items));
 
         // Inventory Button: Navigate to Inventory Page
         Button inventoryButton = findViewById(R.id.inventoryButton);
@@ -57,7 +63,6 @@ public class main_game_page extends AppCompatActivity{
                 startActivity(intent);
             }
         });
-
 
         //Ruben Part when they click on the the image
         personImage = (ImageButton) findViewById(R.id.personImage);
