@@ -31,6 +31,27 @@ public class User_intro_Display extends AppCompatActivity {
         amount = findViewById(R.id.amount);
         startButton = findViewById(R.id.startButton);
 
+        //new sharable that is going to track the things that we have equped to track
+        SharedPreferences sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+        SharedPreferences.Editor trackerEditor = sharedTracker.edit();
+        //add the tracker variables for the character intial in inventory
+        trackerEditor.putString("hp", "50");
+        trackerEditor.putString("chest defense", "10");
+        trackerEditor.putString("pants defense", "10");
+        trackerEditor.putString("head defense", "10");
+        trackerEditor.putString("attack", "10");
+        //add the current inventory being used
+        //this keeps track of what number in the inventory they are using
+        trackerEditor.putInt("helmet", 1);
+        trackerEditor.putInt("chest", 1);
+        trackerEditor.putInt("pants", 1);
+        // then current equipment they have unlocked
+        trackerEditor.putInt("unlocked parts", 1);
+        //every time their is an increase in numbers, then a new part of the inventory is added
+
+        trackerEditor.apply();
+
+
         //update the page with the current information we have stored
         //first access shared prefference (alaways iside On Create to prevent issues)
         SharedPreferences sharedPreferences = getSharedPreferences("money_tracker", MODE_PRIVATE);
@@ -112,7 +133,7 @@ public class User_intro_Display extends AppCompatActivity {
                                        }
         );
     }
-//add the new sharable
+
 
 
 

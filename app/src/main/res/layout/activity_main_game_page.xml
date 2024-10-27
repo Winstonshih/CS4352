@@ -38,7 +38,7 @@
             app:srcCompat="@drawable/person" />
 
         <ImageView
-            android:id="@+id/armorImage1"
+            android:id="@+id/helmet"
             android:layout_width="108dp"
             android:layout_height="71dp"
             android:layout_marginStart="8dp"
@@ -53,7 +53,7 @@
             app:layout_constraintVertical_bias="0.219"
             app:srcCompat="@drawable/helmet" />
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/pants"
             android:layout_width="88dp"
             android:layout_height="88dp"
             android:scaleType="fitCenter"
@@ -65,7 +65,7 @@
             app:layout_constraintVertical_bias="0.87"
             app:srcCompat="@drawable/pants" />
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/chest"
             android:layout_width="116dp"
             android:layout_height="107dp"
             android:scaleType="fitCenter"
