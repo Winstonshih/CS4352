@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="10dp"
+    android:background="@drawable/black_round_box"
     xmlns:tools="http://schemas.android.com/tools">
     <ImageView
         android:layout_width="48dp"
@@ -16,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/task"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:layout_toEndOf="@id/imageview"
         android:textSize="20dp"
         tools:text="Task"/>
@@ -26,25 +28,30 @@
         tools:text="Reward"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_toEndOf="@id/imageview"
+        android:textStyle="bold"
         android:layout_below="@id/task"/>
+
     <Button
         android:id="@+id/claim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Claim"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
         android:backgroundTint="@color/sky_blue"
+        android:text="Claim"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="HardcodedText"
-        android:layout_alignParentRight="true"/>
+        android:gravity="center"
+        tools:ignore="HardcodedText" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_below="@id/imageview"
         android:layout_marginTop="10dp"
-        android:background="#DAD8D8" />
+         />
 </RelativeLayout>

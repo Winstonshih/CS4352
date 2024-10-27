@@ -23,9 +23,9 @@ public class main_game_page extends AppCompatActivity{
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_game_page);
         RecyclerView recyclerView=findViewById(R.id.recyclerview);
-        armorImage2 = findViewById(R.id.armorImage2);
-        pantsImage2 = findViewById(R.id.pantsImage2);
-        helmetImage2 = findViewById(R.id.helmetImage2);
+//        armorImage2 = findViewById(R.id.armorImage2);
+//        pantsImage2 = findViewById(R.id.pantsImage2);
+//        helmetImage2 = findViewById(R.id.helmetImage2);
         List<Item> items=new ArrayList<Item>();
         items.add(new Item("Close a subscription", "Diamond helmet (+10 Protection)", R.drawable.upgradedhelmet, false));
         items.add(new Item("Make a Savings Account", "Diamond Armor (+10 Protection)", R.drawable.upgradedarmor, false));
