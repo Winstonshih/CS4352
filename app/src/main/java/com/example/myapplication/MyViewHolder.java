@@ -17,8 +17,8 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         rewardView = itemView.findViewById(R.id.reward);
         imageView = itemView.findViewById(R.id.imageview);
         claim=itemView.findViewById(R.id.claim);
-        helmetImage2=itemView.findViewById(R.id.helmetImage2);
-        pantsImage2=itemView.findViewById(R.id.pantsImage2);
-        armorImage2=itemView.findViewById(R.id.armorImage2);
+       // helmetImage2=itemView.findViewById(R.id.helmetImage2);
+        //pantsImage2=itemView.findViewById(R.id.pantsImage2);
+        //armorImage2=itemView.findViewById(R.id.armorImage2);
     }
 }
