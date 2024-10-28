@@ -50,6 +50,11 @@ public class User_intro_Display extends AppCompatActivity {
         //every time their is an increase in numbers, then a new part of the inventory is added
 
         trackerEditor.apply();
+        //list tracker
+        SharedPreferences sharedList = getSharedPreferences("GamePagePrefs", MODE_PRIVATE);
+        SharedPreferences.Editor listEditor = sharedList.edit();
+        listEditor.clear();
+        listEditor.apply();
 
 
         //update the page with the current information we have stored
@@ -58,6 +63,7 @@ public class User_intro_Display extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         SharedPreferences preferences = getSharedPreferences("subscriptions", MODE_PRIVATE);
         SharedPreferences.Editor editor_s = preferences.edit();
+
 
         //to get all expenses
         Map<String, ?> money_tracker = sharedPreferences.getAll();

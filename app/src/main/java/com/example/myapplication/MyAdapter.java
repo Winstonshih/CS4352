@@ -1,4 +1,5 @@
 package com.example.myapplication;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
     Context context;
     List<Item> items;
+    SharedPreferences sharedTracker;
 
     public MyAdapter(Context context, List<Item> items) {
         this.context = context;
@@ -27,14 +29,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {  // Make position final
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) { //ignore this part if it gives you an error
         Item item = items.get(position);
         holder.taskView.setText(item.getTask());
         holder.rewardView.setText(item.getReward());
         holder.imageView.setImageResource(item.getImage());
-        //holder.helmetImage2.setVisibility(item.isClaimed() ? View.VISIBLE : View.INVISIBLE);
 
-        // Claim button logic
+        // Only show the claim button for the first item
+        if (position == 0) {
+            holder.claim.setVisibility(View.VISIBLE);
+        } else {
+            holder.claim.setVisibility(View.GONE);
+        }
+
+
+
+    // Claim button logic
         holder.claim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,10 +57,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
     // Method to remove item from the list
     public void removeItem(int position) {
-        items.remove(position);  // Remove the item from the list
-        notifyItemRemoved(position);  // Notify the adapter that the item has been removed
-        notifyItemRangeChanged(position, items.size());  // Update the remaining items in the list
+        // Save the deleted item's ID or position to SharedPreferences
+        Item deletedItem = items.get(position);
+        SharedPreferences sharedPreferences = context.getSharedPreferences("GamePagePrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("deleted_" + deletedItem.getId(), true);  // Use a unique ID for each item
+        editor.apply();
+
+        // Remove the item from the list
+        items.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, items.size());
     }
+
+
 
     // Popup window for claim with delete functionality
     private void showPopup(View v, MyViewHolder holder, final int position) {  // Accept final position

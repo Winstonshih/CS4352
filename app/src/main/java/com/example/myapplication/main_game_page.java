@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +22,9 @@ public class main_game_page extends AppCompatActivity {
     private ImageView helmet, chest, pants;
     private RecyclerView recyclerView;
     private SharedPreferences sharedTracker;
+    //view model
+    private GamePageViewModel viewModel;
+    private MyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,16 @@ public class main_game_page extends AppCompatActivity {
         setContentView(R.layout.activity_main_game_page);
 
         initializeViews();
+        viewModel = new ViewModelProvider(this).get(GamePageViewModel.class);
+
+        viewModel.getItems().observe(this, items -> {
+            if (adapter == null) {
+                adapter = new MyAdapter(this, items);
+                recyclerView.setAdapter(adapter);
+            } else {
+                adapter.notifyDataSetChanged();
+            }
+        });
         loadEquipment();
         setupRecyclerView();
         setupButtons();
@@ -72,13 +86,6 @@ public class main_game_page extends AppCompatActivity {
     }
 
     private void setupRecyclerView() {
-        List<Item> items = new ArrayList<>();
-        items.add(new Item("Close a subscription", "Diamond helmet (+10 Protection)", R.drawable.upgradedhelmet, false));
-        items.add(new Item("Make a Savings Account", "Diamond Armor (+10 Protection)", R.drawable.upgradedarmor, false));
-        items.add(new Item("Add $20 to Savings Account", "Diamond pants (+10 Protection)", R.drawable.upgradedpants, false));
-
-        MyAdapter adapter = new MyAdapter(this, items);
-        recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 

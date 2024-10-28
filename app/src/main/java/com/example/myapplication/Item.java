@@ -1,15 +1,17 @@
 package com.example.myapplication;
 
 public class Item {
+    int id;
     String task;
     String reward;
     int image;
     private boolean claimed;
-    public Item(String t, String r, int i, boolean c) {
+    public Item(int id,String t, String r, int i, boolean c) {
         task=t;
         reward=r;
         image=i;
         claimed=c;
+        this.id=id;
     }
 
     public String getTask() {
@@ -42,5 +44,12 @@ public class Item {
     public void setClaimed(boolean c)
     {
         claimed=c;
+    }
+
+    public int getId() {
+    return this.id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 }
