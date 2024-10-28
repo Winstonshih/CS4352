@@ -43,6 +43,7 @@ public class main_game_page extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
+        //look at these and everything has been fixed so far as I know
         loadEquipment();
         setupRecyclerView();
         setupButtons();
