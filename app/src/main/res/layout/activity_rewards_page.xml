@@ -445,24 +445,19 @@
             android:layout_marginTop="8dp" />
 
     </LinearLayout>
+
     <Button
         android:id="@+id/homeButton"
         android:layout_width="87dp"
         android:layout_height="87dp"
-        android:backgroundTint="#6bcef2"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="HOME"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/homeIcon"
-        android:layout_width="87dp"
-        android:layout_height="87dp"
-        android:layout_gravity="center"
-        android:contentDescription="@string/home_logo_icon"
-        android:src="@drawable/baseline_home_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

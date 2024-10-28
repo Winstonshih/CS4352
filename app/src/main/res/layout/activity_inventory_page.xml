@@ -165,37 +165,34 @@
         </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/rewardsButton"
-        android:layout_width="164dp"
-        android:layout_height="87dp"
-        android:backgroundTint="#6bcef2"
-        android:padding="8dp"
-        android:shape="rectangle"
-        android:text="@string/rewards"
-        android:textColor="@android:color/white"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/homeButton"
         android:layout_width="87dp"
         android:layout_height="87dp"
-        android:backgroundTint="#6bcef2"
+        android:layout_marginStart="160dp"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="HOME"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/rewardsButton"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/homeIcon"
-        android:layout_width="87dp"
+    <Button
+        android:id="@+id/rewardsButton"
+        android:layout_width="164dp"
         android:layout_height="87dp"
-        android:layout_gravity="center"
-        android:contentDescription="@string/home_logo_icon"
-        android:src="@drawable/baseline_home_24"
+        android:backgroundTint="@color/shadow_grey"
+        android:padding="8dp"
+        android:shape="rectangle"
+        android:text="@string/rewards"
+        android:textColor="@android:color/white"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/rewardsButton" />
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
 
 
 
