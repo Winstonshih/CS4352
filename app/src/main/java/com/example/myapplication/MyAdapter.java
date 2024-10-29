@@ -121,18 +121,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
         }
     }
     private void updateInventory(Item item) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("tracker", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences("inventory", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-
         switch (item.getReward()) {
             case "Diamond helmet (+10 Protection)":
                 editor.putBoolean("helmet2_visible", true); // Set visibility for helmet2
+                editor.putBoolean("task1_complete", true);
                 break;
             case "Diamond Armor (+10 Protection)":
                 editor.putBoolean("armor2_visible", true); // Set visibility for armor2
+                editor.putBoolean("task2_complete", true);
                 break;
             case "Diamond pants (+10 Protection)":
                 editor.putBoolean("pants2_visible", true); // Set visibility for pants2
+                editor.putBoolean("task3_complete", true);
                 break;
         }
         editor.apply();

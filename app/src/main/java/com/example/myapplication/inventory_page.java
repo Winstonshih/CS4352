@@ -174,11 +174,13 @@ public class inventory_page extends AppCompatActivity {
         updateInventoryUI();
     }
     public void updateInventoryUI() {
-        SharedPreferences sharedPreferences = getSharedPreferences("tracker", Context.MODE_PRIVATE);
-
-        boolean isHelmet2Visible = sharedPreferences.getBoolean("helmet2_visible", false);
-        boolean isArmor2Visible = sharedPreferences.getBoolean("armor2_visible", false);
-        boolean arePantsVisible = sharedPreferences.getBoolean("pants2_visible", false);
+        SharedPreferences sharedPreferences = getSharedPreferences("inventory", Context.MODE_PRIVATE);
+        boolean isTask1Complete = sharedPreferences.getBoolean("task1_complete", false); // Replace with your actual task key
+        boolean isTask2Complete = sharedPreferences.getBoolean("task2_complete", false); // Replace with your actual task key
+        boolean isTask3Complete = sharedPreferences.getBoolean("task3_complete", false); // Replace with your actual task key
+        boolean isHelmet2Visible = sharedPreferences.getBoolean("helmet2_visible", false)&&isTask1Complete;
+        boolean isArmor2Visible = sharedPreferences.getBoolean("armor2_visible", false)&&isTask2Complete;
+        boolean arePantsVisible = sharedPreferences.getBoolean("pants2_visible", false)&&isTask3Complete;
 
         ImageView helmet2 = findViewById(R.id.helmet2);
         ImageView armor2 = findViewById(R.id.armor2);
