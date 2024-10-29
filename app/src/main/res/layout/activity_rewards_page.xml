@@ -446,18 +446,27 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/homeButton"
+    <FrameLayout
         android:layout_width="87dp"
         android:layout_height="87dp"
-        android:drawablePadding="8dp"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="HOME"
-        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/homeButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/shadow_grey"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/baseline_home_24"
+            android:layout_gravity="center"
+            android:tint="@color/white" />
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
