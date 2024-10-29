@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -116,6 +117,7 @@ public class inventory_page extends AppCompatActivity {
                 });
             }
         });
+
         ImageView pants2=findViewById(R.id.pants2);
         pants2.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -164,5 +166,27 @@ public class inventory_page extends AppCompatActivity {
                 });
             }
         });
+    }
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        updateInventoryUI();
+    }
+    public void updateInventoryUI() {
+        SharedPreferences sharedPreferences = getSharedPreferences("tracker", Context.MODE_PRIVATE);
+
+        boolean isHelmet2Visible = sharedPreferences.getBoolean("helmet2_visible", false);
+        boolean isArmor2Visible = sharedPreferences.getBoolean("armor2_visible", false);
+        boolean arePantsVisible = sharedPreferences.getBoolean("pants2_visible", false);
+
+        ImageView helmet2 = findViewById(R.id.helmet2);
+        ImageView armor2 = findViewById(R.id.armor2);
+        ImageView pants2 = findViewById(R.id.pants2);
+
+        // Update visibility based on SharedPreferences values
+        helmet2.setVisibility(isHelmet2Visible ? View.VISIBLE : View.GONE);
+        armor2.setVisibility(isArmor2Visible ? View.VISIBLE : View.GONE);
+        pants2.setVisibility(arePantsVisible ? View.VISIBLE : View.GONE);
     }
 }
