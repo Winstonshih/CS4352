@@ -29,7 +29,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) { //ignore this part if it gives you an error
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) { //ignore this part if it gives you an error
         Item item = items.get(position);
         holder.taskView.setText(item.getTask());
         holder.rewardView.setText(item.getReward());
@@ -90,6 +90,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
                 // Update the armor based on the completed task
                 updateArmor(item);
+                updateInventory(item);
             }
         });
 
@@ -119,9 +120,30 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
             ((main_game_page) context).updateArmorUI();
         }
     }
+    private void updateInventory(Item item) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("tracker", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
+        switch (item.getReward()) {
+            case "Diamond helmet (+10 Protection)":
+                editor.putBoolean("helmet2_visible", true); // Set visibility for helmet2
+                break;
+            case "Diamond Armor (+10 Protection)":
+                editor.putBoolean("armor2_visible", true); // Set visibility for armor2
+                break;
+            case "Diamond pants (+10 Protection)":
+                editor.putBoolean("pants2_visible", true); // Set visibility for pants2
+                break;
+        }
+        editor.apply();
+
+        // Notify the activity to update the UI
+        if (context instanceof inventory_page) {
+            ((inventory_page) context).updateInventoryUI(); // Call to update inventory UI
+        }
+    }
     @Override
-    public int getItemCount() {
+    public int getItemCount () {
         return items.size();
     }
 }
