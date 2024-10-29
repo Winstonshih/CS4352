@@ -14,15 +14,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class main_game_page extends AppCompatActivity {
     private ImageButton personImage;
     private ImageView helmet, chest, pants;
     private RecyclerView recyclerView;
     private SharedPreferences sharedTracker;
-    //view model
     private GamePageViewModel viewModel;
     private MyAdapter adapter;
 
@@ -43,7 +39,7 @@ public class main_game_page extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
-        //look at these and everything has been fixed so far as I know
+
         loadEquipment();
         setupRecyclerView();
         setupButtons();
@@ -122,5 +118,8 @@ public class main_game_page extends AppCompatActivity {
                 startActivity(new Intent(main_game_page.this, main_character_stats_page.class));
             }
         });
+    }
+    public void updateArmorUI() {
+        loadEquipment();
     }
 }

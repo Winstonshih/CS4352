@@ -73,28 +73,51 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
 
     // Popup window for claim with delete functionality
-    private void showPopup(View v, MyViewHolder holder, final int position) {  // Accept final position
+    private void showPopup(View v, MyViewHolder holder, final int position) {
         View popUpView = LayoutInflater.from(context).inflate(R.layout.dialog, null);
         PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         popUpWindow.showAsDropDown(v);
-        Item item=items.get(position);
-        // Button "Yes" to delete the item
+        Item item = items.get(position);
+
         Button deleteButton = popUpView.findViewById(R.id.yes);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 item.setClaimed(true);
-                //holder.imageView.setVisibility(View.VISIBLE);
-                removeItem(position);  // Delete the item
-                popUpWindow.dismiss();  // Close the popup
-                Toast.makeText(context, "You completed " +item.getTask()+" and got "+item.getReward()+".", Toast.LENGTH_SHORT).show();
+                removeItem(position);
+                popUpWindow.dismiss();
+                Toast.makeText(context, "You completed " + item.getTask() + " and got " + item.getReward() + ".", Toast.LENGTH_SHORT).show();
+
+                // Update the armor based on the completed task
+                updateArmor(item);
             }
         });
 
-        // Close button
         Button close = popUpView.findViewById(R.id.no);
         close.setOnClickListener(a -> popUpWindow.dismiss());
+    }
 
+    private void updateArmor(Item item) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("tracker", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        switch (item.getReward()) {
+            case "Diamond helmet (+10 Protection)":
+                editor.putInt("helmet", 2);
+                break;
+            case "Diamond Armor (+10 Protection)":
+                editor.putInt("chest", 2);
+                break;
+            case "Diamond pants (+10 Protection)":
+                editor.putInt("pants", 2);
+                break;
+        }
+        editor.apply();
+
+        // Notify the activity to update the UI
+        if (context instanceof main_game_page) {
+            ((main_game_page) context).updateArmorUI();
+        }
     }
 
     @Override
