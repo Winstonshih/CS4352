@@ -44,7 +44,11 @@ public class main_game_page extends AppCompatActivity {
         setupRecyclerView();
         setupButtons();
     }
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadEquipment(); // Refresh the equipment UI
+    }
     private void initializeViews() {
         recyclerView = findViewById(R.id.recyclerview);
         helmet = findViewById(R.id.helmet);
@@ -81,7 +85,6 @@ public class main_game_page extends AppCompatActivity {
             pants.setImageResource(R.drawable.upgradedpants);
         }
     }
-
     private void setupRecyclerView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
