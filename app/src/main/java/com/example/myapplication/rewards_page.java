@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Toast;
@@ -46,7 +47,6 @@ Context context;
                 View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.sword_popup, null);
                 PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
                 popUpWindow.showAsDropDown(v);
-
                 Button swordClose = popUpView.findViewById(R.id.swordclose);
                 swordClose.setOnClickListener(new View.OnClickListener() {
                     @Override

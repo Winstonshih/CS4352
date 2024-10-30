@@ -76,6 +76,19 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.614"
             app:srcCompat="@drawable/armor" />
+        <ImageView
+            android:id="@+id/sword"
+            android:layout_width="116dp"
+            android:layout_height="107dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.350"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.54"
+            app:srcCompat="@drawable/sword"
+            android:visibility="invisible"/>
 
 
 
