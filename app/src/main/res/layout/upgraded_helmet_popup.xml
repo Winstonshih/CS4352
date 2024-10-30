@@ -8,6 +8,7 @@
     android:id="@+id/upgradedArmor">
 
     <Button
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:id="@+id/upgradedhelmetclose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

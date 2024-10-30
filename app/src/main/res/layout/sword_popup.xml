@@ -4,11 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="350dp"
-    android:layout_height="335dp"
+    android:layout_height="260dp"
     android:background="#525252"
     android:id="@+id/upgradedArmor">
 
     <Button
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:id="@+id/swordclose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,7 +27,7 @@
         android:text="+30 Attack"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
-        app:layout_constraintTop_toBottomOf="@+id/swordclose"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
@@ -46,6 +47,7 @@
         android:layout_marginTop="-100dp"
         android:backgroundTint="@color/shadow_grey"
         android:text="Equip"
+        android:textColor="@color/white"
         android:textSize="30dp"
         app:layout_constraintStart_toEndOf="@+id/sword"
         app:layout_constraintTop_toBottomOf="@+id/sword" />
