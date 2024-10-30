@@ -51,7 +51,7 @@ Button loginButton, signUpButton;
             public void onClick(View v){
                 Intent i=new Intent(MainActivity.this, SignUp.class);
                 startActivity(i);
-                Toast.makeText(MainActivity.this, "Sign up successful!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Set up your username and password!", Toast.LENGTH_SHORT).show();
             }
         });
     }
