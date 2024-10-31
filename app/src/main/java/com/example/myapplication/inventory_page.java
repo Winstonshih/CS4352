@@ -30,13 +30,17 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class inventory_page extends AppCompatActivity {
-    Context context;
+    private ImageView helmet2, armor2, pants2;
+    private SharedPreferences sharedTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_inventory_page);
+        helmet2 = findViewById(R.id.helmet2);
+        armor2 = findViewById(R.id.armor2);
+        pants2 = findViewById(R.id.pants2);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -291,24 +295,16 @@ public class inventory_page extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        updateInventoryUI();
+        loadInventoryEquipment();
     }
-
-    public void updateInventoryUI() {
-        SharedPreferences sharedPreferences = getSharedPreferences("inventory", Context.MODE_PRIVATE);
-        boolean isTask1Complete = sharedPreferences.getBoolean("task1_complete", false);
-        boolean isTask2Complete = sharedPreferences.getBoolean("task2_complete", false);
-        boolean isTask3Complete = sharedPreferences.getBoolean("task3_complete", false);
-        boolean isHelmet2Visible = sharedPreferences.getBoolean("helmet2_visible", false) && isTask1Complete;
-        boolean isArmor2Visible = sharedPreferences.getBoolean("armor2_visible", false) && isTask2Complete;
-        boolean arePantsVisible = sharedPreferences.getBoolean("pants2_visible", false) && isTask3Complete;
-
-        ImageView helmet2 = findViewById(R.id.helmet2);
-        ImageView armor2 = findViewById(R.id.armor2);
-        ImageView pants2 = findViewById(R.id.pants2);
-
-        helmet2.setVisibility(isHelmet2Visible ? View.VISIBLE : View.GONE);
-        armor2.setVisibility(isArmor2Visible ? View.VISIBLE : View.GONE);
-        pants2.setVisibility(arePantsVisible ? View.VISIBLE : View.GONE);
+    private void loadInventoryEquipment() {
+        sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+        int helmetID = sharedTracker.getInt("helmet", 0);
+        int chestID = sharedTracker.getInt("chest", 0);
+        int pantsID = sharedTracker.getInt("pants", 0);
+        helmet2.setVisibility(helmetID == 2 ? View.VISIBLE : View.INVISIBLE);
+        armor2.setVisibility(chestID == 2 ? View.VISIBLE : View.INVISIBLE);
+        pants2.setVisibility(pantsID == 2 ? View.VISIBLE : View.INVISIBLE);
     }
 }
+
