@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="350dp"
+    android:layout_height="260dp"
     android:background="#525252"
-    android:id="@+id/basicHelmet">
+    android:id="@+id/basichelmet">
 
     <Button
         style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -16,56 +16,38 @@
         android:text="X"
         android:textColor="#FFFFFF"
         android:textSize="48sp"
-        tools:layout_editor_absoluteX="320dp"
-        tools:layout_editor_absoluteY="0dp"
         app:layout_constraintEnd_toEndOf="parent"/>
-    <LinearLayout
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@drawable/helmet"
-        android:orientation="vertical"
-        android:padding="20dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="10dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:orientation="horizontal">
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:orientation="horizontal" />
-
-    </LinearLayout>
 
     <TextView
-        android:id="@+id/popup_text"
+        android:id="@+id/basichelmetstats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#454749"
         android:text="+10 Protection"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="170dp"
-        tools:layout_editor_absoluteY="100dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/helmet"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/helmet"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/basichelmetstats"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/equipbutton"
         android:layout_width="152dp"
         android:layout_height="58dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="-100dp"
         android:backgroundTint="@color/shadow_grey"
         android:text="Equip"
+        android:textColor="@color/white"
         android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/helmetclose" />
-
-
+        app:layout_constraintStart_toEndOf="@+id/helmet"
+        app:layout_constraintTop_toBottomOf="@+id/helmet" />
 </androidx.constraintlayout.widget.ConstraintLayout>
