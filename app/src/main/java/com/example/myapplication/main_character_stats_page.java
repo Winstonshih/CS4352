@@ -1,3 +1,13 @@
+/*
+  main_character_stats_page.java
+
+  This activity displays the main character's stats page, allowing users to navigate between key sections
+  of the app, including the inventory, rewards, and main game pages. It sets up full-screen insets to provide
+  an immersive experience and uses buttons for navigation to other activities, such as `inventory_page`,
+  `rewards_page`, and `main_game_page`. The page serves as a central hub for accessing character-related
+  features, contributing to an organized and seamless user experience within the game.
+
+ */
 package com.example.myapplication;
 
 import android.content.Intent;

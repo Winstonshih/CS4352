@@ -1,3 +1,15 @@
+/*
+  Item.java
+
+  This class represents an item within the application, containing attributes such as an ID, task description,
+  associated reward, image resource ID, and a claimed status indicating if the reward has been collected.
+  It provides getters and setters for each attribute, allowing other components to retrieve or modify
+  the item's properties as needed. The Item class is a foundational data model used in tasks, inventory,
+  and rewards, enabling the app to dynamically manage user goals and rewards.
+
+ */
+
+
 package com.example.myapplication;
 
 public class Item {
