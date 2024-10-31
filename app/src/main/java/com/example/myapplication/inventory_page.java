@@ -299,7 +299,6 @@ public class inventory_page extends AppCompatActivity {
     }
     private void loadInventoryEquipment() {
         sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
-
         int helmetID = sharedTracker.getInt("helmet", 0);
         int chestID = sharedTracker.getInt("chest", 0);
         int pantsID = sharedTracker.getInt("pants", 0);
