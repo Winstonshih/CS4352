@@ -65,5 +65,6 @@ public class main_character_stats_page extends AppCompatActivity {
             }
         });
 
+
     }
 }

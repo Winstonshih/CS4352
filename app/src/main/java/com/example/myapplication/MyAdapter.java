@@ -101,7 +101,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
                 // Update the armor based on the completed task
                 updateArmor(item);
-                updateInventory(item);
             }
         });
 
@@ -129,30 +128,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
         // Notify the activity to update the UI
         if (context instanceof main_game_page) {
             ((main_game_page) context).updateArmorUI();
-        }
-    }
-    private void updateInventory(Item item) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("inventory", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        switch (item.getReward()) {
-            case "Diamond helmet (+10 Protection)":
-                editor.putBoolean("helmet2_visible", true); // Set visibility for helmet2
-                editor.putBoolean("task1_complete", true);
-                break;
-            case "Diamond Armor (+10 Protection)":
-                editor.putBoolean("armor2_visible", true); // Set visibility for armor2
-                editor.putBoolean("task2_complete", true);
-                break;
-            case "Diamond pants (+10 Protection)":
-                editor.putBoolean("pants2_visible", true); // Set visibility for pants2
-                editor.putBoolean("task3_complete", true);
-                break;
-        }
-        editor.apply();
-
-        // Notify the activity to update the UI
-        if (context instanceof inventory_page) {
-            ((inventory_page) context).updateInventoryUI(); // Call to update inventory UI
         }
     }
     @Override
