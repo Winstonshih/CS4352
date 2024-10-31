@@ -1,3 +1,15 @@
+/*
+  Inventory_page.java
+
+  This activity displays the user's inventory of equipment and allows them to equip different items by interacting with
+  ImageView components representing helmets, armor, pants, and weapons. Each item triggers a popup window with details
+  and an option to equip the item, which is saved to SharedPreferences for tracking equipment state across sessions.
+  Additionally, the activity updates item visibility based on task completion, ensuring that upgraded items become visible
+  only when relevant tasks are complete. Navigation buttons are included to allow users to switch between the rewards and
+  main game pages.
+
+ */
+
 package com.example.myapplication;
 
 import android.content.Context;

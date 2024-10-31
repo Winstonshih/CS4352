@@ -1,3 +1,15 @@
+/*
+  Input_Subscriptions_Activity.java
+
+  This activity allows users to enter information for multiple subscriptions, such as subscription names and monthly amounts,
+  and stores this data using SharedPreferences for persistence. The activity includes three default subscription fields and
+  allows users to dynamically add more fields if needed. A "Submit" button saves all entered subscriptions and navigates
+  the user to the next activity, while an "Add More" button lets users add extra subscription entries. Validation ensures
+  that at least one subscription is completed before proceeding, enhancing user data input flexibility and persistence across sessions.
+
+ */
+
+
 package com.example.myapplication;
 
 import android.content.Intent;
