@@ -1,3 +1,14 @@
+/*
+  MyAdapter.java
+
+  This adapter class populates a RecyclerView with `Item` objects, displaying tasks and associated rewards for users to interact with
+  in the main game interface. Each item includes a "Claim" button, allowing users to complete tasks and receive rewards, which are
+  tracked through SharedPreferences for persistence across sessions. The adapter implements a popup window for task completion
+  with an option to "delete" items upon claiming, dynamically updating both the equipment status and inventory visibility based on
+  completed tasks. Additionally, it notifies the relevant activity (main game or inventory page) to refresh UI elements as needed.
+
+ */
+
 package com.example.myapplication;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;

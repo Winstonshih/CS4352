@@ -1,3 +1,13 @@
+/*
+  MyViewHolder.java
+ *
+  This ViewHolder class is designed to hold and manage views for each item displayed in a RecyclerView within the app.
+  It binds UI components, including TextViews for displaying task descriptions and rewards, an ImageView for item images,
+  and a "Claim" button that users interact with to complete tasks. `MyViewHolder` helps organize the layout for each item,
+  ensuring that data is displayed consistently and efficiently within the RecyclerView.
+
+ */
+
 package com.example.myapplication;
 
 import android.view.View;
