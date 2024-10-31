@@ -44,6 +44,7 @@ Context context;
         {
             @Override
             public void onClick(View v) {
+                Toast.makeText(rewards_page.this, "You need to complete 3 tasks to unlock the sword!", Toast.LENGTH_SHORT).show();
                 View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.sword_popup, null);
                 PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
                 popUpWindow.showAsDropDown(v);
