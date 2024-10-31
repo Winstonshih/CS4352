@@ -1,3 +1,14 @@
+/*
+  main_game_page.java
+
+  This activity serves as the primary game interface, displaying the character's equipment, available tasks, and
+  navigation options. It integrates a RecyclerView populated with task items from the `GamePageViewModel`, allowing
+  users to interact with and complete tasks. The page dynamically loads and updates equipped items (helmet, chest,
+  and pants) based on stored preferences, giving users visual feedback on their character's progression. Navigation
+  buttons enable users to switch between inventory, rewards, and character stats pages, providing a seamless experience
+  across key game features.
+
+ */
 package com.example.myapplication;
 
 import android.content.Intent;

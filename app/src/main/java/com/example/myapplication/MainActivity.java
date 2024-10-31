@@ -1,6 +1,18 @@
 /* Ruben Rodriguez
 * rar180001
 * Completed*/
+
+/*
+  MainActivity.java
+
+  This activity serves as the main login screen for the app, where users can enter a username and password to access the
+  application. It includes hardcoded login credentials for demonstration purposes, with a login button that verifies the input.
+  Upon successful login, users are directed to `Input_Info_Activity` to continue. A sign-up button is also provided, allowing
+  users to navigate to a separate `SignUp` activity to set up new credentials. The activity utilizes `Toast` messages to
+  provide immediate feedback on login success or failure, enhancing the user experience with clear guidance.
+
+ */
+
 package com.example.myapplication;
 
 import android.content.Intent;
