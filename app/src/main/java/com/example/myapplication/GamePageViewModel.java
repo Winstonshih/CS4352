@@ -1,3 +1,14 @@
+/*
+  GamePageViewModel.java
+
+  This ViewModel manages the list of financial goals or tasks in the app, using LiveData to track
+  changes and update the UI automatically. It initializes a set of default financial goals with associated
+  rewards, such as "Diamond Helmet" or "Diamond Armor," and uses SharedPreferences to store
+  and filter out any tasks marked as deleted by the user. This ensures that deleted tasks are persisted
+  across app sessions and do not reappear in the task list. The ViewModel’s structure supports smooth
+  UI interaction by providing the app with a readily observable list of active tasks.
+
+*/
 package com.example.myapplication;
 
 import android.app.Application;

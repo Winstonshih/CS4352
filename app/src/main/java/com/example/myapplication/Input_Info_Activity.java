@@ -2,6 +2,20 @@
 rar180001
 incomplete
 * */
+
+/*
+Input_Info_Activity.java
+
+  This activity collects essential financial data from the user, such as income, food expenses, and various
+  bills (e.g., mortgage, utilities). It includes validation to ensure that all fields are filled out before allowing
+  the user to proceed. If the data is complete, each entry is stored using SharedPreferences for persistence,
+  allowing values to be accessed across sessions. A "Next" button saves the inputted data and navigates
+  the user to the following activity, where they can further customize their financial tracking experience.
+  This activity is a foundational step, providing necessary data for the app’s core functionality.
+
+ */
+
+
 package com.example.myapplication;
 
 import android.content.Intent;
