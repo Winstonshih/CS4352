@@ -104,34 +104,18 @@ public class main_game_page extends AppCompatActivity {
         Button inventoryButton = findViewById(R.id.inventoryButton);
         Button rewardsButton = findViewById(R.id.rewardsButton);
         Button homeButton = findViewById(R.id.homeButton);
-
-        inventoryButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(main_game_page.this, inventory_page.class));
-            }
-        });
-
-        rewardsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(main_game_page.this, rewards_page.class));
-            }
-        });
-
-        homeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(main_game_page.this, main_game_page.class));
-            }
-        });
-
-        personImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(main_game_page.this, main_character_stats_page.class));
-            }
-        });
+        inventoryButton.setOnClickListener(view ->
+                startActivity(new Intent(main_game_page.this, inventory_page.class))
+        );
+        rewardsButton.setOnClickListener(view ->
+                startActivity(new Intent(main_game_page.this, rewards_page.class))
+        );
+        homeButton.setOnClickListener(view ->
+                startActivity(new Intent(main_game_page.this, main_game_page.class))
+        );
+        personImage.setOnClickListener(view ->
+                startActivity(new Intent(main_game_page.this, main_character_stats_page.class))
+        );
     }
     public void updateArmorUI() {
         loadEquipment();
