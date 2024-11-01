@@ -56,8 +56,6 @@ public class main_character_stats_page extends AppCompatActivity {
         swordText = findViewById(R.id.swordText);
         helmetText = findViewById(R.id.helmetText);
         pantsText = findViewById(R.id.pantsText);
-
-        // Set the text
         hpText.setText("HP " + TRACKER.getString("hp", "0"));
         armorText.setText("DEFENSE " + TRACKER.getString("chest defense", "0"));
         swordText.setText("ATTACK " + TRACKER.getString("attack", "0"));

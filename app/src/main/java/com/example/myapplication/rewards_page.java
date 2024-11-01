@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class rewards_page extends AppCompatActivity {
-Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +39,7 @@ Context context;
                 startActivity(intent);
             }
         });
+        //loadSwordVisibility();
         LinearLayout rewardButton=findViewById(R.id.unlockableAward);
         rewardButton.setOnClickListener(new View.OnClickListener()
         {
@@ -55,7 +56,36 @@ Context context;
                         popUpWindow.dismiss();
                     }
                 });
+                Button equipButton = popUpView.findViewById(R.id.equipbutton);
+                equipButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        //equipSword();
+                        popUpWindow.dismiss();
+                    }
+                });
             }
         });
     }
+//    private void equipSword()
+//    {
+//        sword.setVisibility(View.VISIBLE);
+//        saveSwordEquippedState(true);
+//    }
+
+//    private void loadSwordVisibility() {
+//        SharedPreferences sharedPreferences = getSharedPreferences("tracker", MODE_PRIVATE);
+//        boolean swordEquipped = sharedPreferences.getBoolean("sword_equipped", false);
+//        if (swordEquipped) {
+//            sword.setVisibility(View.VISIBLE); // Show sword if equipped before
+//        } else {
+//            sword.setVisibility(View.INVISIBLE); // Hide sword initially
+//        }
+    //}
+    //private void saveSwordEquippedState(boolean isEquipped) {
+        //SharedPreferences sharedPreferences = getSharedPreferences("tracker", MODE_PRIVATE);
+        //SharedPreferences.Editor editor = sharedPreferences.edit();
+        //editor.putBoolean("sword_equipped", isEquipped);
+        //editor.apply();
+    //}
 }
