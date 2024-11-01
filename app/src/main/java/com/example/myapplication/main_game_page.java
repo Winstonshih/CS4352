@@ -70,6 +70,7 @@ public class main_game_page extends AppCompatActivity {
 
     private void loadEquipment() {
         sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedTracker.edit();
 
         int helmetID = sharedTracker.getInt("helmet", 0);
         int chestID = sharedTracker.getInt("chest", 0);

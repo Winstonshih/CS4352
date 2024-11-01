@@ -69,4 +69,11 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="IRA">
+        A stock market account, often referred to as a brokerage account, is a financial account
+        that allows individuals to buy, sell, and hold shares of publicly traded companies. It serves as
+        a platform for investors to trade stocks, bonds, exchange-traded funds (ETFs), and other
+        investment products. When you open a stock market account, you can invest your money in the
+        stock market, aiming to grow your wealth over time.
+    </string>
 </resources>
