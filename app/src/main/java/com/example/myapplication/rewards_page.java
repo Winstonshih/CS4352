@@ -39,7 +39,6 @@ public class rewards_page extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //loadSwordVisibility();
         LinearLayout rewardButton=findViewById(R.id.unlockableAward);
         rewardButton.setOnClickListener(new View.OnClickListener()
         {
@@ -60,32 +59,17 @@ public class rewards_page extends AppCompatActivity {
                 equipButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //equipSword();
+                        saveSwordEquippedState(true);
                         popUpWindow.dismiss();
                     }
                 });
             }
         });
     }
-//    private void equipSword()
-//    {
-//        sword.setVisibility(View.VISIBLE);
-//        saveSwordEquippedState(true);
-//    }
-
-//    private void loadSwordVisibility() {
-//        SharedPreferences sharedPreferences = getSharedPreferences("tracker", MODE_PRIVATE);
-//        boolean swordEquipped = sharedPreferences.getBoolean("sword_equipped", false);
-//        if (swordEquipped) {
-//            sword.setVisibility(View.VISIBLE); // Show sword if equipped before
-//        } else {
-//            sword.setVisibility(View.INVISIBLE); // Hide sword initially
-//        }
-    //}
-    //private void saveSwordEquippedState(boolean isEquipped) {
-        //SharedPreferences sharedPreferences = getSharedPreferences("tracker", MODE_PRIVATE);
-        //SharedPreferences.Editor editor = sharedPreferences.edit();
-        //editor.putBoolean("sword_equipped", isEquipped);
-        //editor.apply();
-    //}
+    private void saveSwordEquippedState(boolean isEquipped) {
+        SharedPreferences sharedPreferences = getSharedPreferences("tracker", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("sword_equipped", isEquipped);
+        editor.apply();
+    }
 }

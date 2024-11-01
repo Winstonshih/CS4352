@@ -60,10 +60,9 @@ public class User_intro_Display extends AppCompatActivity {
         //update the page with the current information we have stored
         //first access shared preference (always inside On Create to prevent issues)
         SharedPreferences sharedPreferences = getSharedPreferences("money_tracker", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        SharedPreferences.Editor moneyEditor = sharedPreferences.edit();
         SharedPreferences preferences = getSharedPreferences("subscriptions", MODE_PRIVATE);
         SharedPreferences.Editor editor_s = preferences.edit();
-
 
         //to get all expenses
         Map<String, ?> money_tracker = sharedPreferences.getAll();

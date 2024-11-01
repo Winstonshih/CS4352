@@ -27,7 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class main_game_page extends AppCompatActivity {
     private ImageButton personImage;
-    private ImageView helmet, chest, pants;
+    private ImageView helmet, chest, pants, sword;
     private RecyclerView recyclerView;
     private SharedPreferences sharedTracker;
     private GamePageViewModel viewModel;
@@ -59,6 +59,7 @@ public class main_game_page extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         loadEquipment(); // Refresh the equipment UI
+        loadSwordVisibility();
     }
     private void initializeViews() {
         recyclerView = findViewById(R.id.recyclerview);
@@ -66,6 +67,7 @@ public class main_game_page extends AppCompatActivity {
         chest = findViewById(R.id.chest);
         pants = findViewById(R.id.pants);
         personImage = findViewById(R.id.personImage);
+        sword=findViewById(R.id.sword);
     }
 
     private void loadEquipment() {
@@ -117,6 +119,16 @@ public class main_game_page extends AppCompatActivity {
         personImage.setOnClickListener(view ->
                 startActivity(new Intent(main_game_page.this, main_character_stats_page.class))
         );
+    }
+    private void loadSwordVisibility() {
+        SharedPreferences sharedPreferences = getSharedPreferences("tracker", MODE_PRIVATE);
+        boolean swordEquipped = sharedPreferences.getBoolean("sword_equipped", false);
+
+        if (swordEquipped) {
+            sword.setVisibility(View.VISIBLE); // Show sword if equipped
+        } else {
+            sword.setVisibility(View.INVISIBLE); // Hide sword if not equipped
+        }
     }
     public void updateArmorUI() {
         loadEquipment();
