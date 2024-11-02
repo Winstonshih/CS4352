@@ -1,3 +1,14 @@
+/*
+  rewards_page.java
+
+  This activity displays the rewards screen, where users can view and unlock special achievements based on task
+  completion. A central reward button allows users to unlock a special sword upon completing three tasks, with a
+  popup providing feedback on the sword’s availability and an option to equip it. Equipped rewards are saved using
+  SharedPreferences, preserving their state across sessions. The page includes a home button for navigation back
+  to the main game page, allowing for seamless movement between game sections.
+
+ */
+
 package com.example.myapplication;
 
 import android.content.Context;

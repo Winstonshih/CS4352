@@ -1,3 +1,14 @@
+/*
+  SignUp.java
+
+  This activity provides a user interface for creating a new account, allowing users to input a custom username
+  and password. It includes validation to ensure both fields are filled before submission. Upon successful entry,
+  a toast message confirms the sign-up, and the user is directed to the `Input_Info_Activity` to continue setting
+  up their profile. If any field is empty, an error message guides the user to complete the necessary fields,
+  enhancing the onboarding experience.
+
+ */
+
 package com.example.myapplication;
 
 import android.content.Intent;

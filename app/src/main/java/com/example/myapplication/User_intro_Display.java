@@ -1,3 +1,15 @@
+/*
+  User_intro_Display.java
+
+  This activity provides an overview of the user's financial and character status before entering the main game.
+  It displays income, expenses, and remaining balance by retrieving and calculating data from SharedPreferences.
+  Initial character stats and inventory settings are set up, with defensive attributes and equipped items tracked
+  for the game. The activity ensures the display is updated with accurate data from `money_tracker` and
+  `subscriptions` preferences, showing positive or negative savings in green or red, respectively. A "Start"
+  button enables users to proceed to the main game page, transitioning them to active gameplay.
+
+ */
+
 package com.example.myapplication;
 
 import android.content.Intent;
