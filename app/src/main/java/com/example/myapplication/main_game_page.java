@@ -27,7 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class main_game_page extends AppCompatActivity {
     private ImageButton personImage;
-    private ImageView helmet, chest, pants;
+    private ImageView helmet, chest, pants, sword;
     private RecyclerView recyclerView;
     private SharedPreferences sharedTracker;
     private GamePageViewModel viewModel;
@@ -59,6 +59,7 @@ public class main_game_page extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         loadEquipment(); // Refresh the equipment UI
+        loadSwordVisibility();
     }
     private void initializeViews() {
         recyclerView = findViewById(R.id.recyclerview);
@@ -66,10 +67,12 @@ public class main_game_page extends AppCompatActivity {
         chest = findViewById(R.id.chest);
         pants = findViewById(R.id.pants);
         personImage = findViewById(R.id.personImage);
+        sword=findViewById(R.id.sword);
     }
 
     private void loadEquipment() {
         sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedTracker.edit();
 
         int helmetID = sharedTracker.getInt("helmet", 0);
         int chestID = sharedTracker.getInt("chest", 0);
@@ -104,34 +107,28 @@ public class main_game_page extends AppCompatActivity {
         Button inventoryButton = findViewById(R.id.inventoryButton);
         Button rewardsButton = findViewById(R.id.rewardsButton);
         Button homeButton = findViewById(R.id.homeButton);
+        inventoryButton.setOnClickListener(view ->
+                startActivity(new Intent(main_game_page.this, inventory_page.class))
+        );
+        rewardsButton.setOnClickListener(view ->
+                startActivity(new Intent(main_game_page.this, rewards_page.class))
+        );
+        homeButton.setOnClickListener(view ->
+                startActivity(new Intent(main_game_page.this, main_game_page.class))
+        );
+        personImage.setOnClickListener(view ->
+                startActivity(new Intent(main_game_page.this, main_character_stats_page.class))
+        );
+    }
+    private void loadSwordVisibility() {
+        SharedPreferences sharedPreferences = getSharedPreferences("tracker", MODE_PRIVATE);
+        boolean swordEquipped = sharedPreferences.getBoolean("sword_equipped", false);
 
-        inventoryButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(main_game_page.this, inventory_page.class));
-            }
-        });
-
-        rewardsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(main_game_page.this, rewards_page.class));
-            }
-        });
-
-        homeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(main_game_page.this, main_game_page.class));
-            }
-        });
-
-        personImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(main_game_page.this, main_character_stats_page.class));
-            }
-        });
+        if (swordEquipped) {
+            sword.setVisibility(View.VISIBLE); // Show sword if equipped
+        } else {
+            sword.setVisibility(View.INVISIBLE); // Hide sword if not equipped
+        }
     }
     public void updateArmorUI() {
         loadEquipment();

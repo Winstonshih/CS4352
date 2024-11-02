@@ -29,7 +29,7 @@ Button signUp;
                 }
                 else {
                     Toast.makeText(SignUp.this, "Sign Up Successful!", Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(SignUp.this,MainActivity.class);
+                    Intent intent=new Intent(SignUp.this,Input_Info_Activity.class);
                     startActivity(intent);
                 }
             }

@@ -170,7 +170,7 @@
                 android:layout_height="60dp"
                 android:src="@drawable/baseline_home_24"
                 android:layout_gravity="center"
-                android:tint="@color/white" />
+                />
         </FrameLayout>
 
         <Button

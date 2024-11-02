@@ -39,8 +39,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="16dp">
-
-            <!-- Locked Award 1 -->
             <LinearLayout
                 android:layout_width="150dp"
                 android:layout_height="150dp"
@@ -49,18 +47,16 @@
                 android:gravity="center"
                 android:layout_marginEnd="16dp"
                 android:padding="16dp">
-
                 <TextView
                     android:id="@+id/locked1Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LOCKED"
+                    android:text="@string/LOCKED"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:gravity="center" />
             </LinearLayout>
 
-            <!-- Locked Award 2 -->
             <LinearLayout
                 android:layout_width="150dp"
                 android:layout_height="150dp"
@@ -74,13 +70,11 @@
                     android:id="@+id/locked2Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LOCKED"
+                    android:text="@string/LOCKED"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:gravity="center" />
             </LinearLayout>
-
-            <!-- Locked Award 3 -->
             <LinearLayout
                 android:layout_width="150dp"
                 android:layout_height="150dp"
@@ -89,18 +83,15 @@
                 android:gravity="center"
                 android:layout_marginEnd="16dp"
                 android:padding="16dp">
-
                 <TextView
                     android:id="@+id/locked3Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LOCKED"
+                    android:text="@string/LOCKED"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:gravity="center" />
             </LinearLayout>
-
-            <!-- Locked Award 4 -->
             <LinearLayout
                 android:layout_width="150dp"
                 android:layout_height="150dp"
@@ -109,18 +100,15 @@
                 android:gravity="center"
                 android:layout_marginEnd="16dp"
                 android:padding="16dp">
-
                 <TextView
                     android:id="@+id/locked4Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LOCKED"
+                    android:text="@string/LOCKED"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:gravity="center" />
             </LinearLayout>
-
-            <!-- Locked Award 5 -->
             <LinearLayout
                 android:layout_width="150dp"
                 android:layout_height="150dp"
@@ -129,18 +117,15 @@
                 android:gravity="center"
                 android:layout_marginEnd="16dp"
                 android:padding="16dp">
-
                 <TextView
                     android:id="@+id/locked5Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LOCKED"
+                    android:text="@string/LOCKED"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:gravity="center" />
             </LinearLayout>
-
-            <!-- Locked Award 6 -->
             <LinearLayout
                 android:layout_width="150dp"
                 android:layout_height="150dp"
@@ -149,18 +134,15 @@
                 android:gravity="center"
                 android:layout_marginEnd="16dp"
                 android:padding="16dp">
-
                 <TextView
                     android:id="@+id/locked6Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LOCKED"
+                    android:text="@string/LOCKED"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:gravity="center" />
             </LinearLayout>
-
-            <!-- Locked Award 8 -->
             <LinearLayout
                 android:layout_width="150dp"
                 android:layout_height="150dp"
@@ -169,17 +151,15 @@
                 android:gravity="center"
                 android:layout_marginEnd="16dp"
                 android:padding="16dp">
-
                 <TextView
                     android:id="@+id/locked7Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LOCKED"
+                    android:text="@string/LOCKED"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:gravity="center" />
             </LinearLayout>
-            <!-- Locked Award 9 -->
             <LinearLayout
                 android:layout_width="150dp"
                 android:layout_height="150dp"
@@ -188,18 +168,15 @@
                 android:gravity="center"
                 android:layout_marginEnd="16dp"
                 android:padding="16dp">
-
                 <TextView
                     android:id="@+id/locked8Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LOCKED"
+                    android:text="@string/LOCKED"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:gravity="center" />
             </LinearLayout>
-
-            <!-- Locked Award 10 -->
             <LinearLayout
                 android:layout_width="150dp"
                 android:layout_height="150dp"
@@ -208,21 +185,17 @@
                 android:gravity="center"
                 android:layout_marginEnd="16dp"
                 android:padding="16dp">
-
                 <TextView
                     android:id="@+id/locked9Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LOCKED"
+                    android:text="@string/LOCKED"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:gravity="center" />
             </LinearLayout>
         </LinearLayout>
     </HorizontalScrollView>
-
-
-    <!-- Unlockable Award Section -->
     <LinearLayout
         android:id="@+id/unlockableAward"
         android:layout_width="wrap_content"
@@ -235,28 +208,22 @@
         app:layout_constraintTop_toBottomOf="@+id/lockedAwardsCarousel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-
-        <!-- Award Image -->
         <ImageView
             android:id="@+id/unlockableAwardImage"
             android:layout_width="64dp"
             android:layout_height="64dp"
             android:src="@drawable/sword"
-            android:contentDescription="Unlockable Award" />
-
-        <!-- Unlock Text -->
+            android:contentDescription="@string/UnlockableAward"/>
         <TextView
             android:id="@+id/unlockableAwardText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="UNLOCK"
+            android:text="@string/UNLOCK"
             android:textColor="@android:color/white"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_marginTop="8dp" />
-
     </LinearLayout>
-
     <FrameLayout
         android:layout_width="87dp"
         android:layout_height="87dp"
@@ -270,13 +237,13 @@
             android:layout_height="match_parent"
             android:backgroundTint="@color/shadow_grey"
             style="@style/Widget.MaterialComponents.Button.TextButton" />
-
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/baseline_home_24"
             android:layout_gravity="center"
-            android:tint="@color/white" />
+            app:tint="@color/white"
+            android:contentDescription="@string/UnlockableAwardImage"/>
     </FrameLayout>
 
 

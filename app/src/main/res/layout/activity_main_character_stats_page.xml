@@ -128,7 +128,7 @@
             android:layout_marginTop="118dp"
             android:contentDescription="@string/armor_icon"
             android:src="@drawable/armor"
-            app:layout_constraintStart_toEndOf="@+id/armorText"
+            app:layout_constraintStart_toEndOf="@+id/helmetText"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -143,7 +143,7 @@
             app:layout_constraintTop_toBottomOf="@+id/helmetImage" />
 
         <TextView
-            android:id="@+id/helmetText"
+            android:id="@+id/pantsText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -153,21 +153,21 @@
             android:textSize="22dp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/pantsImage"
-            app:layout_constraintTop_toBottomOf="@+id/pantsText" />
+            app:layout_constraintTop_toBottomOf="@+id/chestText" />
 
         <ImageView
             android:id="@+id/pantsImage"
             android:layout_width="54dp"
             android:layout_height="74dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="22dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="@string/pants_icon"
             android:src="@drawable/pants"
             app:layout_constraintStart_toEndOf="@+id/swordText"
             app:layout_constraintTop_toBottomOf="@+id/armorImage" />
 
         <TextView
-            android:id="@+id/armorText"
+            android:id="@+id/helmetText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -188,7 +188,7 @@
             android:layout_marginEnd="16dp"
             android:contentDescription="@string/helmet_icon"
             android:src="@drawable/helmet"
-            app:layout_constraintEnd_toStartOf="@+id/armorText"
+            app:layout_constraintEnd_toStartOf="@+id/helmetText"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hpImage" />
 
@@ -203,10 +203,10 @@
             android:textSize="22dp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/swordImage"
-            app:layout_constraintTop_toBottomOf="@+id/armorText" />
+            app:layout_constraintTop_toBottomOf="@+id/helmetText" />
 
         <TextView
-            android:id="@+id/pantsText"
+            android:id="@+id/chestText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
@@ -264,8 +264,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/baseline_home_24"
-                android:layout_gravity="center"
-                android:tint="@color/white" />
+                android:layout_gravity="center" />
         </FrameLayout>
 
         <Button
