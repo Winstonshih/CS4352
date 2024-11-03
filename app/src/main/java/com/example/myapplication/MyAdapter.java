@@ -123,6 +123,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
                 editor.putInt("pants", 2);
                 break;
         }
+        if(item.getTask().isEmpty())
+        {
+            editor.putInt("sword", 2);
+        }
         editor.apply();
         if (context instanceof main_game_page) {
             ((main_game_page) context).incrementCompletedTasks();

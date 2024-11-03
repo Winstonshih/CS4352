@@ -57,6 +57,7 @@ public class User_intro_Display extends AppCompatActivity {
         trackerEditor.putInt("helmet", 1);
         trackerEditor.putInt("chest", 1);
         trackerEditor.putInt("pants", 1);
+        trackerEditor.putInt("sword", 1);
         // then current equipment they have unlocked
         trackerEditor.putInt("unlocked parts", 1);
         //every time their is an increase in numbers, then a new part of the inventory is added

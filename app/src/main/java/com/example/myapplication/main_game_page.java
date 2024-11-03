@@ -39,16 +39,14 @@ public class main_game_page extends AppCompatActivity {
         setContentView(R.layout.activity_main_game_page);
 
         sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
-
-        // Check if it's the first run of the app
-        boolean isFirstRun = sharedTracker.getBoolean("isFirstRun", true);
-        if (isFirstRun) {
-            // Initialize sword state to 0 only on first run
-            SharedPreferences.Editor editor = sharedTracker.edit();
-            editor.putInt("sword", 0);
-            editor.putBoolean("isFirstRun", false);
-            editor.apply();
-        }
+//        boolean isFirstRun = sharedTracker.getBoolean("isFirstRun", true);
+//        if (isFirstRun) {
+//            // Initialize sword state to 0 only on first run
+//            SharedPreferences.Editor editor = sharedTracker.edit();
+//            editor.putInt("sword", 0);
+//            editor.putBoolean("isFirstRun", false);
+//            editor.apply();
+//        }
 
         initializeViews();
         viewModel = new ViewModelProvider(this).get(GamePageViewModel.class);
@@ -83,7 +81,7 @@ public class main_game_page extends AppCompatActivity {
 
     private void loadEquipment() {
         sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
-
+        SharedPreferences.Editor editor=sharedTracker.edit();
         int helmetID = sharedTracker.getInt("helmet", 0);
         int chestID = sharedTracker.getInt("chest", 0);
         int pantsID = sharedTracker.getInt("pants", 0);
@@ -114,9 +112,10 @@ public class main_game_page extends AppCompatActivity {
         if (swordID == 2) {
             sword.setImageResource(R.drawable.sword);
             sword.setVisibility(View.VISIBLE); // Show if equipped
-        } else {
+        } else if(swordID==1){
             sword.setVisibility(View.INVISIBLE); // Hide by default if not equipped
         }
+        editor.apply();
     }
 
     private void setupRecyclerView() {
