@@ -28,7 +28,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class inventory_page extends AppCompatActivity {
-    private ImageView helmet2, armor2, pants2, weapon1;
+    private ImageView helmet1, armor1, pants1, helmet2, armor2, pants2, weapon1;
     private SharedPreferences sharedTracker;
 
     @Override
@@ -36,6 +36,9 @@ public class inventory_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_inventory_page);
+        helmet1 = findViewById(R.id.helmet1);
+        pants1=findViewById(R.id.pants1);
+        armor1=findViewById(R.id.armor1);
         helmet2 = findViewById(R.id.helmet2);
         armor2 = findViewById(R.id.armor2);
         pants2 = findViewById(R.id.pants2);
@@ -45,7 +48,6 @@ public class inventory_page extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         Button rewardsButton = findViewById(R.id.rewardsButton);
         rewardsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,8 +73,10 @@ public class inventory_page extends AppCompatActivity {
         setupPants2();
         setupArmor2();
         setupHelmet2();
+        trackHelmet();
+        trackChest();
+        trackPants();
     }
-
     private void setupHelmet1() {
         ImageView helmet1 = findViewById(R.id.helmet1);
         helmet1.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +102,7 @@ public class inventory_page extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedTracker.edit();
                         editor.putInt("helmet", 1); // ID for base helmet
                         editor.apply();
-
+                        trackHelmet();
                         popUpWindow.dismiss();
                     }
                 });
@@ -131,7 +135,7 @@ public class inventory_page extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedTracker.edit();
                         editor.putInt("chest", 1); // ID for base armor
                         editor.apply();
-
+                        trackChest();
                         popUpWindow.dismiss();
                     }
                 });
@@ -164,7 +168,7 @@ public class inventory_page extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedTracker.edit();
                         editor.putInt("pants", 1); // ID for base pants
                         editor.apply();
-
+                        trackPants();
                         popUpWindow.dismiss();
                     }
                 });
@@ -217,7 +221,7 @@ public class inventory_page extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedTracker.edit();
                         editor.putInt("helmet", 2); // ID for upgraded helmet
                         editor.apply();
-
+                        trackHelmet();
                         popUpWindow.dismiss();
                     }
                 });
@@ -250,7 +254,7 @@ public class inventory_page extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedTracker.edit();
                         editor.putInt("chest", 2); // ID for upgraded armor
                         editor.apply();
-
+                        trackChest();
                         popUpWindow.dismiss();
                     }
                 });
@@ -283,7 +287,7 @@ public class inventory_page extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedTracker.edit();
                         editor.putInt("pants", 2); // ID for upgraded pants
                         editor.apply();
-
+                        trackPants();
                         popUpWindow.dismiss();
                     }
                 });
@@ -295,6 +299,9 @@ public class inventory_page extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         loadInventoryEquipment();
+        trackHelmet();
+        trackChest();
+        trackPants();
     }
     private void loadInventoryEquipment() {
         sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
@@ -306,6 +313,34 @@ public class inventory_page extends AppCompatActivity {
         armor2.setVisibility(chestID == 2 ? View.VISIBLE : View.INVISIBLE);
         pants2.setVisibility(pantsID == 2 ? View.VISIBLE : View.INVISIBLE);
         weapon1.setVisibility(swordID==2?View.VISIBLE:View.INVISIBLE);
+    }
+    private void trackChest()
+    {
+        SharedPreferences sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+        int equippedArmorId=sharedTracker.getInt("chest", 0);
+        armor1.setAlpha(equippedArmorId==1?1.0f:0.5f);
+        armor2.setAlpha(equippedArmorId==2?1.0f:0.5f);
+        armor1.setVisibility(View.VISIBLE);
+        armor2.setVisibility(View.VISIBLE);
+    }
+    private void trackHelmet()
+    {
+        SharedPreferences sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+        int equippedHelmetId = sharedTracker.getInt("helmet", 0);
+        helmet1.setAlpha(equippedHelmetId == 1 ? 1.0f : 0.5f);
+        helmet2.setAlpha(equippedHelmetId == 2 ? 1.0f : 0.5f);
+        // Ensure both helmets are visible
+        helmet1.setVisibility(View.VISIBLE);
+        helmet2.setVisibility(View.VISIBLE);
+    }
+    private void trackPants()
+    {
+        SharedPreferences sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+        int equippedPantsId=sharedTracker.getInt("pants", 0);
+        pants1.setAlpha(equippedPantsId==1?1.0f:0.5f);
+        pants2.setAlpha(equippedPantsId==2?1.0f:0.5f);
+        pants1.setVisibility(View.VISIBLE);
+        pants2.setVisibility(View.VISIBLE);
     }
 }
 
