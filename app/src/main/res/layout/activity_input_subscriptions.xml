@@ -10,17 +10,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center_horizontal"
+        android:padding="16dp">
 
+        <!-- Title Text -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="top"
             android:padding="10dp"
             android:text="Subscriptions"
-            android:textSize="35sp"
-            android:textStyle="bold"/>
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.05"
+            android:shadowColor="@color/grey"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="3"
+            android:layout_gravity="center_horizontal" />
 
+        <!-- Subtitle Text -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,113 +39,143 @@
             android:paddingLeft="10dp"
             android:text="Per Month"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textColor="@color/black"
+            android:textStyle="italic"
+            android:fontFamily="sans-serif"
+            android:letterSpacing="0.05"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center_horizontal" />
 
+        <!-- Subscription Container for Input Fields -->
         <LinearLayout
             android:id="@+id/subscriptionContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="8dp">
 
+            <!-- Subscription Name Input -->
             <EditText
                 android:id="@+id/sub_name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_control_point_24"
-                android:drawablePadding="8dp"
+                android:drawablePadding="12dp"
                 android:hint="Subscription name"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background"/>
 
+                android:padding="12dp"
+
+                android:textSize="16sp"
+                android:fontFamily="sans-serif" />
+
+            <!-- Subscription Amount Input -->
             <EditText
                 android:id="@+id/sub_amount"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/baseline_control_point_24"
-                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/baseline_attach_money_24"
+                android:drawablePadding="12dp"
                 android:hint="Amount"
                 android:inputType="number"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background"/>
+                android:padding="12dp"
+
+                android:textSize="16sp"
+                android:fontFamily="sans-serif" />
+
+            <!-- Additional Subscription Fields -->
             <EditText
                 android:id="@+id/sub_name_2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_control_point_24"
-                android:drawablePadding="8dp"
+                android:drawablePadding="12dp"
                 android:hint="Subscription name"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background"/>
+                android:padding="12dp"
+
+                android:textSize="16sp"
+                android:fontFamily="sans-serif" />
 
             <EditText
                 android:id="@+id/sub_amount_2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/baseline_control_point_24"
-                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/baseline_attach_money_24"
+                android:drawablePadding="12dp"
                 android:hint="Amount"
                 android:inputType="number"
-                android:padding="8dp"
+                android:padding="12dp"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background"/>
+
+                android:textSize="16sp"
+                android:fontFamily="sans-serif" />
+
             <EditText
                 android:id="@+id/sub_name_3"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_control_point_24"
-                android:drawablePadding="8dp"
+                android:drawablePadding="12dp"
                 android:hint="Subscription name"
-                android:padding="8dp"
+                android:padding="12dp"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background"/>
+
+                android:textSize="16sp"
+                android:fontFamily="sans-serif" />
 
             <EditText
                 android:id="@+id/sub_amount_3"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/baseline_control_point_24"
-                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/baseline_attach_money_24"
+                android:drawablePadding="12dp"
                 android:hint="Amount"
                 android:inputType="number"
-                android:padding="8dp"
+                android:padding="12dp"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background"/>
-            <!-- Additional EditText fields can go here -->
+                android:textSize="16sp"
+                android:fontFamily="sans-serif" />
+
         </LinearLayout>
 
+        <!-- Add More Button -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/addMore"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/sky_blue"
             android:text="Add More"
-            android:textSize="20sp"
-            app:cornerRadius="20dp"/>
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            app:cornerRadius="30dp"
+            android:elevation="4dp"
+            android:paddingVertical="10dp" />
 
+        <!-- Submit Button -->
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="@color/dark_green"
             android:text="Submit"
-            android:textSize="20sp"
-            app:cornerRadius="20dp"/>
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            app:cornerRadius="30dp"
+            android:elevation="4dp"
+            android:paddingVertical="10dp" />
+
     </LinearLayout>
 </ScrollView>

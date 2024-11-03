@@ -89,7 +89,19 @@
             app:layout_constraintVertical_bias="0.54"
             app:srcCompat="@drawable/sword"
             android:visibility="invisible"/>
+        <Button
 
+            android:id="@+id/editmenubutton"
+            android:layout_width="138dp"
+            android:layout_height="41dp"
+            android:layout_marginStart="4dp"
+            android:backgroundTint="@color/shadow_grey"
+            android:text="EDIT INFO"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
 
 
