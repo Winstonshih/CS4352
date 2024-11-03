@@ -77,6 +77,17 @@
             app:layout_constraintVertical_bias="0.614"
             app:srcCompat="@drawable/armor" />
 
+        <ImageView
+            android:id="@+id/sword"
+            android:layout_width="116dp"
+            android:layout_height="107dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="104dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@null" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

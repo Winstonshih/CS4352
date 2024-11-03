@@ -115,7 +115,26 @@ public class main_character_stats_page extends AppCompatActivity {
             editor.putString("pants defense", "30");
         }
 
+        // Find the sword ImageView
+        ImageView sword = findViewById(R.id.sword);
+
+        // Get the sword ID from SharedPreferences
+        int swordID = TRACKER.getInt("sword", 0);
+
+        // Load sword image if equipped
+        if (swordID == 2) {
+            sword.setVisibility(View.VISIBLE);
+            sword.setImageResource(R.drawable.sword);  // Use your sword drawable
+            // Update attack value
+            editor.putString("attack", "20");  // Set attack value when sword is equipped
+        } else {
+            sword.setVisibility(View.GONE);
+            // Reset attack value if sword is not equipped
+            editor.putString("attack", "0");
+        }
+
         // Apply the changes to the shared preferences
         editor.apply();
     }
+
 }
