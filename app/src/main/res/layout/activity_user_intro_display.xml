@@ -18,16 +18,7 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="36sp"
-        android:textStyle="bold"
-        android:paddingTop="24dp"
-        android:paddingBottom="8dp"
-        android:letterSpacing="0.1"
-        android:fontFamily="sans-serif-condensed"
-        android:shadowColor="@color/grey"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="3" />
-
+        android:textStyle="bold" />
     <TextView
         android:id="@+id/username"
         android:layout_width="match_parent"
@@ -35,23 +26,18 @@
         android:text="User"
         android:textAlignment="center"
         android:textColor="@color/purple"
-        android:textSize="32sp"
-        android:textStyle="italic"
-        android:padding="8dp"
-        android:fontFamily="sans-serif-medium"
-        android:letterSpacing="0.05"/>
+        android:textSize="36sp"
+        android:textStyle="bold" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Income"
+        android:text="You Make"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="40sp"
         android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:paddingBottom="4dp"
-        android:fontFamily="sans-serif" />
-
+        android:paddingTop="20dp"
+        />
     <TextView
         android:id="@+id/income"
         android:layout_width="match_parent"
@@ -60,26 +46,18 @@
         android:textAlignment="center"
         android:textColor="@color/dark_green"
         android:textSize="30sp"
-        android:padding="8dp"
-        android:fontFamily="monospace"
-        android:letterSpacing="0.1"
-        android:shadowColor="@color/grey"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="3" />
-
+        android:textStyle="bold"
+        android:padding="5dp"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Expenses"
+        android:text="Spend"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="40sp"
         android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:paddingBottom="4dp"
-        android:fontFamily="sans-serif" />
-
+        />
     <TextView
         android:id="@+id/expenses"
         android:layout_width="match_parent"
@@ -88,26 +66,18 @@
         android:textAlignment="center"
         android:textColor="@color/dark_red"
         android:textSize="30sp"
-        android:padding="8dp"
-        android:fontFamily="monospace"
-        android:letterSpacing="0.1"
-        android:shadowColor="@color/grey"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="3" />
-
+        android:textStyle="bold"
+        android:padding="5dp"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Savings"
+        android:text="Save"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="22sp"
+        android:textSize="40sp"
         android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:paddingBottom="4dp"
-        android:fontFamily="sans-serif" />
-
+        />
     <TextView
         android:id="@+id/amount"
         android:layout_width="match_parent"
@@ -116,28 +86,17 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30sp"
-        android:padding="8dp"
-        android:fontFamily="monospace"
-        android:letterSpacing="0.1"
-        android:shadowColor="@color/grey"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="3" />
-
+        android:textStyle="bold"
+        android:padding="5sp"
+        />
     <Button
         android:id="@+id/startButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_marginTop="30sp"
         android:backgroundTint="@color/sky_blue"
         android:text="Start"
         android:textSize="18sp"
-        android:paddingVertical="12dp"
-        android:paddingHorizontal="24dp"
-        android:fontFamily="sans-serif"
-        android:layout_gravity="center"
-        android:elevation="4dp"
-        android:textColor="@color/white"
-        app:cornerRadius="25dp" />
-
+        app:cornerRadius="20sp"
+        />
 </LinearLayout>

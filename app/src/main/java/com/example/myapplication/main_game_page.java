@@ -18,7 +18,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -38,7 +37,6 @@ public class main_game_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_game_page);
-
         initializeViews();
         viewModel = new ViewModelProvider(this).get(GamePageViewModel.class);
 
@@ -50,33 +48,36 @@ public class main_game_page extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
             }
         });
-
         loadEquipment();
         setupRecyclerView();
         setupButtons();
     }
+
     @Override
     protected void onResume() {
         super.onResume();
+        SharedPreferences.Editor editor = sharedTracker.edit();
+        editor.putInt("sword", 0); // Reset sword status
+        editor.apply();
         loadEquipment(); // Refresh the equipment UI
-        loadSwordVisibility();
     }
+
     private void initializeViews() {
         recyclerView = findViewById(R.id.recyclerview);
         helmet = findViewById(R.id.helmet);
         chest = findViewById(R.id.chest);
         pants = findViewById(R.id.pants);
         personImage = findViewById(R.id.personImage);
-        sword=findViewById(R.id.sword);
+        sword = findViewById(R.id.sword);
     }
 
     private void loadEquipment() {
         sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedTracker.edit();
 
         int helmetID = sharedTracker.getInt("helmet", 0);
         int chestID = sharedTracker.getInt("chest", 0);
         int pantsID = sharedTracker.getInt("pants", 0);
+        int swordID = sharedTracker.getInt("sword", 0);
 
         // Load helmet image
         if (helmetID == 1) {
@@ -98,7 +99,16 @@ public class main_game_page extends AppCompatActivity {
         } else if (pantsID == 2) {
             pants.setImageResource(R.drawable.upgradedpants);
         }
+
+        // Control sword visibility based on equipment status
+        if (swordID == 2) {
+            sword.setImageResource(R.drawable.sword);
+            sword.setVisibility(View.VISIBLE); // Show if equipped
+        } else {
+            sword.setVisibility(View.INVISIBLE); // Hide by default if not equipped
+        }
     }
+
     private void setupRecyclerView() {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
@@ -120,17 +130,14 @@ public class main_game_page extends AppCompatActivity {
                 startActivity(new Intent(main_game_page.this, main_character_stats_page.class))
         );
     }
-    private void loadSwordVisibility() {
-        SharedPreferences sharedPreferences = getSharedPreferences("tracker", MODE_PRIVATE);
-        boolean swordEquipped = sharedPreferences.getBoolean("sword_equipped", false);
 
-        if (swordEquipped) {
-            sword.setVisibility(View.VISIBLE); // Show sword if equipped
-        } else {
-            sword.setVisibility(View.INVISIBLE); // Hide sword if not equipped
-        }
-    }
     public void updateArmorUI() {
         loadEquipment();
+    }
+    public void incrementCompletedTasks() {
+        SharedPreferences.Editor editor = sharedTracker.edit();
+        int completedTasks = sharedTracker.getInt("tasksCompleted", 0);
+        editor.putInt("tasksCompleted", completedTasks + 1);
+        editor.apply();
     }
 }

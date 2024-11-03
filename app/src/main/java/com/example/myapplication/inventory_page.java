@@ -28,7 +28,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class inventory_page extends AppCompatActivity {
-    private ImageView helmet2, armor2, pants2;
+    private ImageView helmet2, armor2, pants2, weapon1;
     private SharedPreferences sharedTracker;
 
     @Override
@@ -39,6 +39,7 @@ public class inventory_page extends AppCompatActivity {
         helmet2 = findViewById(R.id.helmet2);
         armor2 = findViewById(R.id.armor2);
         pants2 = findViewById(R.id.pants2);
+        weapon1=findViewById(R.id.weapon1);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -300,9 +301,11 @@ public class inventory_page extends AppCompatActivity {
         int helmetID = sharedTracker.getInt("helmet", 0);
         int chestID = sharedTracker.getInt("chest", 0);
         int pantsID = sharedTracker.getInt("pants", 0);
+        int swordID=sharedTracker.getInt("sword", 0);
         helmet2.setVisibility(helmetID == 2 ? View.VISIBLE : View.INVISIBLE);
         armor2.setVisibility(chestID == 2 ? View.VISIBLE : View.INVISIBLE);
         pants2.setVisibility(pantsID == 2 ? View.VISIBLE : View.INVISIBLE);
+        weapon1.setVisibility(swordID==2?View.VISIBLE:View.INVISIBLE);
     }
 }
 

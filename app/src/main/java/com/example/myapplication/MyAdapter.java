@@ -100,6 +100,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
                 // Update the armor based on the completed task
                 updateArmor(item);
+                incrementTasksCompleted();
             }
         });
 
@@ -128,6 +129,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
         if (context instanceof main_game_page) {
             ((main_game_page) context).updateArmorUI();
         }
+    }
+    private void incrementTasksCompleted() {
+        SharedPreferences sharedTracker = context.getSharedPreferences("tracker", Context.MODE_PRIVATE);
+        int tasksCompleted = sharedTracker.getInt("tasksCompleted", 0);
+        SharedPreferences.Editor editor = sharedTracker.edit();
+        editor.putInt("tasksCompleted", tasksCompleted + 1);
+        editor.apply();
     }
     @Override
     public int getItemCount () {
