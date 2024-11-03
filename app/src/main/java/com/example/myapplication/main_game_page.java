@@ -56,9 +56,9 @@ public class main_game_page extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        SharedPreferences.Editor editor = sharedTracker.edit();
-        editor.putInt("sword", 0); // Reset sword status
-        editor.apply();
+//        SharedPreferences.Editor editor = sharedTracker.edit();
+//        editor.putInt("sword", 0); // Reset sword status
+//        editor.apply();
         loadEquipment(); // Refresh the equipment UI
     }
 

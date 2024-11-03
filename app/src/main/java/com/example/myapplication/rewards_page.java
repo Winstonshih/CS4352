@@ -28,6 +28,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class rewards_page extends AppCompatActivity {
+    private SharedPreferences sharedTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,12 +79,27 @@ public class rewards_page extends AppCompatActivity {
                     editor.apply();
                     popUpWindow.dismiss();
                     Toast.makeText(rewards_page.this, "Sword equipped!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(rewards_page.this, main_game_page.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
+
                 });
             }
         });
     }
 
-    // New method to increment completed tasks
+    public void incrementTasksCompleted() {
+        int tasksCompleted = sharedTracker.getInt("tasksCompleted", 0);
+        SharedPreferences.Editor editor = sharedTracker.edit();
+        editor.putInt("tasksCompleted", tasksCompleted + 1);
+        editor.apply();
+    }
+
+    // Method to get the current number of completed tasks
+    public int getTasksCompleted() {
+        return sharedTracker.getInt("tasksCompleted", 0);
+    }
 
 }
 

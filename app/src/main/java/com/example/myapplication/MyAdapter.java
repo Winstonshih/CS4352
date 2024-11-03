@@ -100,7 +100,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
                 // Update the armor based on the completed task
                 updateArmor(item);
-                incrementTasksCompleted();
+
             }
         });
 
@@ -124,8 +124,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
                 break;
         }
         editor.apply();
-
-        // Notify the activity to update the UI
+        if (context instanceof main_game_page) {
+            ((main_game_page) context).incrementCompletedTasks();
+        }
         if (context instanceof main_game_page) {
             ((main_game_page) context).updateArmorUI();
         }
