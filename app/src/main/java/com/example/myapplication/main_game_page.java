@@ -37,6 +37,19 @@ public class main_game_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_game_page);
+
+        sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+
+        // Check if it's the first run of the app
+        boolean isFirstRun = sharedTracker.getBoolean("isFirstRun", true);
+        if (isFirstRun) {
+            // Initialize sword state to 0 only on first run
+            SharedPreferences.Editor editor = sharedTracker.edit();
+            editor.putInt("sword", 0);
+            editor.putBoolean("isFirstRun", false);
+            editor.apply();
+        }
+
         initializeViews();
         viewModel = new ViewModelProvider(this).get(GamePageViewModel.class);
 
@@ -56,9 +69,6 @@ public class main_game_page extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        SharedPreferences.Editor editor = sharedTracker.edit();
-//        editor.putInt("sword", 0); // Reset sword status
-//        editor.apply();
         loadEquipment(); // Refresh the equipment UI
     }
 
