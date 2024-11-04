@@ -35,7 +35,7 @@ Button signUp;
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(newLogin.getText().toString().isEmpty()||newPassword.getText().toString().isEmpty()){
+                if(newLogin.getText().toString().isEmpty()||newPassword.getText().toString().isEmpty()||(newLogin.getText().toString().equals("user")&&newPassword.getText().toString().equals("1234"))){
                     Toast.makeText(SignUp.this, "You need to input a new username or password!", Toast.LENGTH_SHORT).show();
                 }
                 else {
