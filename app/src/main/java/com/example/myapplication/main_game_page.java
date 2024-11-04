@@ -70,6 +70,7 @@ public class main_game_page extends AppCompatActivity {
         setupRecyclerView();
         setupButtons();
         buttonTracker();
+        is_empty_list();
     }
 
     @Override
@@ -77,6 +78,7 @@ public class main_game_page extends AppCompatActivity {
         super.onResume();
         loadEquipment(); // Refresh the equipment UI
         buttonTracker(); // Refresh the button state
+        is_empty_list();//
 
     }
 
@@ -158,6 +160,7 @@ public class main_game_page extends AppCompatActivity {
     public void updateArmorUI() {
         loadEquipment();
         buttonTracker();
+        is_empty_list();
     }
     public void incrementCompletedTasks() {
         SharedPreferences.Editor editor = sharedTracker.edit();
@@ -215,6 +218,21 @@ public class main_game_page extends AppCompatActivity {
             inventoryButton.setEnabled(false);
         }
 
+    }
+    //TODO: WISTON THIS IS FOR YOU TO ADD THE POP UP IF THERE IS AN EMPTY LIST, i
+    //ALREADY CHECKED AND IT WORKS YOU JUST NEED TO ADD THE ACTIONS
+    private void is_empty_list(){
+        //IF ITS TRUE THAT IT IS EMPTY
+       if (sharedTracker.getBoolean("empty list", false)){
+           //MAKE POP UP SHOW THAT WAIT 1 WEEK FOR NEXT GOAL
+           //make it vissible
+           System.out.println("Cheker: empty list");
+       }
+       //if it is not empty
+        else{
+            //make it invisible the pop up
+           System.out.println("Checker: not empty list");
+       }
     }
 
 }

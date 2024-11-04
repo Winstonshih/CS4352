@@ -72,6 +72,7 @@ public class User_intro_Display extends AppCompatActivity {
         trackerEditor.putBoolean("last tracker",false);
         trackerEditor.putBoolean("last tracker2",false);
         trackerEditor.putBoolean("last sword",false);
+        trackerEditor.putBoolean("empty list", false);
 
 
         //the current

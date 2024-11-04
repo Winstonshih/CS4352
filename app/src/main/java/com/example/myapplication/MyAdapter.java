@@ -123,6 +123,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
                 editor.putInt("pants", 2);
                 editor.putBoolean("person color", true);
                 editor.putBoolean("person", true);
+                editor.putBoolean("empty list", true);
                 break;
         }
         if(item.getTask().isEmpty())
