@@ -58,10 +58,24 @@ public class User_intro_Display extends AppCompatActivity {
         trackerEditor.putInt("chest", 1);
         trackerEditor.putInt("pants", 1);
         trackerEditor.putInt("sword", 1);
-        // then current equipment they have unlocked
-        trackerEditor.putInt("unlocked parts", 1);
-        //every time their is an increase in numbers, then a new part of the inventory is added
+        // the buttons they have unlocked
+        trackerEditor.putBoolean("inventory", false);
+        trackerEditor.putBoolean("reward",false);
+        trackerEditor.putBoolean("person",false);
 
+        //the buttons on what color they may be
+        trackerEditor.putBoolean("inventory color",false);
+        trackerEditor.putBoolean("reward color",false);
+        trackerEditor.putBoolean("person color",false);
+        trackerEditor.putBoolean("home color",true);
+        //last trackers
+        trackerEditor.putBoolean("last tracker",false);
+        trackerEditor.putBoolean("last tracker2",false);
+        trackerEditor.putBoolean("last sword",false);
+
+
+        //the current
+        //every time their is an increase in numbers, then a new part of the inventory is added
         trackerEditor.apply();
         //list tracker
         SharedPreferences sharedList = getSharedPreferences("GamePagePrefs", MODE_PRIVATE);

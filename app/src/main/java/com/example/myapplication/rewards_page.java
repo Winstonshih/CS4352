@@ -44,6 +44,8 @@ public class rewards_page extends AppCompatActivity {
         });
 
         setUpSword();
+        resetColor();
+
 
         // Home Button: Navigate to Main Game Page
         Button homeButton = findViewById(R.id.homeButton);
@@ -55,6 +57,13 @@ public class rewards_page extends AppCompatActivity {
 
     private void setUpSword() {
         LinearLayout rewardButton = findViewById(R.id.unlockableAward);
+        //use one last tracker if the sword is available
+        sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+        if (sharedTracker.getBoolean("last sword", false)) {
+            rewardButton.setVisibility(View.INVISIBLE);
+            rewardButton.setEnabled(false);
+        }
+
         rewardButton.setOnClickListener(v -> {
             SharedPreferences sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
             int tasksCompleted = sharedTracker.getInt("tasksCompleted", 0);
@@ -76,6 +85,7 @@ public class rewards_page extends AppCompatActivity {
                     // Equip the sword
                     SharedPreferences.Editor editor = sharedTracker.edit();
                     editor.putInt("sword", 2); // Set sword ID to 2 when equipped
+                    editor.putBoolean("last sword", true);
                     editor.apply();
                     popUpWindow.dismiss();
                     Toast.makeText(rewards_page.this, "Sword equipped!", Toast.LENGTH_SHORT).show();
@@ -99,6 +109,13 @@ public class rewards_page extends AppCompatActivity {
     // Method to get the current number of completed tasks
     public int getTasksCompleted() {
         return sharedTracker.getInt("tasksCompleted", 0);
+    }
+
+    private  void resetColor(){
+        SharedPreferences sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedTracker.edit();
+        editor.putBoolean("reward color", false);
+        editor.apply();
     }
 
 }

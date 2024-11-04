@@ -29,6 +29,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class inventory_page extends AppCompatActivity {
     private ImageView helmet1, armor1, pants1, helmet2, armor2, pants2, weapon1;
+    private Button rewardsButton, homeButton;
     private SharedPreferences sharedTracker;
 
     @Override
@@ -48,23 +49,9 @@ public class inventory_page extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Button rewardsButton = findViewById(R.id.rewardsButton);
-        rewardsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(inventory_page.this, rewards_page.class);
-                startActivity(intent);
-            }
-        });
 
-        Button homeButton = findViewById(R.id.homeButton);
-        homeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(inventory_page.this, main_game_page.class);
-                startActivity(intent);
-            }
-        });
+
+
 
         setupHelmet1();
         setupArmor1();
@@ -76,6 +63,7 @@ public class inventory_page extends AppCompatActivity {
         trackHelmet();
         trackChest();
         trackPants();
+        ButtonTracker();
     }
     private void setupHelmet1() {
         ImageView helmet1 = findViewById(R.id.helmet1);
@@ -341,6 +329,50 @@ public class inventory_page extends AppCompatActivity {
         pants2.setAlpha(equippedPantsId==2?1.0f:0.5f);
         pants1.setVisibility(View.VISIBLE);
         pants2.setVisibility(View.VISIBLE);
+    }
+    private void ButtonTracker(){
+        rewardsButton = findViewById(R.id.rewardsButton);
+        homeButton = findViewById(R.id.homeButton);
+        //first we are going to the check the shared preference
+        SharedPreferences sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedTracker.edit();
+        //if last tracker is false
+        if (!sharedTracker.getBoolean("last tracker", false)){
+            //change the color to green
+            rewardsButton.setBackgroundColor(getResources().getColor(R.color.dark_green));
+            //unlock the rewards page and set it to gree
+            editor.putBoolean("reward", true);
+            editor.putBoolean("reward color", true);
+            //change the inventory page to back to original color
+            editor.putBoolean("inventory color", false);
+
+
+            //apply these changes
+            editor.apply();
+        }
+        //if its something else then turn it into shadow grey
+        else{
+            if(sharedTracker.getBoolean("reward color", false)){
+                rewardsButton.setBackgroundColor(getResources().getColor(R.color.dark_green));
+            }
+            rewardsButton.setBackgroundColor(getResources().getColor(R.color.shadow_grey));
+        }
+
+
+        //if they click the rewards button the rewards page will open and also change it back to dark grey
+        rewardsButton.setOnClickListener(view ->{
+            //if they click to it then set the last tracker to true
+            editor.putBoolean("last tracker", true);
+            editor.apply();
+            //go to the rewards page
+            startActivity(new Intent(inventory_page.this, rewards_page.class));
+                }
+
+        );
+        homeButton.setOnClickListener(view ->
+                startActivity(new Intent(inventory_page.this, main_game_page.class))
+        );
+
     }
 }
 

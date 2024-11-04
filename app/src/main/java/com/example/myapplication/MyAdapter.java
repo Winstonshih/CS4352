@@ -121,6 +121,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
                 break;
             case "Diamond pants (+10 Protection)":
                 editor.putInt("pants", 2);
+                editor.putBoolean("person color", true);
+                editor.putBoolean("person", true);
                 break;
         }
         if(item.getTask().isEmpty())
