@@ -30,11 +30,49 @@
         android:textSize="18sp"
         android:layout_marginBottom="16dp" />
 
+    <TextView
+        android:id="@+id/highestSavingsAchieved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Highest Savings Achieved: $0"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/longestStreak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Longest Streak: 0 days"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/numberOfResets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of Resets: 0"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp" />
+
+    <ProgressBar
+        android:id="@+id/milestoneProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:max="100" />
+
     <Button
         android:id="@+id/resetButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reset Statistics"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/shareButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share Progress"
         android:layout_marginBottom="16dp" />
 
     <Button
