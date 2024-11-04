@@ -35,6 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
+            android:id="@+id/redArmor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -47,17 +48,24 @@
                 android:gravity="center"
                 android:layout_marginEnd="16dp"
                 android:padding="16dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:src="@drawable/red_armor"
+
+                    />
                 <TextView
                     android:id="@+id/locked1Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
+                    android:text="Red Armor"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:gravity="center" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/redHelmet"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@android:color/black"
@@ -65,17 +73,24 @@
                 android:gravity="center"
                 android:layout_marginEnd="16dp"
                 android:padding="16dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:src="@drawable/red_helmet"
+
+                    />
 
                 <TextView
                     android:id="@+id/locked2Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
+                    android:text="Red Helmet"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:gravity="center" />
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/redPants"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:background="@android:color/black"
@@ -83,11 +98,17 @@
                 android:gravity="center"
                 android:layout_marginEnd="16dp"
                 android:padding="16dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:src="@drawable/red_pants"
+
+                    />
                 <TextView
                     android:id="@+id/locked3Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
+                    android:text="Red Pants"
                     android:textColor="@android:color/white"
                     android:textStyle="bold"
                     android:gravity="center" />
