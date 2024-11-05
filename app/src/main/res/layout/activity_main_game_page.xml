@@ -11,7 +11,7 @@
     android:background="@drawable/cloud_background"
     tools:context=".main_game_page">
 
-
+    <!-- Character Display Section -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="410dp"
         android:layout_height="281dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-
+        <!-- Person Image -->
         <ImageButton
             android:id="@+id/personImage"
             android:layout_width="339dp"
@@ -39,6 +39,7 @@
             app:layout_constraintVertical_bias="0.792"
             app:srcCompat="@drawable/person" />
 
+        <!-- Helmet Image -->
         <ImageView
             android:id="@+id/helmet"
             android:layout_width="108dp"
@@ -55,6 +56,7 @@
             app:layout_constraintVertical_bias="0.219"
             app:srcCompat="@drawable/helmet" />
 
+        <!-- Pants Image -->
         <ImageView
             android:id="@+id/pants"
             android:layout_width="88dp"
@@ -68,6 +70,7 @@
             app:layout_constraintVertical_bias="0.87"
             app:srcCompat="@drawable/pants" />
 
+        <!-- Chest Image -->
         <ImageView
             android:id="@+id/chest"
             android:layout_width="116dp"
@@ -81,6 +84,7 @@
             app:layout_constraintVertical_bias="0.614"
             app:srcCompat="@drawable/armor" />
 
+        <!-- Sword Image -->
         <ImageView
             android:id="@+id/sword"
             android:layout_width="116dp"
@@ -94,8 +98,8 @@
             app:layout_constraintVertical_bias="0.54"
             app:srcCompat="@null" />
 
+        <!-- Edit Info Button -->
         <Button
-
             android:id="@+id/editmenubutton"
             android:layout_width="138dp"
             android:layout_height="41dp"
@@ -108,9 +112,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Financial Goals Section -->
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="420dp"
@@ -122,6 +126,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <!-- Financial Goals Title -->
         <TextView
             android:id="@+id/goalsText"
             android:layout_width="match_parent"
@@ -134,31 +139,40 @@
             android:shadowRadius="30"
             android:textStyle="bold" />
 
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:progress="50"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:progressTint="@color/colorPrimary" />
+
+        <!-- RecyclerView for Goals -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/goalsText"
             android:layout_marginTop="10dp"
             android:nestedScrollingEnabled="true"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
     </LinearLayout>
 
+    <!-- Bottom Navigation Section -->
     <LinearLayout
-        android:layout_width="4150dp"
+        android:layout_width="match_parent"
         android:layout_height="92dp"
         android:background="@color/shadow_grey"
         android:orientation="horizontal"
+        android:gravity="center_vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        android:gravity="center_vertical"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
+        <!-- Inventory Button -->
         <Button
-
             android:id="@+id/inventoryButton"
             android:layout_width="164dp"
             android:layout_height="92dp"
@@ -171,6 +185,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <!-- Home Button -->
         <FrameLayout
             android:layout_width="87dp"
             android:layout_height="87dp"
@@ -188,29 +203,21 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/baseline_home_24"
-                android:layout_gravity="center"
-                />
+                android:layout_gravity="center" />
         </FrameLayout>
 
+        <!-- Rewards Button -->
         <Button
             android:id="@+id/rewardsButton"
             android:layout_width="164dp"
             android:layout_height="87dp"
             android:backgroundTint="@color/shadow_grey"
             android:padding="8dp"
-            android:shape="rectangle"
             android:text="@string/rewards"
             android:textColor="@android:color/white"
             android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-
-
-
-
-
     </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,12 +24,15 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.ProgressBar;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
 
 public class main_game_page extends AppCompatActivity {
     private ImageButton personImage;
@@ -39,6 +42,10 @@ public class main_game_page extends AppCompatActivity {
     private GamePageViewModel viewModel;
     private MyAdapter adapter;
     private PopupWindow popUpWindow;
+    private ProgressBar progressBar;
+    private int totalTasks = 0;
+    private int completedTasks = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,29 +57,22 @@ public class main_game_page extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(GamePageViewModel.class);
 
         viewModel.getItems().observe(this, items -> {
+            totalTasks = items.size(); // Update total task count
+            completedTasks = getCompletedTaskCount(items);
+            updateProgressBar();
+
             if (adapter == null) {
                 adapter = new MyAdapter(this, items);
                 recyclerView.setAdapter(adapter);
             } else {
                 adapter.notifyDataSetChanged();
             }
-            if(items.isEmpty()){
-                System.out.println("empty");
-            }
-            else {
-                System.out.println("not empty");
-            }
         });
+
         loadEquipment();
         setupRecyclerView();
         setupButtons();
         buttonTracker();
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                is_empty_list();
-//            }
-//        }, 100);
     }
 
     @Override
@@ -85,7 +85,6 @@ public class main_game_page extends AppCompatActivity {
         new Handler().postDelayed(this::is_empty_list, 100);
     }
 
-
     private void initializeViews() {
         recyclerView = findViewById(R.id.recyclerview);
         helmet = findViewById(R.id.helmet);
@@ -93,11 +92,12 @@ public class main_game_page extends AppCompatActivity {
         pants = findViewById(R.id.pants);
         personImage = findViewById(R.id.personImage);
         sword = findViewById(R.id.sword);
+        progressBar = findViewById(R.id.progressBar);
     }
 
     private void loadEquipment() {
         sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
-        SharedPreferences.Editor editor=sharedTracker.edit();
+        SharedPreferences.Editor editor = sharedTracker.edit();
         int helmetID = sharedTracker.getInt("helmet", 0);
         int chestID = sharedTracker.getInt("chest", 0);
         int pantsID = sharedTracker.getInt("pants", 0);
@@ -128,7 +128,7 @@ public class main_game_page extends AppCompatActivity {
         if (swordID == 2) {
             sword.setImageResource(R.drawable.sword);
             sword.setVisibility(View.VISIBLE); // Show if equipped
-        } else if(swordID==1){
+        } else if (swordID == 1) {
             sword.setVisibility(View.INVISIBLE); // Hide by default if not equipped
         }
         editor.apply();
@@ -143,6 +143,7 @@ public class main_game_page extends AppCompatActivity {
         Button rewardsButton = findViewById(R.id.rewardsButton);
         Button homeButton = findViewById(R.id.homeButton);
         Button editInfoButton = findViewById(R.id.editmenubutton);
+
         inventoryButton.setOnClickListener(view ->
                 startActivity(new Intent(main_game_page.this, inventory_page.class))
         );
@@ -158,7 +159,6 @@ public class main_game_page extends AppCompatActivity {
         editInfoButton.setOnClickListener(view ->
                 startActivity(new Intent(main_game_page.this, Input_Info_Activity.class))
         );
-
     }
 
     public void updateArmorUI() {
@@ -166,89 +166,69 @@ public class main_game_page extends AppCompatActivity {
         buttonTracker();
         is_empty_list();
     }
+
     public void incrementCompletedTasks() {
         SharedPreferences.Editor editor = sharedTracker.edit();
         int completedTasks = sharedTracker.getInt("tasksCompleted", 0);
         editor.putInt("tasksCompleted", completedTasks + 1);
         editor.apply();
     }
-    private void buttonTracker(){
+
+    private void buttonTracker() {
         Button rewardButton = findViewById(R.id.rewardsButton);
         Button inventoryButton = findViewById(R.id.inventoryButton);
         personImage = findViewById(R.id.personImage);
-        //check if the person is unlocked
-        if(sharedTracker.getBoolean("person", false)){
+
+        // check if the person is unlocked
+        if (sharedTracker.getBoolean("person", false)) {
             personImage.setEnabled(true);
-            if(sharedTracker.getBoolean("person color", false)){
-                //if its true then dark green
+            if (sharedTracker.getBoolean("person color", false)) {
                 personImage.setBackgroundColor(getResources().getColor(R.color.dark_green));
-            }
-            else{
-                //set back to the original
+            } else {
                 personImage.setBackgroundColor(Color.TRANSPARENT);
             }
-        }
-        else{
+        } else {
             personImage.setEnabled(false);
-
         }
 
         // Check if the reward is unlocked
-        if(sharedTracker.getBoolean("reward", false)){
+        if (sharedTracker.getBoolean("reward", false)) {
             rewardButton.setEnabled(true);
-            //change the color of the button if it is the next thing they need to click
-            if(sharedTracker.getBoolean("reward color", false)){
+            if (sharedTracker.getBoolean("reward color", false)) {
                 rewardButton.setBackgroundColor(getResources().getColor(R.color.dark_green));
-            }
-            else{
+            } else {
                 rewardButton.setBackgroundColor(getResources().getColor(R.color.shadow_grey));
             }
         } else {
-            rewardButton.setEnabled(false); // Explicitly disable if reward is locked
+            rewardButton.setEnabled(false);
         }
 
-        //check if inventory is unlocked
-        if(sharedTracker.getBoolean("inventory", false)){
+        // Check if inventory is unlocked
+        if (sharedTracker.getBoolean("inventory", false)) {
             inventoryButton.setEnabled(true);
-            //change the color of the button if it is the next thing
-            if(sharedTracker.getBoolean("inventory color", false)){
+            if (sharedTracker.getBoolean("inventory color", false)) {
                 inventoryButton.setBackgroundColor(getResources().getColor(R.color.dark_green));
-            }
-            else{
+            } else {
                 inventoryButton.setBackgroundColor(getResources().getColor(R.color.shadow_grey));
             }
-        }
-        else{
+        } else {
             inventoryButton.setEnabled(false);
         }
+    }
 
+    private void is_empty_list() {
+        if (sharedTracker.getBoolean("empty list", false)) {
+            showPopup();
+        }
     }
-    //TODO: WISTON THIS IS FOR YOU TO ADD THE POP UP IF THERE IS AN EMPTY LIST, i
-    //ALREADY CHECKED AND IT WORKS YOU JUST NEED TO ADD THE ACTIONS
-    private void is_empty_list(){
-        //IF ITS TRUE THAT IT IS EMPTY
-       if (sharedTracker.getBoolean("empty list", false)){
-           //MAKE POP UP SHOW THAT WAIT 1 WEEK FOR NEXT GOAL
-           //make it vissible
-           System.out.println("Checker: empty list");
-           showPopup();
-       }
-        else{
-           System.out.println("Checker: not empty list");
-       }
-    }
+
     private void showPopup() {
         if (popUpWindow == null) {
             View popUpView = LayoutInflater.from(this).inflate(R.layout.task_completion, null);
             popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
 
             Button taskCompleteClose = popUpView.findViewById(R.id.taskCompletionClose);
-            taskCompleteClose.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    popUpWindow.dismiss();
-                }
-            });
+            taskCompleteClose.setOnClickListener(v -> popUpWindow.dismiss());
 
             popUpWindow.setOnDismissListener(() -> popUpWindow = null);
         }
@@ -261,8 +241,26 @@ public class main_game_page extends AppCompatActivity {
             int x = location[0] + 150;
             int y = location[1] + financialGoalsView.getHeight();
 
-            // Ensure the popup is only shown if the activity is still active
             popUpWindow.showAtLocation(financialGoalsView, Gravity.NO_GRAVITY, x, y);
         }
+    }
+
+    private void updateProgressBar() {
+        if (totalTasks > 0) {
+            int progress = (int) ((completedTasks / (float) totalTasks) * 100);
+            progressBar.setProgress(progress);
+        } else {
+            progressBar.setProgress(0);
+        }
+    }
+
+    private int getCompletedTaskCount(List<Item> items) {
+        int count = 0;
+        for (Item item : items) {
+            if (item.isClaimed()) {
+                count++;
+            }
+        }
+        return count;
     }
 }
