@@ -36,4 +36,11 @@
     <string name="UNLOCK">UNLOCK</string>
     <string name="UnlockableAward">Unlockable Award</string>
     <string name="UnlockableAwardImage">Unlockable Award Image</string>
+    <string name="redarmor"><b>Red Armor</b></string>
+    <string name="redpants"><b>Red Pants</b></string>
+    <string name="redhelmet"><b>Red Helmet</b></string>
+    <string name="lockedReward1Text"><b>Open a CD savings account</b>\nWhat is a CD Savings Account?\nA CD, or Certificate of Deposit, is a type of savings account that lets you earn more interest on your money than a regular savings account. When you open a CD, you agree to keep your money in the account for a specific period, like 6 months, 1 year, or even 5 years. In return, the bank pays you a higher interest rate, so your money grows faster. However, you can not take out the money during that period without paying a penalty. CDs are a safe way to save if you do not need immediate access to your money and want to earn a bit more.</string>
+    <string name="youAreNotReady">You are not ready.</string>
+    <string name="lockedReward2Text"><b>Open a Stock Market Account</b>\nWhat is a Stock Market Account?\nA stock market account, often referred to as a brokerage account, is a financial account that allows individuals to buy, sell, and hold shares of publicly traded companies. It serves as a platform for investors to trade stocks, bonds, exchange-traded funds (ETFs), and other investment products. When you open a stock market account, you can invest your money in the stock market, aiming to grow your wealth over time.</string>
+    <string name="lockedReward3Text"><b>Buy a Real State Property</b>\nWhat is a Real State Property?\nA CD, or Certificate of Deposit, is a type of savings account that lets you earn more interest on your money than a regular savings account. When you open a CD, you agree to keep your money in the account for a specific period, like 6 months, 1 year, or even 5 years. In return, the bank pays you a higher interest rate, so your money grows faster. However, you cannot take out the money during that period without paying a penalty. CDs are a safe way to save if you do not need immediate access to your money and want to earn a bit more.</string>
 </resources>

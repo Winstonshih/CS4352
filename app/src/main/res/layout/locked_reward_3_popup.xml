@@ -2,52 +2,78 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="350dp"
-    android:layout_height="260dp"
-    android:background="#525252"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#454749"
     android:id="@+id/lockedreward3">
+
+    <LinearLayout
+        android:id="@+id/pants"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/red_pants"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <TextView
+        android:id="@+id/lockedReward3Description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#454749"
+        android:text="@string/redpants"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pants"
+        app:layout_constraintEnd_toStartOf="@id/pantsclose"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="32dp"/>
 
     <Button
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:id="@+id/pantsclose"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:backgroundTint="#FF0000"
         android:text="X"
         android:textColor="#FFFFFF"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"/>
 
     <TextView
-        android:id="@+id/upgradedpants2stats"
-        android:layout_width="wrap_content"
+        android:id="@+id/lockedReward3Paragraph"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#454749"
-        android:text="+30 Protection"
+        android:text="@string/lockedReward3Text"
         android:textColor="@color/white"
-        android:textSize="34sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="20sp"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/pants"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
 
-    <LinearLayout
-        android:id="@+id/upgradedpants2"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:background="@drawable/red_pants"
-        android:orientation="vertical"
-        android:padding="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/upgradedpants2stats"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/equipbutton"
-        android:layout_width="152dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="-100dp"
-        android:backgroundTint="@color/shadow_grey"
-        android:text="Equip"
+    <TextView
+        android:id="@+id/notready"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#454749"
+        android:text="@string/youAreNotReady"
         android:textColor="@color/white"
-        android:textSize="30dp"
-        app:layout_constraintStart_toEndOf="@+id/upgradedpants2"
-        app:layout_constraintTop_toBottomOf="@+id/upgradedpants2" />
+        android:textSize="18sp"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/lockedReward3Paragraph"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="0dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
