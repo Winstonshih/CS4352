@@ -18,8 +18,10 @@
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
 
         <ImageButton
@@ -43,8 +45,8 @@
             android:layout_height="71dp"
             android:layout_marginStart="8dp"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
             android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.466"
@@ -52,6 +54,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.219"
             app:srcCompat="@drawable/helmet" />
+
         <ImageView
             android:id="@+id/pants"
             android:layout_width="88dp"
@@ -64,6 +67,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.87"
             app:srcCompat="@drawable/pants" />
+
         <ImageView
             android:id="@+id/chest"
             android:layout_width="116dp"

@@ -182,14 +182,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/shadow_grey"
-                style="@style/Widget.MaterialComponents.Button.TextButton" />
-
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:src="@drawable/baseline_home_24"
-                android:layout_gravity="center"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:enabled="false"
                 />
+
         </FrameLayout>
 
         <Button
