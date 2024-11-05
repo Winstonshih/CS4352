@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#454749"
+    android:background="@color/shadow_grey"
     android:id="@+id/lockedreward1">
 
     <LinearLayout
@@ -53,7 +53,7 @@
         android:id="@+id/lockedReward1Paragraph"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#454749"
+        android:background="@color/shadow_grey"
         android:text="@string/lockedReward1Text"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -67,10 +67,11 @@
         android:id="@+id/notready"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#454749"
+        android:background="@color/shadow_grey"
         android:text="@string/youAreNotReady"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="24sp"
+        android:textStyle="bold"
         android:padding="16dp"
         app:layout_constraintTop_toBottomOf="@+id/lockedReward1Paragraph"
         app:layout_constraintStart_toStartOf="parent"

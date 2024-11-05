@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#454749"
+    android:background="@color/shadow_grey"
     android:id="@+id/lockedreward3">
 
     <LinearLayout
@@ -53,24 +53,26 @@
         android:id="@+id/lockedReward3Paragraph"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#454749"
+        android:layout_marginTop="16dp"
+        android:background="@color/shadow_grey"
+        android:padding="16dp"
         android:text="@string/lockedReward3Text"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:padding="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/pants"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pants" />
 
     <TextView
         android:id="@+id/notready"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#454749"
+        android:background="@color/shadow_grey"
         android:text="@string/youAreNotReady"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="24sp"
+        android:textStyle="bold"
         android:padding="16dp"
         app:layout_constraintTop_toBottomOf="@+id/lockedReward3Paragraph"
         app:layout_constraintStart_toStartOf="parent"

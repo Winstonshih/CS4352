@@ -10,7 +10,10 @@
         android:id="@+id/popup_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Are you sure you completed this task?" />
+        android:text="Are you sure you completed this task?"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
