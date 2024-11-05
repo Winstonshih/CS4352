@@ -30,14 +30,14 @@
         android:padding="8dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/armor"
-        app:layout_constraintEnd_toStartOf="@id/armorclose"
+        app:layout_constraintEnd_toStartOf="@id/armor3close"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="32dp"/>
 
     <Button
         style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:id="@+id/armorclose"
+        android:id="@+id/armor3close"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:backgroundTint="#FF0000"

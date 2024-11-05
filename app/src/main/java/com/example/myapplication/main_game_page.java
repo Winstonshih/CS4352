@@ -15,10 +15,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -32,7 +38,7 @@ public class main_game_page extends AppCompatActivity {
     private SharedPreferences sharedTracker;
     private GamePageViewModel viewModel;
     private MyAdapter adapter;
-
+    private PopupWindow popUpWindow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,15 +46,6 @@ public class main_game_page extends AppCompatActivity {
         setContentView(R.layout.activity_main_game_page);
 
         sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
-//        boolean isFirstRun = sharedTracker.getBoolean("isFirstRun", true);
-//        if (isFirstRun) {
-//            // Initialize sword state to 0 only on first run
-//            SharedPreferences.Editor editor = sharedTracker.edit();
-//            editor.putInt("sword", 0);
-//            editor.putBoolean("isFirstRun", false);
-//            editor.apply();
-//        }
-
         initializeViews();
         viewModel = new ViewModelProvider(this).get(GamePageViewModel.class);
 
@@ -70,7 +67,12 @@ public class main_game_page extends AppCompatActivity {
         setupRecyclerView();
         setupButtons();
         buttonTracker();
-        is_empty_list();
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                is_empty_list();
+//            }
+//        }, 100);
     }
 
     @Override
@@ -78,9 +80,11 @@ public class main_game_page extends AppCompatActivity {
         super.onResume();
         loadEquipment(); // Refresh the equipment UI
         buttonTracker(); // Refresh the button state
-        is_empty_list();//
 
+        // Delay the popup to allow the activity to settle fully
+        new Handler().postDelayed(this::is_empty_list, 100);
     }
+
 
     private void initializeViews() {
         recyclerView = findViewById(R.id.recyclerview);
@@ -226,13 +230,39 @@ public class main_game_page extends AppCompatActivity {
        if (sharedTracker.getBoolean("empty list", false)){
            //MAKE POP UP SHOW THAT WAIT 1 WEEK FOR NEXT GOAL
            //make it vissible
-           System.out.println("Cheker: empty list");
+           System.out.println("Checker: empty list");
+           showPopup();
        }
-       //if it is not empty
         else{
-            //make it invisible the pop up
            System.out.println("Checker: not empty list");
        }
     }
+    private void showPopup() {
+        if (popUpWindow == null) {
+            View popUpView = LayoutInflater.from(this).inflate(R.layout.task_completion, null);
+            popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
 
+            Button taskCompleteClose = popUpView.findViewById(R.id.taskCompletionClose);
+            taskCompleteClose.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    popUpWindow.dismiss();
+                }
+            });
+
+            popUpWindow.setOnDismissListener(() -> popUpWindow = null);
+        }
+
+        if (!popUpWindow.isShowing() && !isFinishing() && !isDestroyed()) {
+            View financialGoalsView = findViewById(R.id.recyclerview);
+            int[] location = new int[2];
+            financialGoalsView.getLocationInWindow(location);
+
+            int x = location[0] + 150;
+            int y = location[1] + financialGoalsView.getHeight();
+
+            // Ensure the popup is only shown if the activity is still active
+            popUpWindow.showAtLocation(financialGoalsView, Gravity.NO_GRAVITY, x, y);
+        }
+    }
 }

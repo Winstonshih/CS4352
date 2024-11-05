@@ -53,6 +53,36 @@ public class rewards_page extends AppCompatActivity {
             Intent intent = new Intent(rewards_page.this, main_game_page.class);
             startActivity(intent);
         });
+        LinearLayout lockedAward1=findViewById(R.id.redArmor);
+        lockedAward1.setOnClickListener(v ->
+        {
+            View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.locked_reward_1_popup, null);
+            PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+            popUpWindow.showAsDropDown(v);
+
+            Button armor3Close = popUpView.findViewById(R.id.armor3close);
+            armor3Close.setOnClickListener(v1 -> popUpWindow.dismiss());
+        });
+        LinearLayout lockedAward2=findViewById(R.id.redHelmet);
+        lockedAward2.setOnClickListener(v ->
+        {
+            View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.locked_reward_2_pop_up, null);
+            PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+            popUpWindow.showAsDropDown(v);
+
+            Button armor3Close = popUpView.findViewById(R.id.helmetclose);
+            armor3Close.setOnClickListener(v1 -> popUpWindow.dismiss());
+        });
+        LinearLayout lockedAward3=findViewById(R.id.redPants);
+        lockedAward3.setOnClickListener(v ->
+        {
+            View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.locked_reward_3_popup, null);
+            PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+            popUpWindow.showAsDropDown(v);
+
+            Button armor3Close = popUpView.findViewById(R.id.pantsclose);
+            armor3Close.setOnClickListener(v1 -> popUpWindow.dismiss());
+        });
     }
 
     private void setUpSword() {
@@ -65,50 +95,28 @@ public class rewards_page extends AppCompatActivity {
         }
 
         rewardButton.setOnClickListener(v -> {
-            SharedPreferences sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
-            int tasksCompleted = sharedTracker.getInt("tasksCompleted", 0);
+            View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.sword_popup, null);
+            PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+            popUpWindow.showAsDropDown(v);
 
-            if (tasksCompleted < 3) {
-                // If tasks are not completed, show a message
-                Toast.makeText(rewards_page.this, "You need to complete " + (3 - tasksCompleted) + " more tasks to unlock the sword!", Toast.LENGTH_SHORT).show();
-            } else {
-                // If tasks are completed, show the popup to equip the sword
-                View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.sword_popup, null);
-                PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-                popUpWindow.showAsDropDown(v);
+            Button swordClose = popUpView.findViewById(R.id.swordclose);
+            swordClose.setOnClickListener(v1 -> popUpWindow.dismiss());
 
-                Button swordClose = popUpView.findViewById(R.id.swordclose);
-                swordClose.setOnClickListener(v1 -> popUpWindow.dismiss());
-
-                Button equipButton = popUpView.findViewById(R.id.equipbutton);
-                equipButton.setOnClickListener(v12 -> {
+            Button equipButton = popUpView.findViewById(R.id.equipbutton);
+            equipButton.setOnClickListener(v12 -> {
                     // Equip the sword
-                    SharedPreferences.Editor editor = sharedTracker.edit();
-                    editor.putInt("sword", 2); // Set sword ID to 2 when equipped
-                    editor.putBoolean("last sword", true);
-                    editor.apply();
-                    popUpWindow.dismiss();
-                    Toast.makeText(rewards_page.this, "Sword equipped!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(rewards_page.this, main_game_page.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(intent);
-                    finish();
-
-                });
-            }
+                SharedPreferences.Editor editor = sharedTracker.edit();
+                editor.putInt("sword", 2); // Set sword ID to 2 when equipped
+                editor.putBoolean("last sword", true);
+                editor.apply();
+                popUpWindow.dismiss();
+                Toast.makeText(rewards_page.this, "Sword equipped!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(rewards_page.this, main_game_page.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
+            });
         });
-    }
-
-    public void incrementTasksCompleted() {
-        int tasksCompleted = sharedTracker.getInt("tasksCompleted", 0);
-        SharedPreferences.Editor editor = sharedTracker.edit();
-        editor.putInt("tasksCompleted", tasksCompleted + 1);
-        editor.apply();
-    }
-
-    // Method to get the current number of completed tasks
-    public int getTasksCompleted() {
-        return sharedTracker.getInt("tasksCompleted", 0);
     }
 
     private  void resetColor(){
@@ -119,5 +127,4 @@ public class rewards_page extends AppCompatActivity {
     }
 
 }
-
 

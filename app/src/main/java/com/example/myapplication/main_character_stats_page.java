@@ -46,7 +46,7 @@ public class main_character_stats_page extends AppCompatActivity {
         rewardsButton.setOnClickListener(view ->
                 startActivity(new Intent(main_character_stats_page.this, rewards_page.class))
         );
-        homeButton.setOnClickListener(view ->{
+        homeButton.setOnClickListener(view -> {
             if (!TRACKER.getBoolean("last tracker2", false)) {
                 SharedPreferences.Editor editor = TRACKER.edit();
                 editor.putBoolean("home color", false);
@@ -57,9 +57,7 @@ public class main_character_stats_page extends AppCompatActivity {
                 editor.apply();
             }
             startActivity(new Intent(main_character_stats_page.this, main_game_page.class));
-                }
-
-        );
+        });
     }
 
     private void updateStats() {
@@ -160,29 +158,25 @@ public class main_character_stats_page extends AppCompatActivity {
             homeButton.setBackgroundColor(getResources().getColor(R.color.shadow_grey));
         }
     }
-    private void lockedButtons(){
+    private void lockedButtons() {
         Button inventoryButton = findViewById(R.id.inventoryButton);
         Button rewardsButton = findViewById(R.id.rewardsButton);
         //if inventory is locked
         if (TRACKER.getBoolean("inventory", false)) {
             inventoryButton.setEnabled(true);
-        }
-        else{
+        } else {
             inventoryButton.setEnabled(false);
         }
         //if rewards is locked
         if (TRACKER.getBoolean("reward", false)) {
             rewardsButton.setEnabled(true);
-            if(TRACKER.getBoolean("reward color", false)){
+            if (TRACKER.getBoolean("reward color", false)) {
                 rewardsButton.setBackgroundColor(getResources().getColor(R.color.dark_green));
-            }
-            else{
+            } else {
                 rewardsButton.setBackgroundColor(getResources().getColor(R.color.shadow_grey));
             }
-        }
-        else{
+        } else {
             rewardsButton.setEnabled(false);
         }
     }
-
 }
