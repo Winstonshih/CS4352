@@ -10,5 +10,6 @@
     <color name="dark_red">#8e0808</color>
     <color name="shadow_grey">#252525</color>
     <color name="custom_red">#FF0000</color> <!-- Bright Red -->
+    <color name="dialog_grey">#252525</color>
 
 </resources>

@@ -103,6 +103,7 @@
             android:backgroundTint="@color/shadow_grey"
             android:text="EDIT INFO"
             android:textSize="18dp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
