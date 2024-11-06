@@ -113,13 +113,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         switch (item.getReward()) {
-            case "Diamond helmet (+10 Protection)":
+            case "Diamond helmet (+30 Protection)":
                 editor.putInt("helmet", 2);
                 break;
-            case "Diamond Armor (+10 Protection)":
+            case "Diamond Armor (+30 Protection)":
                 editor.putInt("chest", 2);
                 break;
-            case "Diamond pants (+10 Protection)":
+            case "Diamond pants (+30 Protection)":
                 editor.putInt("pants", 2);
                 editor.putBoolean("person color", true);
                 editor.putBoolean("person", true);
