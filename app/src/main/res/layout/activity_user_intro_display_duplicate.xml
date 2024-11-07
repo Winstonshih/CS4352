@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainDuplicate"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/grey"
+    tools:context=".User_intro_Display_Duplicate">
+
+    <TextView
+        android:id="@+id/loginTextDuplicate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/usernameDuplicate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User"
+        android:textAlignment="center"
+        android:textColor="@color/purple"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You Make"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:paddingTop="20dp" />
+
+    <TextView
+        android:id="@+id/incomeDuplicate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="numdefault"
+        android:textAlignment="center"
+        android:textColor="@color/dark_green"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:padding="5dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Spend"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/expensesDuplicate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="numdefault"
+        android:textAlignment="center"
+        android:textColor="@color/dark_red"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:padding="5dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/amountDuplicate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="numdefault"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:padding="5sp" />
+
+    <Button
+        android:id="@+id/startButtonDuplicate"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_marginTop="30sp"
+        android:backgroundTint="@color/sky_blue"
+        android:text="Start"
+        android:textSize="18sp"
+        app:cornerRadius="20sp" />
+
+</LinearLayout>

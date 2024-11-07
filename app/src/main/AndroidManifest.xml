@@ -28,13 +28,22 @@
             android:name=".User_intro_Display"
             android:exported="false" />
         <activity
+            android:name=".User_intro_Display_Duplicate"
+            android:exported="false" />
+        <activity
             android:name=".main_game_page"
             android:exported="false" />
         <activity
             android:name=".Input_Subscriptions_Activity"
             android:exported="false" />
         <activity
+            android:name=".Input_Subscriptions_Activity_Duplicate"
+            android:exported="false" />
+        <activity
             android:name=".Input_Info_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Input_Info_Activity_2"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

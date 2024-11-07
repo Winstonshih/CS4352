@@ -142,7 +142,7 @@ public class main_game_page extends AppCompatActivity {
         Button inventoryButton = findViewById(R.id.inventoryButton);
         Button rewardsButton = findViewById(R.id.rewardsButton);
         Button homeButton = findViewById(R.id.homeButton);
-        Button editInfoButton = findViewById(R.id.editmenubutton);
+        Button editmenubutton = findViewById(R.id.editmenubutton);
         inventoryButton.setOnClickListener(view ->
                 startActivity(new Intent(main_game_page.this, inventory_page.class))
         );
@@ -155,9 +155,10 @@ public class main_game_page extends AppCompatActivity {
         personImage.setOnClickListener(view ->
                 startActivity(new Intent(main_game_page.this, main_character_stats_page.class))
         );
-        editInfoButton.setOnClickListener(view ->
-                startActivity(new Intent(main_game_page.this, Input_Info_Activity.class))
+        editmenubutton.setOnClickListener(view ->
+                startActivity(new Intent(main_game_page.this, Input_Info_Activity_2.class))
         );
+
 
     }
 

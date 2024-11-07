@@ -157,18 +157,13 @@ public class User_intro_Display extends AppCompatActivity {
 
         //now that all the text and such has been updated we just wait for them to start
         startButton.setOnClickListener(new View.OnClickListener() {
-                                           @Override
-                                           public void onClick(View v) {
-                                               //when they click the button we move to the next activity
-                                               Intent intent = new Intent(User_intro_Display.this, main_game_page.class);
-                                               startActivity(intent);
-                                           }
-                                       }
+            @Override
+            public void onClick(View v) {
+                //when they click the button we move to the next activity
+                Intent intent = new Intent(User_intro_Display.this, main_game_page.class);
+                startActivity(intent);
+            }
+        }
         );
     }
-
-
-
-
-
 }
