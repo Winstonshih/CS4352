@@ -6,32 +6,35 @@
     android:layout_marginTop="10dp"
     android:background="@drawable/black_round_box"
     xmlns:tools="http://schemas.android.com/tools">
+
     <ImageView
+        android:id="@+id/imageview"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:id="@+id/imageview"
-        android:layout_marginRight="10dp"
-        android:layout_centerVertical="true"
-        />
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"/>
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/task"
-        android:textColor="@color/white"
-        android:textStyle="bold"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
         android:layout_toEndOf="@id/imageview"
-        android:textSize="20dp"
-        tools:text="Task"/>
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        tools:text="Task" />
 
     <TextView
         android:id="@+id/reward"
-        tools:text="Reward"
-        android:layout_width="match_parent"
+        android:layout_width="337dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:layout_below="@id/task"
+        android:layout_marginStart="26dp"
         android:layout_toEndOf="@id/imageview"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        android:layout_below="@id/task"/>
+        tools:text="Reward" />
 
     <Button
         android:id="@+id/claim"
@@ -52,6 +55,5 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_below="@id/imageview"
-        android:layout_marginTop="10dp"
          />
 </RelativeLayout>
