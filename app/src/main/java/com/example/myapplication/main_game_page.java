@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,12 +34,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class main_game_page extends AppCompatActivity {
     private ImageButton personImage;
-    private ImageView helmet, chest, pants, sword;
+    private ImageView helmet, chest, pants, sword, arrow;
+    private RelativeLayout relativeLayout;
     private RecyclerView recyclerView;
     private SharedPreferences sharedTracker;
     private GamePageViewModel viewModel;
     private MyAdapter adapter;
-    private PopupWindow popUpWindow;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -177,16 +179,18 @@ public class main_game_page extends AppCompatActivity {
         Button rewardButton = findViewById(R.id.rewardsButton);
         Button inventoryButton = findViewById(R.id.inventoryButton);
         personImage = findViewById(R.id.personImage);
+        arrow = findViewById(R.id.arrrow);
         //check if the person is unlocked
         if(sharedTracker.getBoolean("person", false)){
             personImage.setEnabled(true);
             if(sharedTracker.getBoolean("person color", false)){
                 //if its true then dark green
-                personImage.setBackgroundColor(getResources().getColor(R.color.dark_green));
+
+                arrow.setVisibility(View.VISIBLE);
             }
             else{
                 //set back to the original
-                personImage.setBackgroundColor(Color.TRANSPARENT);
+                arrow.setVisibility(View.INVISIBLE);
             }
         }
         else{
@@ -227,43 +231,21 @@ public class main_game_page extends AppCompatActivity {
     //TODO: WISTON THIS IS FOR YOU TO ADD THE POP UP IF THERE IS AN EMPTY LIST, i
     //ALREADY CHECKED AND IT WORKS YOU JUST NEED TO ADD THE ACTIONS
     private void is_empty_list(){
+        //set the relative layout to gone
+        relativeLayout = findViewById(R.id.relativeLayout);
+
         //IF ITS TRUE THAT IT IS EMPTY
         if (sharedTracker.getBoolean("empty list", false)){
             //MAKE POP UP SHOW THAT WAIT 1 WEEK FOR NEXT GOAL
             //make it vissible
             System.out.println("Checker: empty list");
-            showPopup();
+            relativeLayout.setVisibility(View.VISIBLE);
         }
         else{
             System.out.println("Checker: not empty list");
+            //so it is gone first
+            relativeLayout.setVisibility(View.GONE);
         }
     }
-    private void showPopup() {
-        if (popUpWindow == null) {
-            View popUpView = LayoutInflater.from(this).inflate(R.layout.task_completion, null);
-            popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
 
-            Button taskCompleteClose = popUpView.findViewById(R.id.taskCompletionClose);
-            taskCompleteClose.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    popUpWindow.dismiss();
-                }
-            });
-
-            popUpWindow.setOnDismissListener(() -> popUpWindow = null);
-        }
-
-        if (!popUpWindow.isShowing() && !isFinishing() && !isDestroyed()) {
-            View financialGoalsView = findViewById(R.id.recyclerview);
-            int[] location = new int[2];
-            financialGoalsView.getLocationInWindow(location);
-
-            int x = location[0] + 150;
-            int y = location[1] + financialGoalsView.getHeight();
-
-            // Ensure the popup is only shown if the activity is still active
-            popUpWindow.showAtLocation(financialGoalsView, Gravity.NO_GRAVITY, x, y);
-        }
-    }
 }

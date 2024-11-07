@@ -13,6 +13,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="410dp"
         android:layout_height="281dp"
         android:layout_marginBottom="1dp"
@@ -109,6 +110,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
+        <ImageView
+            android:id="@+id/arrrow"
+            android:layout_width="118dp"
+            android:layout_height="95dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/chest"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/arrow"
+            android:visibility="invisible"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -119,6 +131,7 @@
         android:layout_marginBottom="92dp"
         android:background="@drawable/dirt_background"
         android:orientation="vertical"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -127,12 +140,12 @@
             android:id="@+id/goalsText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:shadowColor="@color/black"
+            android:shadowRadius="30"
             android:text="Financial Goals "
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="36dp"
-            android:shadowColor="@color/black"
-            android:shadowRadius="30"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -143,6 +156,7 @@
             android:layout_marginTop="10dp"
             android:nestedScrollingEnabled="true"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -207,7 +221,29 @@
 
 
     </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="409dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:background="@drawable/black_round_box"
+        >
+        <TextView
+            android:id="@+id/centeredText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wait One Week For Your Next Tasks"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:gravity="center" />
 
 
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
