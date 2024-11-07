@@ -32,7 +32,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Input_Info_Activity extends AppCompatActivity {
     EditText Income;
     EditText food;
-    EditText mortage;
+    EditText mortgage;
     EditText waterBill;
     EditText electricBill;
     EditText gasBill;
@@ -46,7 +46,7 @@ public class Input_Info_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_input_info);
         Income = findViewById(R.id.Income);
         food = findViewById(R.id.food);
-        mortage = findViewById(R.id.mortage);
+        mortgage = findViewById(R.id.mortgage);
         waterBill = findViewById(R.id.waterBill);
         electricBill= findViewById(R.id.electricBill);
         gasBill = findViewById(R.id.gasBill);
@@ -70,7 +70,7 @@ public class Input_Info_Activity extends AppCompatActivity {
                 if (
                         Income.getText().toString().isEmpty() ||
                                 food.getText().toString().isEmpty() ||
-                                mortage.getText().toString().isEmpty() ||
+                                mortgage.getText().toString().isEmpty() ||
                                 waterBill.getText().toString().isEmpty() ||
                                 electricBill.getText().toString().isEmpty() ||
                                 gasBill.getText().toString().isEmpty() ||
@@ -84,7 +84,7 @@ public class Input_Info_Activity extends AppCompatActivity {
                     //save them in our preference
                     moneyTrackerEditor.putLong("income", Long.parseLong(Income.getText().toString()));
                     moneyTrackerEditor.putLong("food", Long.parseLong(food.getText().toString()));
-                    moneyTrackerEditor.putLong("mortage", Long.parseLong(mortage.getText().toString()));
+                    moneyTrackerEditor.putLong("mortgage", Long.parseLong(mortgage.getText().toString()));
                     moneyTrackerEditor.putLong("waterBill", Long.parseLong(waterBill.getText().toString()));
                     moneyTrackerEditor.putLong("electricBill", Long.parseLong(electricBill.getText().toString()));
                     moneyTrackerEditor.putLong("gasBill", Long.parseLong(gasBill.getText().toString()));
