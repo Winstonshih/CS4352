@@ -13,7 +13,6 @@
         android:gravity="center_horizontal"
         android:padding="16dp">
 
-        <!-- Title Text -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,7 +30,6 @@
             android:shadowRadius="3"
             android:layout_gravity="center_horizontal" />
 
-        <!-- Subtitle Text -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +68,6 @@
                 android:textSize="16sp"
                 android:fontFamily="sans-serif" />
 
-            <!-- Subscription Amount Input -->
             <EditText
                 android:id="@+id/sub_amount"
                 android:layout_width="match_parent"
@@ -86,7 +83,7 @@
                 android:textSize="16sp"
                 android:fontFamily="sans-serif" />
 
-            <!-- Additional Subscription Fields -->
+
             <EditText
                 android:id="@+id/sub_name_2"
                 android:layout_width="match_parent"
@@ -149,7 +146,7 @@
 
         </LinearLayout>
 
-        <!-- Add More Button -->
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/addMore"
             android:layout_width="match_parent"
@@ -163,7 +160,7 @@
             android:elevation="4dp"
             android:paddingVertical="10dp" />
 
-        <!-- Submit Button -->
+
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"

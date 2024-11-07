@@ -46,7 +46,7 @@ public class Input_Info_Activity_2 extends AppCompatActivity {
         setContentView(R.layout.activity_input_info2);
         Income_2 = findViewById(R.id.Income_2);
         food_2 = findViewById(R.id.food_2);
-        mortage_2 = findViewById(R.id.mortage_2);
+        mortage_2 = findViewById(R.id.mortgage_2);
         waterBill_2 = findViewById(R.id.waterBill_2);
         electricBill_2 = findViewById(R.id.electricBill_2);
         gasBill_2 = findViewById(R.id.gasBill_2);

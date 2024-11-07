@@ -6,138 +6,171 @@
     android:id="@+id/main_2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     android:background="@color/grey"
-    tools:context=".Input_Info_Activity_2">
+    android:padding="16dp"
+    tools:context=".Input_Info_Activity">
 
     <TextView
-        android:id="@+id/financialInfoText_2"
+        android:id="@+id/titleText_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginRight="10dp"
-        android:padding="10dp"
+        android:layout_gravity="center_horizontal"
+        android:padding="12dp"
         android:text="Financial Information"
-        android:textSize="35dp"
-        android:textStyle="bold" />
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.05"
+        android:shadowColor="@color/grey"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"
+        android:layout_marginBottom="16dp" />
 
     <EditText
         android:id="@+id/Income_2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/baseline_attach_money_24"
-        android:drawablePadding="8dp"
+        android:drawablePadding="12dp"
         android:hint="Monthly Income"
-        android:padding="8dp"
+        android:padding="12dp"
         android:inputType="number"
         android:textColor="@color/black"
-        android:textColorHighlight="@color/cardview_dark_background" />
+        android:textSize="16sp"
+        android:fontFamily="sans-serif"
+        android:shadowColor="@color/grey"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2" />
 
     <TextView
         android:id="@+id/Expense_Text_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginRight="10dp"
-        android:padding="5dp"
+        android:layout_gravity="center_horizontal"
+        android:padding="8dp"
         android:text="Monthly Expenses"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:letterSpacing="0.05"
+        android:shadowColor="@color/grey"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp" />
 
     <EditText
         android:id="@+id/food_2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/baseline_control_point_24"
-        android:drawablePadding="8dp"
+        android:drawablePadding="12dp"
         android:hint="Food"
-        android:padding="8dp"
-        android:textColor="@color/black"
+        android:padding="12dp"
         android:inputType="number"
-        android:textColorHighlight="@color/cardview_dark_background" />
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif" />
 
     <EditText
-        android:id="@+id/mortage_2"
+        android:id="@+id/mortgage_2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/baseline_control_point_24"
-        android:drawablePadding="8dp"
+        android:drawablePadding="12dp"
         android:hint="Mortgage / Rent"
-        android:padding="8dp"
-        android:textColor="@color/black"
+        android:padding="12dp"
         android:inputType="number"
-        android:textColorHighlight="@color/cardview_dark_background" />
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif" />
 
     <EditText
         android:id="@+id/waterBill_2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/baseline_control_point_24"
-        android:drawablePadding="8dp"
+        android:drawablePadding="12dp"
         android:hint="Water Bill"
-        android:padding="8dp"
-        android:textColor="@color/black"
+        android:padding="12dp"
         android:inputType="number"
-        android:textColorHighlight="@color/cardview_dark_background" />
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif" />
 
     <EditText
         android:id="@+id/electricBill_2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/baseline_control_point_24"
-        android:drawablePadding="8dp"
+        android:drawablePadding="12dp"
         android:hint="Electric Bill"
-        android:padding="8dp"
-        android:textColor="@color/black"
+        android:padding="12dp"
         android:inputType="number"
-        android:textColorHighlight="@color/cardview_dark_background" />
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif" />
 
     <EditText
         android:id="@+id/gasBill_2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/baseline_control_point_24"
-        android:drawablePadding="8dp"
+        android:drawablePadding="12dp"
         android:hint="Gas Bill"
-        android:padding="8dp"
-        android:textColor="@color/black"
+        android:padding="12dp"
         android:inputType="number"
-        android:textColorHighlight="@color/cardview_dark_background" />
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif" />
 
     <EditText
         android:id="@+id/internetBill_2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/custom_edittext"
         android:drawableLeft="@drawable/baseline_control_point_24"
-        android:drawablePadding="8dp"
+        android:drawablePadding="12dp"
         android:hint="Internet Bill"
-        android:padding="8dp"
-        android:textColor="@color/black"
+        android:padding="12dp"
         android:inputType="number"
-        android:textColorHighlight="@color/cardview_dark_background" />
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif" />
 
     <Button
         android:id="@+id/nextButton_2"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/sky_blue"
         android:text="Next"
         android:textSize="20sp"
-        app:cornerRadius="20dp" />
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/white"
+        app:cornerRadius="30dp"
+        android:elevation="4dp"
+        android:paddingVertical="10dp"
+        android:layout_gravity="center" />
 
 </LinearLayout>
