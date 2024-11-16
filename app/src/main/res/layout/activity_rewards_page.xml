@@ -469,7 +469,7 @@
             android:src="@drawable/baseline_home_24"
             android:layout_gravity="center"
             app:tint="@color/white"
-            android:contentDescription="@string/UnlockableAwardImage"/>
+            android:contentDescription="@string/home_logo_icon"/>
     </FrameLayout>
 
 

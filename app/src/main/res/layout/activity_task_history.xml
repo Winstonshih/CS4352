@@ -137,12 +137,12 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/goalsText"
+            android:id="@+id/historyText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:shadowColor="@color/black"
             android:shadowRadius="30"
-            android:text="Financial Goals "
+            android:text="Task History "
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="36dp"
@@ -198,8 +198,15 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/shadow_grey"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:enabled="false"
+                android:enabled="true"
                 />
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/baseline_home_24"
+                android:layout_gravity="center"
+                app:tint="@color/white"
+                android:contentDescription="@string/home_logo_icon"/>
 
         </FrameLayout>
 
