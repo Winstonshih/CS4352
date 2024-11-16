@@ -69,12 +69,6 @@ public class main_game_page extends AppCompatActivity {
         setupRecyclerView();
         setupButtons();
         buttonTracker();
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                is_empty_list();
-//            }
-//        }, 100);
     }
 
     @Override
@@ -228,8 +222,6 @@ public class main_game_page extends AppCompatActivity {
         }
 
     }
-    //TODO: WISTON THIS IS FOR YOU TO ADD THE POP UP IF THERE IS AN EMPTY LIST, i
-    //ALREADY CHECKED AND IT WORKS YOU JUST NEED TO ADD THE ACTIONS
     private void is_empty_list(){
         //set the relative layout to gone
         relativeLayout = findViewById(R.id.relativeLayout);
@@ -237,7 +229,7 @@ public class main_game_page extends AppCompatActivity {
         //IF ITS TRUE THAT IT IS EMPTY
         if (sharedTracker.getBoolean("empty list", false)){
             //MAKE POP UP SHOW THAT WAIT 1 WEEK FOR NEXT GOAL
-            //make it vissible
+            //make it visible
             System.out.println("Checker: empty list");
             relativeLayout.setVisibility(View.VISIBLE);
         }
