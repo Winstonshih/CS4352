@@ -149,6 +149,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
     public int getItemCount () {
         return items.size();
     }
+    public void updateItems(List<Item> newItems) {
+        this.items = newItems;
+        notifyDataSetChanged();
+    }
 }
 
 

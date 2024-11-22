@@ -56,7 +56,7 @@ public class main_game_page extends AppCompatActivity {
                 adapter = new MyAdapter(this, items);
                 recyclerView.setAdapter(adapter);
             } else {
-                adapter.notifyDataSetChanged();
+                adapter.updateItems(items);
             }
             if(items.isEmpty()){
                 System.out.println("empty");
@@ -137,7 +137,7 @@ public class main_game_page extends AppCompatActivity {
     private void setupButtons() {
         Button inventoryButton = findViewById(R.id.inventoryButton);
         Button rewardsButton = findViewById(R.id.rewardsButton);
-        Button homeButton = findViewById(R.id.homeButton);
+        Button taskHistoryButton = findViewById(R.id.taskHistory);
         Button editmenubutton = findViewById(R.id.editmenubutton);
         inventoryButton.setOnClickListener(view ->
                 startActivity(new Intent(main_game_page.this, inventory_page.class))
@@ -145,8 +145,8 @@ public class main_game_page extends AppCompatActivity {
         rewardsButton.setOnClickListener(view ->
                 startActivity(new Intent(main_game_page.this, rewards_page.class))
         );
-        homeButton.setOnClickListener(view ->
-                startActivity(new Intent(main_game_page.this, main_game_page.class))
+        taskHistoryButton.setOnClickListener(view ->
+                startActivity(new Intent(main_game_page.this, TaskHistory.class))
         );
         personImage.setOnClickListener(view ->
                 startActivity(new Intent(main_game_page.this, main_character_stats_page.class))

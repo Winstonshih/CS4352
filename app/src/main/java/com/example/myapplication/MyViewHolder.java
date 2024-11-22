@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MyViewHolder extends RecyclerView.ViewHolder {
     TextView taskView;
     TextView rewardView;
-    ImageView imageView, pantsImage2, helmetImage2, armorImage2;
+    ImageView imageView;
     Button claim;
     public MyViewHolder(View itemView) {
         super(itemView);

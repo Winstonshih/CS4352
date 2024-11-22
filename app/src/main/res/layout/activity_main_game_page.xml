@@ -193,12 +193,13 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
-                android:id="@+id/homeButton"
+                android:id="@+id/taskHistory"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="@color/shadow_grey"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:enabled="false"
+                android:text="TASK HISTORY"
+                android:textColor="@color/white"
                 />
 
         </FrameLayout>
