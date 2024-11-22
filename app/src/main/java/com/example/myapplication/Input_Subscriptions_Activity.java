@@ -25,6 +25,8 @@ public class Input_Subscriptions_Activity extends AppCompatActivity {
 
         // Initialize SharedPreferences
         subscriptionPreferences = getSharedPreferences("subscription_data", MODE_PRIVATE);
+        //reset the preferences
+        subscriptionPreferences.edit().clear().apply();
 
         // Bind UI elements
         sub_name = findViewById(R.id.sub_name);
@@ -59,10 +61,10 @@ public class Input_Subscriptions_Activity extends AppCompatActivity {
             goToNextActivity();
         }
         //check if the fist is filled then gotoNextActivity
-        else if(isValid1 == 1  && isValid2 != 0 && isValid3 != 0){
+        else if(isValid1 == 1  && (isValid2 == 2 || isValid2 != 0) && (isValid3 == 2 || isValid3 != 0)){
             goToNextActivity();
         }
-        else if(isValid1 == 1  && isValid2 == 1 && isValid3 != 0){
+        else if(isValid1 == 1  && isValid2 == 1 && (isValid3 == 2 || isValid3 != 0)){
             goToNextActivity();
         }
         else if(isValid1 == 1  && isValid2 == 1 && isValid3 == 1){
@@ -96,7 +98,7 @@ public class Input_Subscriptions_Activity extends AppCompatActivity {
         }
 
         // Both fields are empty
-        return 0;
+        return 2;
     }
 
     private boolean allFieldsEmpty() {

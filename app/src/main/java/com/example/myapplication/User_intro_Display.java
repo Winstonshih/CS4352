@@ -22,6 +22,8 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.Services.userIntroServices;
+
 import java.util.Map;
 
 public class User_intro_Display extends AppCompatActivity {
@@ -29,6 +31,7 @@ public class User_intro_Display extends AppCompatActivity {
     TextView income;
     TextView expenses;
     TextView amount;
+    TextView username;
     Button startButton;
 
 
@@ -41,6 +44,7 @@ public class User_intro_Display extends AppCompatActivity {
         income = findViewById(R.id.income);
         expenses = findViewById(R.id.expenses);
         amount = findViewById(R.id.amount);
+        username = findViewById(R.id.username);
         startButton = findViewById(R.id.startButton);
 
         //new sharable that is going to track the things that we have equped to track
@@ -83,76 +87,28 @@ public class User_intro_Display extends AppCompatActivity {
         SharedPreferences.Editor listEditor = sharedList.edit();
         listEditor.clear();
         listEditor.apply();
+        //dont touch anything after this
 
+        userIntroServices services = new userIntroServices(this);
+        Long incomeCalculated = services.getIncome();
+        Long expensesCalculated = services.getExpenses();
+        Long amountSaved = services.getAmountSaved();
+        String usernameReceived = services.getUsername();
+        username.setText(usernameReceived);
+        income.setText("$ " + String.valueOf(incomeCalculated));
+        expenses.setText("$ " + String.valueOf(expensesCalculated));
 
-        //update the page with the current information we have stored
-        //first access shared preference (always inside On Create to prevent issues)
-        SharedPreferences sharedPreferences = getSharedPreferences("money_tracker", MODE_PRIVATE);
-        SharedPreferences.Editor moneyEditor = sharedPreferences.edit();
-        SharedPreferences preferences = getSharedPreferences("subscriptions", MODE_PRIVATE);
-        SharedPreferences.Editor editor_s = preferences.edit();
-
-        //to get all expenses
-        Map<String, ?> money_tracker = sharedPreferences.getAll();
-        Map<String, ?> subscriptions = preferences.getAll();
-        //update the income and expenses
-        long income_have = sharedPreferences.getLong("income",0);
-        //income
-        income.setText("$ " + String.valueOf(income_have));
-        //loop for expenses
-        long total = 0; // Initialize total as long
-
-        // Loop through the money tracker
-        for (Map.Entry<String, ?> entry : money_tracker.entrySet()) {
-            String key = entry.getKey();
-            Object value = entry.getValue();
-
-            // Check if the key does not contain "income"
-            if (!key.toLowerCase().contains("income")) {
-                System.out.println("Key: " + key + ", Value: " + value);
-                // Check if the value is an Integer
-                if (value instanceof Integer) {
-                    total += (Integer) value; // Add the integer value to total
-                }
-                // Check if the value is a Long
-                else if (value instanceof Long) {
-                    total += (Long) value; // Add the long value to total
-                }
-            }
-        }
-        //loop thorugh subscriptions
-        for (Map.Entry<String, ?> entry : subscriptions.entrySet()) {
-            String key = entry.getKey();
-            Object value = entry.getValue();
-
-            // Check if the key does not contain "income"
-            if (!key.toLowerCase().contains("income")) {
-                System.out.println("Key: " + key + ", Value: " + value);
-                // Check if the value is an Integer
-                if (value instanceof Integer) {
-                    total += (Integer) value; // Add the integer value to total
-                }
-                // Check if the value is a Long
-                else if (value instanceof Long) {
-                    total += (Long) value; // Add the long value to total
-                }
-            }
-        }
-        //expensense
-        expenses.setText("$ " + String.valueOf(total));
-        //have an equation
-        long amount_saved = income_have - total;
-        if(amount_saved > 0){
+        if(amountSaved > 0){
             amount.setTextColor(getResources().getColor(R.color.dark_green));
-            amount.setText("$ " + String.valueOf(amount_saved));
+            amount.setText("$ " + String.valueOf(amountSaved));
         }
-        else if (amount_saved < 0){
+        else if (amountSaved < 0){
             amount.setTextColor(getResources().getColor(R.color.dark_red));
-            amount.setText("$ " + String.valueOf(amount_saved));
+            amount.setText("$ " + String.valueOf(amountSaved));
 
         }
         else{
-            amount.setText("$ " + String.valueOf(amount_saved));
+            amount.setText("$ " + String.valueOf(amountSaved));
         }
 
         //now that all the text and such has been updated we just wait for them to start
