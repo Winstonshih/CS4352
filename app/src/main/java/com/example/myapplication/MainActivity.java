@@ -1,6 +1,7 @@
 /* Ruben Rodriguez
-* rar180001
-* Completed*/
+ * rar180001
+ * Completed
+ */
 
 /*
   MainActivity.java
@@ -10,61 +11,87 @@
   Upon successful login, users are directed to `Input_Info_Activity` to continue. A sign-up button is also provided, allowing
   users to navigate to a separate `SignUp` activity to set up new credentials. The activity utilizes `Toast` messages to
   provide immediate feedback on login success or failure, enhancing the user experience with clear guidance.
-
- */
+*/
 
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class  MainActivity extends AppCompatActivity {
-    // these is our user and password that is already set
-EditText username;
-EditText password;
-Button loginButton, signUpButton;
+public class MainActivity extends AppCompatActivity {
+
+    // UI elements
+    private EditText username, password;
+    private Button loginButton, signUpButton;
+
+    // SharedPreferences for user data
+    private SharedPreferences userPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        //set the content that we are receiving from the user
-        setContentView(R.layout.activity_main);
-        username=findViewById(R.id.username);
-        password=findViewById(R.id.password);
-        loginButton=findViewById(R.id.loginButton);
-        //when they click the button
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //if the username and password is correct
-                if (username.getText().toString().equals("user") && password.getText().toString().equals("1234")) {
-                    Toast.makeText(MainActivity.this, "Log in Successful!", Toast.LENGTH_SHORT).show();
-                    //go to the next page or activity
-                    Intent intent=new Intent(MainActivity.this,Input_Info_Activity.class);
-                    startActivity(intent);
-                    //there we go to the next page or better know as activity Input_Info_Activity
-                } else {
-                    //if the username and password is incorrect
 
-                    Toast.makeText(MainActivity.this, "Log in Failed!", Toast.LENGTH_SHORT).show();
-                }
+        // Set the layout for this activity
+        setContentView(R.layout.activity_main);
+
+        // Initialize SharedPreferences
+        userPreferences = getSharedPreferences("user", MODE_PRIVATE);
+
+        // Retrieve stored user data (or use defaults)
+        String storedUsername = userPreferences.getString("username", "user");
+        String storedPassword = userPreferences.getString("password", "1234");
+
+        // Bind UI elements
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
+        loginButton = findViewById(R.id.loginButton);
+        signUpButton = findViewById(R.id.signupButton);
+
+        // Set up button click listeners
+        loginButton.setOnClickListener(v -> {
+            String enteredUsername = username.getText().toString();
+            String enteredPassword = password.getText().toString();
+
+            // Validate login credentials
+            if (enteredUsername.equals(storedUsername) && enteredPassword.equals(storedPassword)) {
+                Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
+                login();
+            } else {
+                Toast.makeText(this, "Invalid username or password!", Toast.LENGTH_SHORT).show();
             }
         });
-        signUpButton=findViewById(R.id.signupButton);
-        signUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                Intent i=new Intent(MainActivity.this, SignUp.class);
-                startActivity(i);
-                Toast.makeText(MainActivity.this, "Set up your username and password!", Toast.LENGTH_SHORT).show();
-            }
+
+        signUpButton.setOnClickListener(v -> {
+            // Navigate to SignUp activity
+            Intent intent = new Intent(this, SignUp.class);
+            startActivity(intent);
         });
+    }
+
+    private void login() {
+        // Update SharedPreferences to mark the user as logged in
+        Boolean isLoggedIn = userPreferences.getBoolean("isLoggedIn", false);
+        if (isLoggedIn) {
+            //if they have loged ind inputed their information, then go to the main game page
+            Intent intent = new Intent(this, main_game_page.class);
+            startActivity(intent);
+            finish();
+        }
+        else{
+            // Navigate to the next activity
+            Intent intent = new Intent(this, Input_Info_Activity.class);
+            startActivity(intent);
+
+            // Optionally finish the current activity
+            finish();
+
+        }
+
     }
 }

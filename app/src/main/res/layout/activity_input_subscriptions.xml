@@ -148,12 +148,12 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/addMore"
+            android:id="@+id/back"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/sky_blue"
-            android:text="Add More"
+            android:backgroundTint="@color/dark_red"
+            android:text="Back"
             android:textSize="18sp"
             android:textColor="@color/white"
             app:cornerRadius="30dp"

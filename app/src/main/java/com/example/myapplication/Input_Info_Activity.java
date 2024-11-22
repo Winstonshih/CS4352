@@ -62,7 +62,7 @@ public class Input_Info_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 //actions that are going to happen when they click the next button
-                reset();
+               // reset();
                 //test
                /*int test = parseInt(Income.getText().toString());
                System.out.println(test);*/

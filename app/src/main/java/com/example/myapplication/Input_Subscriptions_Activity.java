@@ -1,53 +1,32 @@
-/*
-  Input_Subscriptions_Activity.java
-
-  This activity allows users to enter information for multiple subscriptions, such as subscription names and monthly amounts,
-  and stores this data using SharedPreferences for persistence. The activity includes three default subscription fields and
-  allows users to dynamically add more fields if needed. A "Submit" button saves all entered subscriptions and navigates
-  the user to the next activity, while an "Add More" button lets users add extra subscription entries. Validation ensures
-  that at least one subscription is completed before proceeding, enhancing user data input flexibility and persistence across sessions.
-
- */
-
-
 package com.example.myapplication;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.myapplication.databinding.ActivityInputSubscriptionsBinding;
-
-import java.util.Map;
 
 public class Input_Subscriptions_Activity extends AppCompatActivity {
 
-    EditText sub_name, sub_amount, sub_name_2, sub_amount_2, sub_name_3, sub_amount_3;
-    Button submit, addMore;
+    private EditText sub_name, sub_amount, sub_name_2, sub_amount_2, sub_name_3, sub_amount_3;
+    private Button submit, back;
 
-    LinearLayout subscriptionContainer;
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
-    private ActivityInputSubscriptionsBinding binding;
+    private SharedPreferences subscriptionPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
 
-        // Set the layout using setContentView
+        // Set the layout for this activity
         setContentView(R.layout.activity_input_subscriptions);
 
-        // Initialize EditText and Button views using findViewById()
+        // Initialize SharedPreferences
+        subscriptionPreferences = getSharedPreferences("subscription_data", MODE_PRIVATE);
+
+        // Bind UI elements
         sub_name = findViewById(R.id.sub_name);
         sub_amount = findViewById(R.id.sub_amount);
         sub_name_2 = findViewById(R.id.sub_name_2);
@@ -55,77 +34,82 @@ public class Input_Subscriptions_Activity extends AppCompatActivity {
         sub_name_3 = findViewById(R.id.sub_name_3);
         sub_amount_3 = findViewById(R.id.sub_amount_3);
         submit = findViewById(R.id.submit);
-        addMore = findViewById(R.id.addMore);
-        subscriptionContainer = findViewById(R.id.subscriptionContainer);
+        back = findViewById(R.id.back);
 
-        // Initialize shared preferences
-        sharedPreferences = getSharedPreferences("subscriptions", MODE_PRIVATE);
-        editor = sharedPreferences.edit();
-        editor.clear();
+        // Set up the submit button
+        submit.setOnClickListener(view -> processSubscriptions());
 
-        // Set submit button click listener
-        submit.setOnClickListener(view -> handleSubmit());
-
-        // Initialize View Binding for dynamic view addition
-        binding = ActivityInputSubscriptionsBinding.inflate(getLayoutInflater());
-
-        // Set addMore button click listener using View Binding for dynamic subscription
-        addMore.setOnClickListener(view -> addMoreSub());
+        // Set up the back button
+        back.setOnClickListener(view -> finish()); // Navigate back to the previous activity
     }
 
-    private void handleSubmit() {
-        // Get the name and amount
-        String name;
-        Long amount;
-        boolean completed = false;
-        int allCompleted = 0;
+    private void processSubscriptions() {
+        boolean hasValidEntry = false;
 
-        // Check if the first subscription is filled
-        if (!sub_name.getText().toString().isEmpty() && !sub_amount.getText().toString().isEmpty()) {
-            name = sub_name.getText().toString();
-            amount = Long.parseLong(sub_amount.getText().toString());
-            editor.putLong(name, amount);
-            completed = true;
-            allCompleted++;
+        // Validate each subscription
+        int isValid1 = validateAndSave(sub_name, sub_amount);
+        int isValid2 = validateAndSave(sub_name_2, sub_amount_2);
+        int isValid3 = validateAndSave(sub_name_3, sub_amount_3);
+
+        // Check if all fields are empty
+        if (allFieldsEmpty()) {
+            // Clear SharedPreferences
+            subscriptionPreferences.edit().clear().apply();
+            Toast.makeText(this, "No subscriptions added. Proceeding without subscriptions.", Toast.LENGTH_SHORT).show();
+            goToNextActivity();
         }
-        // Similarly check for other subscriptions
-        if (!sub_name_2.getText().toString().isEmpty() && !sub_amount_2.getText().toString().isEmpty()) {
-            name = sub_name_2.getText().toString();
-            amount = Long.parseLong(sub_amount_2.getText().toString());
-            editor.putLong(name, amount);
-            completed = true;
-            allCompleted++;
+        //check if the fist is filled then gotoNextActivity
+        else if(isValid1 == 1  && isValid2 != 0 && isValid3 != 0){
+            goToNextActivity();
         }
-        if (!sub_name_3.getText().toString().isEmpty() && !sub_amount_3.getText().toString().isEmpty()) {
-            name = sub_name_3.getText().toString();
-            amount = Long.parseLong(sub_amount_3.getText().toString());
-            editor.putLong(name, amount);
-            completed = true;
-            allCompleted++;
+        else if(isValid1 == 1  && isValid2 == 1 && isValid3 != 0){
+            goToNextActivity();
+        }
+        else if(isValid1 == 1  && isValid2 == 1 && isValid3 == 1){
+            goToNextActivity();
         }
 
-        // Apply the changes if at least one subscription is completed
-        if (completed) {
-            editor.apply();
-            // Log the saved subscriptions for debugging purposes
-            Map<String, ?> allEntries = sharedPreferences.getAll();
-            for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-                System.out.println(entry.getKey() + ": " + entry.getValue());
-            }
 
-            // Proceed to the next activity
-            Intent intent = new Intent(Input_Subscriptions_Activity.this, User_intro_Display.class);
-            startActivity(intent);
-        } else {
-            // Show a toast message if no subscriptions are filled
-            Toast.makeText(this, "Please fill in at least one subscription", Toast.LENGTH_LONG).show();
-        }
     }
 
-    private void addMoreSub() {
-        // Inflate the additional subscription layout and add it to the container
-        LayoutInflater inflater = LayoutInflater.from(this);
-        View view = inflater.inflate(R.layout.add_subscription, null);
-        subscriptionContainer.addView(view);
+    private int validateAndSave(EditText nameField, EditText amountField) {
+        String name = nameField.getText().toString().trim();
+        String amountStr = amountField.getText().toString().trim();
+
+        // Check if one field is filled without the other
+        if (!name.isEmpty() && amountStr.isEmpty()) {
+            Toast.makeText(this, "Please provide an amount for subscription: " + name, Toast.LENGTH_SHORT).show();
+            return 0; // Incomplete pair
+        }
+        if (name.isEmpty() && !amountStr.isEmpty()) {
+            Toast.makeText(this, "Please provide a name for the subscription amount: " + amountStr, Toast.LENGTH_SHORT).show();
+            return 0; // Incomplete pair
+        }
+
+        // If both fields are filled, save the subscription
+        if (!name.isEmpty() && !amountStr.isEmpty()) {
+
+                long amount = Long.parseLong(amountStr);
+                subscriptionPreferences.edit().putLong(name, amount).apply();
+                return 1; // Valid entry saved
+
+        }
+
+        // Both fields are empty
+        return 0;
+    }
+
+    private boolean allFieldsEmpty() {
+        return sub_name.getText().toString().trim().isEmpty()
+                && sub_amount.getText().toString().trim().isEmpty()
+                && sub_name_2.getText().toString().trim().isEmpty()
+                && sub_amount_2.getText().toString().trim().isEmpty()
+                && sub_name_3.getText().toString().trim().isEmpty()
+                && sub_amount_3.getText().toString().trim().isEmpty();
+    }
+
+    private void goToNextActivity() {
+        Intent intent = new Intent(this, User_intro_Display.class);
+        startActivity(intent);
     }
 }
