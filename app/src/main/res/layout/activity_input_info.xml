@@ -54,10 +54,26 @@
             android:id="@+id/Expense_Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:padding="8dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="start"
+            android:letterSpacing="0.05"
+            android:padding="5dp"
+            android:shadowColor="@color/grey"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
             android:text="Monthly Expenses"
-            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/foodtext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Food"
+            android:textSize="18dp"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:fontFamily="sans-serif-medium"
@@ -67,25 +83,41 @@
             android:shadowDy="1"
             android:shadowRadius="2"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:gravity="start" />
+
 
         <EditText
             android:id="@+id/food"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/custom_edittext"
             android:drawableLeft="@drawable/baseline_control_point_24"
             android:drawablePadding="12dp"
-            android:hint="Food"
             android:padding="12dp"
             android:inputType="number"
             android:textColor="@color/black"
-
             android:textSize="16sp"
             android:fontFamily="sans-serif" />
 
-
+        <TextView
+            android:id="@+id/morgagetext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mortgage / Rent"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.05"
+            android:shadowColor="@color/grey"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="5dp"
+            android:gravity="start" />
         <EditText
             android:id="@+id/mortgage"
             android:layout_width="match_parent"
@@ -94,13 +126,28 @@
             android:background="@drawable/custom_edittext"
             android:drawableLeft="@drawable/baseline_control_point_24"
             android:drawablePadding="12dp"
-            android:hint="Mortgage / Rent"
             android:padding="12dp"
             android:inputType="number"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:fontFamily="sans-serif" />
 
+        <TextView
+            android:id="@+id/waterBilltext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Water Bill"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.05"
+            android:shadowColor="@color/grey"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginLeft="5dp"
+            android:gravity="start" />
 
         <EditText
             android:id="@+id/waterBill"
@@ -110,13 +157,29 @@
             android:background="@drawable/custom_edittext"
             android:drawableLeft="@drawable/baseline_control_point_24"
             android:drawablePadding="12dp"
-            android:hint="Water Bill"
             android:padding="12dp"
             android:inputType="number"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:fontFamily="sans-serif" />
 
+
+        <TextView
+            android:id="@+id/electricBilltext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Electric Bill"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.05"
+            android:shadowColor="@color/grey"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginLeft="5dp"
+            android:gravity="start" />
 
         <EditText
             android:id="@+id/electricBill"
@@ -126,13 +189,29 @@
             android:background="@drawable/custom_edittext"
             android:drawableLeft="@drawable/baseline_control_point_24"
             android:drawablePadding="12dp"
-            android:hint="Electric Bill"
             android:padding="12dp"
             android:inputType="number"
             android:textColor="@color/black"
 
             android:textSize="16sp"
             android:fontFamily="sans-serif" />
+
+        <TextView
+            android:id="@+id/gasBilltext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gas Bill"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.05"
+            android:shadowColor="@color/grey"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginLeft="5dp"
+            android:gravity="start" />
 
 
         <EditText
@@ -143,12 +222,28 @@
             android:background="@drawable/custom_edittext"
             android:drawableLeft="@drawable/baseline_control_point_24"
             android:drawablePadding="12dp"
-            android:hint="Gas Bill"
             android:padding="12dp"
             android:inputType="number"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:fontFamily="sans-serif" />
+
+        <TextView
+            android:id="@+id/internetBilltext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Internet Bill"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.05"
+            android:shadowColor="@color/grey"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:layout_marginLeft="5dp"
+            android:gravity="start" />
 
         <EditText
             android:id="@+id/internetBill"
@@ -158,7 +253,6 @@
             android:background="@drawable/custom_edittext"
             android:drawableLeft="@drawable/baseline_control_point_24"
             android:drawablePadding="12dp"
-            android:hint="Internet Bill"
             android:padding="12dp"
             android:inputType="number"
             android:textColor="@color/black"
@@ -171,7 +265,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/sky_blue"
+            android:backgroundTint="@color/dark_green"
             android:text="Next"
             android:textSize="20sp"
             android:fontFamily="sans-serif-medium"

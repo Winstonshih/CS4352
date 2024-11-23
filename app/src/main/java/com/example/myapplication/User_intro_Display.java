@@ -114,6 +114,7 @@ public class User_intro_Display extends AppCompatActivity {
         }
         //print
         services.printSharedPreferences();
+        backButton.setOnClickListener(view -> finish()); // Navigate back to the previous activity
         //now that all the text and such has been updated we just wait for them to start
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,14 +124,8 @@ public class User_intro_Display extends AppCompatActivity {
                 startActivity(intent);
             }
         }
-        //back button just finish
                 );
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }}
-        );
 
     }
+
 }

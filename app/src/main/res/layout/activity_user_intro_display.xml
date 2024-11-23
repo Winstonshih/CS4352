@@ -39,6 +39,7 @@
         app:layout_constraintTop_toBottomOf="@id/loginText" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="196dp"
@@ -81,31 +82,31 @@
         android:id="@+id/startButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/sky_blue"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/dark_green"
         android:text="Start"
         android:textSize="18sp"
-        app:cornerRadius="20dp"
 
+        app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+        app:layout_constraintTop_toBottomOf="@+id/backButton" />
 
     <Button
         android:id="@+id/backButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="28dp"
         android:backgroundTint="@color/dark_red"
         android:text="Back"
-        android:textSize="18sp"
 
+        android:textSize="18sp"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/startButton" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
     <LinearLayout
         android:id="@+id/linearLayout5"
