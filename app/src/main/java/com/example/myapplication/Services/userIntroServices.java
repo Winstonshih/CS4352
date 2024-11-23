@@ -12,7 +12,7 @@ public class userIntroServices {
 
     public userIntroServices(Context context) {
         moneyTracker = context.getSharedPreferences("money_tracker", Context.MODE_PRIVATE);
-        subscriptions = context.getSharedPreferences("subscriptions", Context.MODE_PRIVATE);
+        subscriptions = context.getSharedPreferences("subscription_data", Context.MODE_PRIVATE);
         // Initialize user preferences for username and password
         user = context.getSharedPreferences("user", Context.MODE_PRIVATE);
         username = user.getString("username", "");
@@ -73,5 +73,23 @@ public class userIntroServices {
 
     public String getPassword() {
         return password;
+    }
+    //print everything inside the shared preferences
+    public void printSharedPreferences() {
+        System.out.println("Money Tracker:");
+        Map<String, ?> allEntries = moneyTracker.getAll();
+        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        System.out.println("Subscriptions:");
+        Map<String, ?> allEntries2 = subscriptions.getAll();
+        for (Map.Entry<String, ?> entry : allEntries2.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        System.out.println("User:");
+        Map<String, ?> allEntries3 = user.getAll();
+        for (Map.Entry<String, ?> entry : allEntries3.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
     }
 }

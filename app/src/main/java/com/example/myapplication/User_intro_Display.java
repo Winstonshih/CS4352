@@ -33,6 +33,7 @@ public class User_intro_Display extends AppCompatActivity {
     TextView amount;
     TextView username;
     Button startButton;
+    Button backButton;
 
 
 
@@ -46,6 +47,7 @@ public class User_intro_Display extends AppCompatActivity {
         amount = findViewById(R.id.amount);
         username = findViewById(R.id.username);
         startButton = findViewById(R.id.startButton);
+        backButton = findViewById(R.id.backButton);
 
         //new sharable that is going to track the things that we have equped to track
         SharedPreferences sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
@@ -110,7 +112,8 @@ public class User_intro_Display extends AppCompatActivity {
         else{
             amount.setText("$ " + String.valueOf(amountSaved));
         }
-
+        //print
+        services.printSharedPreferences();
         //now that all the text and such has been updated we just wait for them to start
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +123,14 @@ public class User_intro_Display extends AppCompatActivity {
                 startActivity(intent);
             }
         }
+        //back button just finish
+                );
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }}
         );
+
     }
 }

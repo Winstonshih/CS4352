@@ -25,7 +25,7 @@ public class Input_Subscriptions_Activity extends AppCompatActivity {
 
         // Initialize SharedPreferences
         subscriptionPreferences = getSharedPreferences("subscription_data", MODE_PRIVATE);
-        //reset the preferences
+        //erase everything inside the shared preferences
         subscriptionPreferences.edit().clear().apply();
 
         // Bind UI elements

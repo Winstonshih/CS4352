@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show();
                 login();
             } else {
-                Toast.makeText(this, "Invalid username or password!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Invalid username or password! Create an Account", Toast.LENGTH_SHORT).show();
             }
         });
 
