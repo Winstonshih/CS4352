@@ -100,15 +100,16 @@
             android:id="@+id/editmenubutton"
             android:layout_width="138dp"
             android:layout_height="41dp"
-            android:layout_marginStart="4dp"
-            android:backgroundTint="@color/shadow_grey"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/black_round_box"
             android:text="EDIT INFO"
+            android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.191" />
 
         <ImageView
             android:id="@+id/arrrow"
