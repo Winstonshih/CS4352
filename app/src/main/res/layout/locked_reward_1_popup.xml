@@ -24,7 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#454749"
-        android:text="@string/redarmor"
+        android:text="Red Armor (not equipable)"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:padding="8dp"
