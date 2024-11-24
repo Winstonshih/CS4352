@@ -75,23 +75,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void login() {
-        // Update SharedPreferences to mark the user as logged in
-        Boolean isLoggedIn = userPreferences.getBoolean("isLoggedIn", false);
-        if (isLoggedIn) {
-            //if they have loged ind inputed their information, then go to the main game page
-            Intent intent = new Intent(this, main_game_page.class);
-            startActivity(intent);
-            finish();
-        }
-        else{
-            // Navigate to the next activity
-            Intent intent = new Intent(this, Input_Info_Activity.class);
-            startActivity(intent);
-
-            // Optionally finish the current activity
-            finish();
-
-        }
+        //just go to the main game page directly
+        Intent intent = new Intent(this, main_game_page.class);
+        startActivity(intent);
 
     }
 }
