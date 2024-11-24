@@ -61,10 +61,10 @@
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_control_point_24"
                 android:drawablePadding="12dp"
-                android:hint="Subscription name"
+                android:fontFamily="sans-serif"
+                android:hint="Subscription 1"
                 android:padding="12dp"
-                android:textSize="16sp"
-                android:fontFamily="sans-serif" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/sub_amountDuplicate"
@@ -88,10 +88,10 @@
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_control_point_24"
                 android:drawablePadding="12dp"
-                android:hint="Subscription name"
+                android:fontFamily="sans-serif"
+                android:hint="Subscription 2"
                 android:padding="12dp"
-                android:textSize="16sp"
-                android:fontFamily="sans-serif" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/sub_amount_2Duplicate"
@@ -116,11 +116,11 @@
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_control_point_24"
                 android:drawablePadding="12dp"
-                android:hint="Subscription name"
+                android:fontFamily="sans-serif"
+                android:hint="Subscription 3"
                 android:padding="12dp"
                 android:textColor="@color/black"
-                android:textSize="16sp"
-                android:fontFamily="sans-serif" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/sub_amount_3Duplicate"
