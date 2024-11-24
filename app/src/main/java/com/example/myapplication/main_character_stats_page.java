@@ -26,9 +26,7 @@ public class main_character_stats_page extends AppCompatActivity {
         // Initialize SharedPreferences
         TRACKER = getSharedPreferences("tracker", MODE_PRIVATE);
 
-        // Initial things
-        setColorButton();
-        lockedButtons();
+
         setupButtons();
         updateArmorUI();
         updateStats();
@@ -147,36 +145,36 @@ public class main_character_stats_page extends AppCompatActivity {
         // Apply the changes to the shared preferences
         editor.apply();
     }
-    private void setColorButton(){
-        Button homeButton = findViewById(R.id.homeButton);
-        //change the color if true then change to green
-        if(TRACKER.getBoolean("home color", false)){
-            homeButton.setBackgroundColor(getResources().getColor(R.color.dark_green));
-        }
-        //if its not true then change it to dark grey
-        else{
-            homeButton.setBackgroundColor(getResources().getColor(R.color.shadow_grey));
-        }
-    }
-    private void lockedButtons() {
-        Button inventoryButton = findViewById(R.id.inventoryButton);
-        Button rewardsButton = findViewById(R.id.rewardsButton);
-        //if inventory is locked
-        if (TRACKER.getBoolean("inventory", false)) {
-            inventoryButton.setEnabled(true);
-        } else {
-            inventoryButton.setEnabled(false);
-        }
-        //if rewards is locked
-        if (TRACKER.getBoolean("reward", false)) {
-            rewardsButton.setEnabled(true);
-            if (TRACKER.getBoolean("reward color", false)) {
-                rewardsButton.setBackgroundColor(getResources().getColor(R.color.dark_green));
-            } else {
-                rewardsButton.setBackgroundColor(getResources().getColor(R.color.shadow_grey));
-            }
-        } else {
-            rewardsButton.setEnabled(false);
-        }
-    }
+//    private void setColorButton(){
+//        Button homeButton = findViewById(R.id.homeButton);
+//        //change the color if true then change to green
+//        if(TRACKER.getBoolean("home color", false)){
+//            homeButton.setBackgroundColor(getResources().getColor(R.color.dark_green));
+//        }
+//        //if its not true then change it to dark grey
+//        else{
+//            homeButton.setBackgroundColor(getResources().getColor(R.color.shadow_grey));
+//        }
+//    }
+//    private void lockedButtons() {
+//        Button inventoryButton = findViewById(R.id.inventoryButton);
+//        Button rewardsButton = findViewById(R.id.rewardsButton);
+//        //if inventory is locked
+//        if (TRACKER.getBoolean("inventory", false)) {
+//            inventoryButton.setEnabled(true);
+//        } else {
+//            inventoryButton.setEnabled(false);
+//        }
+//        //if rewards is locked
+//        if (TRACKER.getBoolean("reward", false)) {
+//            rewardsButton.setEnabled(true);
+//            if (TRACKER.getBoolean("reward color", false)) {
+//                rewardsButton.setBackgroundColor(getResources().getColor(R.color.dark_green));
+//            } else {
+//                rewardsButton.setBackgroundColor(getResources().getColor(R.color.shadow_grey));
+//            }
+//        } else {
+//            rewardsButton.setEnabled(false);
+//        }
+//    }
 }

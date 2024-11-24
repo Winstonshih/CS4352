@@ -68,14 +68,14 @@ public class main_game_page extends AppCompatActivity {
         loadEquipment();
         setupRecyclerView();
         setupButtons();
-        buttonTracker();
+//        buttonTracker();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         loadEquipment(); // Refresh the equipment UI
-        buttonTracker(); // Refresh the button state
+       // buttonTracker(); // Refresh the button state
 
         // Delay the popup to allow the activity to settle fully
         new Handler().postDelayed(this::is_empty_list, 100);
@@ -160,7 +160,7 @@ public class main_game_page extends AppCompatActivity {
 
     public void updateArmorUI() {
         loadEquipment();
-        buttonTracker();
+      //  buttonTracker();
         is_empty_list();
     }
     public void incrementCompletedTasks() {
@@ -169,59 +169,59 @@ public class main_game_page extends AppCompatActivity {
         editor.putInt("tasksCompleted", completedTasks + 1);
         editor.apply();
     }
-    private void buttonTracker(){
-        Button rewardButton = findViewById(R.id.rewardsButton);
-        Button inventoryButton = findViewById(R.id.inventoryButton);
-        personImage = findViewById(R.id.personImage);
-        arrow = findViewById(R.id.arrrow);
-        //check if the person is unlocked
-        if(sharedTracker.getBoolean("person", false)){
-            personImage.setEnabled(true);
-            if(sharedTracker.getBoolean("person color", false)){
-                //if its true then dark green
-
-                arrow.setVisibility(View.VISIBLE);
-            }
-            else{
-                //set back to the original
-                arrow.setVisibility(View.INVISIBLE);
-            }
-        }
-        else{
-            personImage.setEnabled(false);
-
-        }
-
-        // Check if the reward is unlocked
-        if(sharedTracker.getBoolean("reward", false)){
-            rewardButton.setEnabled(true);
-            //change the color of the button if it is the next thing they need to click
-            if(sharedTracker.getBoolean("reward color", false)){
-                rewardButton.setBackgroundColor(getResources().getColor(R.color.dark_green));
-            }
-            else{
-                rewardButton.setBackgroundColor(getResources().getColor(R.color.shadow_grey));
-            }
-        } else {
-            rewardButton.setEnabled(false); // Explicitly disable if reward is locked
-        }
-
-        //check if inventory is unlocked
-        if(sharedTracker.getBoolean("inventory", false)){
-            inventoryButton.setEnabled(true);
-            //change the color of the button if it is the next thing
-            if(sharedTracker.getBoolean("inventory color", false)){
-                inventoryButton.setBackgroundColor(getResources().getColor(R.color.dark_green));
-            }
-            else{
-                inventoryButton.setBackgroundColor(getResources().getColor(R.color.shadow_grey));
-            }
-        }
-        else{
-            inventoryButton.setEnabled(false);
-        }
-
-    }
+//    private void buttonTracker(){
+//        Button rewardButton = findViewById(R.id.rewardsButton);
+//        Button inventoryButton = findViewById(R.id.inventoryButton);
+//        personImage = findViewById(R.id.personImage);
+//        arrow = findViewById(R.id.arrrow);
+//        //check if the person is unlocked
+//        if(sharedTracker.getBoolean("person", false)){
+//            personImage.setEnabled(true);
+//            if(sharedTracker.getBoolean("person color", false)){
+//                //if its true then dark green
+//
+//                arrow.setVisibility(View.VISIBLE);
+//            }
+//            else{
+//                //set back to the original
+//                arrow.setVisibility(View.INVISIBLE);
+//            }
+//        }
+//        else{
+//            personImage.setEnabled(false);
+//
+//        }
+//
+//        // Check if the reward is unlocked
+//        if(sharedTracker.getBoolean("reward", false)){
+//            rewardButton.setEnabled(true);
+//            //change the color of the button if it is the next thing they need to click
+//            if(sharedTracker.getBoolean("reward color", false)){
+//                rewardButton.setBackgroundColor(getResources().getColor(R.color.dark_green));
+//            }
+//            else{
+//                rewardButton.setBackgroundColor(getResources().getColor(R.color.shadow_grey));
+//            }
+//        } else {
+//            rewardButton.setEnabled(false); // Explicitly disable if reward is locked
+//        }
+//
+//        //check if inventory is unlocked
+//        if(sharedTracker.getBoolean("inventory", false)){
+//            inventoryButton.setEnabled(true);
+//            //change the color of the button if it is the next thing
+//            if(sharedTracker.getBoolean("inventory color", false)){
+//                inventoryButton.setBackgroundColor(getResources().getColor(R.color.dark_green));
+//            }
+//            else{
+//                inventoryButton.setBackgroundColor(getResources().getColor(R.color.shadow_grey));
+//            }
+//        }
+//        else{
+//            inventoryButton.setEnabled(false);
+//        }
+//
+//    }
     private void is_empty_list(){
         //set the relative layout to gone
         relativeLayout = findViewById(R.id.relativeLayout);
