@@ -13,6 +13,12 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".Instructions"
+            android:exported="false" />
+        <activity
+            android:name=".TaskOverview"
+            android:exported="false" />
+        <activity
             android:name=".HelpDocumentation"
             android:exported="false" />
         <activity
