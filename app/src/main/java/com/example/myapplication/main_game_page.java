@@ -32,6 +32,9 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class main_game_page extends AppCompatActivity {
     private ImageButton personImage;
     private ImageView helmet, chest, pants, sword, arrow;
@@ -53,15 +56,19 @@ public class main_game_page extends AppCompatActivity {
 
         viewModel.getItems().observe(this, items -> {
             if (adapter == null) {
-                adapter = new MyAdapter(this, items);
+                // Initialize the adapter with an empty list initially
+                adapter = new MyAdapter(this, new ArrayList<>(items));
                 recyclerView.setAdapter(adapter);
             } else {
-                adapter.updateItems(items);
+                // Ensure items is of type List<Object> if that's what your adapter expects
+                List<Object> objectItems = new ArrayList<>(items);
+                adapter.updateItems(objectItems);
             }
-            if(items.isEmpty()){
+
+            // Logging for debugging purposes
+            if (items.isEmpty()) {
                 System.out.println("empty");
-            }
-            else {
+            } else {
                 System.out.println("not empty");
             }
         });
