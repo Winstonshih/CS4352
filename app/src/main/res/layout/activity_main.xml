@@ -62,7 +62,7 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="40dp"
+                android:layout_margin="30dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_control_point_24"
                 android:drawablePadding="8dp"
@@ -76,7 +76,7 @@
                 android:id="@+id/loginButton"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/sky_blue"
                 android:text="Login"
                 android:textSize="18sp"
@@ -85,9 +85,18 @@
                 android:id="@+id/signupButton"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/dark_green"
                 android:text="Sign Up"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
+            <Button
+                android:id="@+id/helpButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/light_orange"
+                android:text="Help Documentation"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
         </LinearLayout>

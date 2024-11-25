@@ -11,5 +11,7 @@
     <color name="shadow_grey">#252525</color>
     <color name="custom_red">#FF0000</color> <!-- Bright Red -->
     <color name="dialog_grey">#252525</color>
-
+    <color name="yellow">#FFFF00</color>
+    <color name="light_orange">#FFD700</color>
+    <color name="dark_orange">#FF8C00</color>
 </resources>
