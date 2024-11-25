@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     // UI elements
     private EditText username, password;
-    private Button loginButton, signUpButton;
+    private Button loginButton, signUpButton, helpButton;
 
     // SharedPreferences for user data
     private SharedPreferences userPreferences;
@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.password);
         loginButton = findViewById(R.id.loginButton);
         signUpButton = findViewById(R.id.signupButton);
+        helpButton=findViewById(R.id.helpButton);
 
         // Set up button click listeners
         loginButton.setOnClickListener(v -> {
@@ -70,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
         signUpButton.setOnClickListener(v -> {
             // Navigate to SignUp activity
             Intent intent = new Intent(this, SignUp.class);
+            startActivity(intent);
+        });
+        helpButton.setOnClickListener(v -> {
+            // Navigate to SignUp activity
+            Intent intent = new Intent(this, HelpDocumentation.class);
             startActivity(intent);
         });
     }

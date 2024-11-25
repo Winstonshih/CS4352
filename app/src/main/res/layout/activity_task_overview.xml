@@ -36,10 +36,10 @@
             android:padding="24dp">
 
             <TextView
-                android:id="@+id/instructionsText"
+                android:id="@+id/taskOverviewText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Instructions"
+                android:text="Task Overview"
                 android:textAlignment="center"
                 android:textColor="@color/sky_blue"
                 android:textSize="30dp"
