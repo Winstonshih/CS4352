@@ -47,6 +47,7 @@ public class GamePageViewModel extends AndroidViewModel {
         itemList.add(new Item(4, "Save $20 for a Rainy Day Fund", "Jade helmet (+50 Protection)", R.drawable.greenhelmet, false));
         itemList.add(new Item(5, "Make minimum credit card payment before deadline", "Jade Armor (+50 Protection)", R.drawable.greenarmor, false));
         itemList.add(new Item(6, "Redeem a Cash Back offer at a store", "Jade pants (+50 Protection)", R.drawable.greenpants, false));
+        itemList.add(new Item(7, "Automate monthly savings transfers", "Gold helmet (+70 Protection)", R.drawable.goldhelmet, false));
         // Filter out deleted items
         List<Item> filteredList = new ArrayList<>();
         for (Item item : itemList) {
