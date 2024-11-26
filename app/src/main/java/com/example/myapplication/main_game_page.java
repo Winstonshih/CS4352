@@ -25,6 +25,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -75,6 +76,7 @@ public class main_game_page extends AppCompatActivity {
         loadEquipment();
         setupRecyclerView();
         setupButtons();
+        rewardButton();
 //        buttonTracker();
     }
 
@@ -82,6 +84,7 @@ public class main_game_page extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         loadEquipment(); // Refresh the equipment UI
+        rewardButton();
        // buttonTracker(); // Refresh the button state
 
         // Delay the popup to allow the activity to settle fully
@@ -167,14 +170,27 @@ public class main_game_page extends AppCompatActivity {
 
     public void updateArmorUI() {
         loadEquipment();
+        rewardButton();
       //  buttonTracker();
         is_empty_list();
+
     }
     public void incrementCompletedTasks() {
         SharedPreferences.Editor editor = sharedTracker.edit();
         int completedTasks = sharedTracker.getInt("tasksCompleted", 0);
         editor.putInt("tasksCompleted", completedTasks + 1);
         editor.apply();
+    }
+    private void rewardButton()
+    {
+        Button rewardsButton = findViewById(R.id.rewardsButton);
+        if(sharedTracker.getBoolean("reward", false)) {
+            rewardsButton.setEnabled(true);
+        }
+        else{
+            rewardsButton.setEnabled(false);
+            Toast.makeText(main_game_page.this, "You need to complete three tasks to unlock sword!", Toast.LENGTH_SHORT).show();
+        }
     }
 //    private void buttonTracker(){
 //        Button rewardButton = findViewById(R.id.rewardsButton);
