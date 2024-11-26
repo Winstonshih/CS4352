@@ -44,6 +44,16 @@ Button signUp, back;
                     //add the password and username to the shared preferences
                     String username=newLogin.getText().toString();
                     String password=newPassword.getText().toString();
+                    //reset the moneyTracker and subscription data
+                    SharedPreferences sharedPreferences = getSharedPreferences("money_tracker", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.clear();
+                    editor.apply();
+                    SharedPreferences subscriptionPreferences = getSharedPreferences("subscription_data", MODE_PRIVATE);
+                    SharedPreferences.Editor subscriptionEditor = subscriptionPreferences.edit();
+                    subscriptionEditor.clear();
+                    subscriptionEditor.apply();
+                    //add the username and password to the shared preferences
                     addAccount(username,password);
                     Intent intent=new Intent(SignUp.this,Input_Info_Activity.class);
                     startActivity(intent);
