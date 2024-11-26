@@ -99,6 +99,8 @@ public class User_intro_Display extends AppCompatActivity {
         taskListEditor.putBoolean("3", false);
         taskListEditor.putBoolean("4", false);
         taskListEditor.putBoolean("5", false);
+        taskListEditor.putBoolean("6", false);
+        taskListEditor.putBoolean("7", false);
         //apply the changes
         taskListEditor.apply();
         //END OF THIS PART IF YOU WANT TO ADD more go ahead

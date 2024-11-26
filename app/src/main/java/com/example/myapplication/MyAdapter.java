@@ -138,6 +138,18 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 editor.putInt("pants", 2);
                 editor.putBoolean("person color", true);
                 editor.putBoolean("person", true);
+                break;
+            case "Jade helmet (+50 Protection)":
+                editor.putInt("helmet", 3);
+                break;
+            case "Jade Armor (+50 Protection)":
+                editor.putInt("chest", 3);
+                break;
+            case "Jade pants (+50 Protection)":
+                editor.putInt("pants", 3);
+                break;
+            case "Gold helmet (+70 Protection)":
+                editor.putInt("helmet", 4);
                 editor.putBoolean("empty list", true);
                 break;
             default:

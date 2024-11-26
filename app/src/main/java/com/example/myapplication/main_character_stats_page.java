@@ -100,6 +100,14 @@ public class main_character_stats_page extends AppCompatActivity {
             helmet.setImageResource(R.drawable.upgradedhelmet);
             helmetImage.setImageResource(R.drawable.upgradedhelmet);
             editor.putString("head defense", "30");
+        } else if (helmetID==3){
+            helmet.setImageResource(R.drawable.greenhelmet);
+            helmetImage.setImageResource(R.drawable.greenhelmet);
+            editor.putString("head defense", "50");
+        } else if (helmetID==4){
+            helmet.setImageResource(R.drawable.goldhelmet);
+            helmetImage.setImageResource(R.drawable.goldhelmet);
+            editor.putString("head defense", "70");
         }
 
         // Load chest image
@@ -111,6 +119,10 @@ public class main_character_stats_page extends AppCompatActivity {
             chest.setImageResource(R.drawable.upgradedarmor);
             chestImage.setImageResource(R.drawable.upgradedarmor);
             editor.putString("chest defense", "30");
+        } else if (chestID==3){
+            chest.setImageResource(R.drawable.greenarmor);
+            chestImage.setImageResource(R.drawable.greenarmor);
+            editor.putString("chest defense", "50");
         }
 
         // Load pants image
@@ -122,6 +134,10 @@ public class main_character_stats_page extends AppCompatActivity {
             pants.setImageResource(R.drawable.upgradedpants);
             pantsImage.setImageResource(R.drawable.upgradedpants);
             editor.putString("pants defense", "30");
+        } else if (pantsID == 3){
+            pants.setImageResource(R.drawable.greenpants);
+            pantsImage.setImageResource(R.drawable.greenpants);
+            editor.putString("pants defense", "50");
         }
 
         // Find the sword ImageView
