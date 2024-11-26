@@ -90,6 +90,20 @@ public class User_intro_Display extends AppCompatActivity {
         listEditor.apply();
         //dont touch anything after this
 
+        //TODO: Winston here is the shared preferences for the list
+        //shared preference for list
+        SharedPreferences taskList = getSharedPreferences("taskList", MODE_PRIVATE);
+        SharedPreferences.Editor taskListEditor = taskList.edit();
+        taskListEditor.putBoolean("1", false);
+        taskListEditor.putBoolean("2", false);
+        taskListEditor.putBoolean("3", false);
+        taskListEditor.putBoolean("4", false);
+        taskListEditor.putBoolean("5", false);
+        //apply the changes
+        taskListEditor.apply();
+        //END OF THIS PART IF YOU WANT TO ADD more go ahead
+
+
         userIntroServices services = new userIntroServices(this);
         Long incomeCalculated = services.getIncome();
         Long expensesCalculated = services.getExpenses();
