@@ -32,6 +32,9 @@ public class TaskHistoryViewModel extends AndroidViewModel{
         historyList.add(new History(1, "Close a subscription", "Diamond helmet (+30 Protection)", R.drawable.upgradedhelmet));
         historyList.add(new History(2, "Make a Savings Account", "Diamond Armor (+30 Protection)", R.drawable.upgradedarmor));
         historyList.add(new History(3, "Add $20 to Savings Account", "Diamond pants (+30 Protection)", R.drawable.upgradedpants));
+        historyList.add(new History(4, "Save $20 for a Rainy Day Fund", "Jade helmet (+50 Protection)", R.drawable.greenhelmet));
+        historyList.add(new History(5, "Make minimum credit card payment before deadline", "Jade Armor (+50 Protection)", R.drawable.greenarmor));
+        historyList.add(new History(6, "Redeem a Cash Back offer at a store", "Jade pants (+50 Protection)", R.drawable.greenpants));
         // Filter out deleted items
         List<History> filteredList = new ArrayList<>();
         for (History history : historyList) {
