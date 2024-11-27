@@ -70,6 +70,22 @@
                 android:contentDescription="@string/helmet_2"
                 android:src="@drawable/upgradedhelmet"
                 android:visibility="invisible" />
+            <ImageView
+                android:id="@+id/helmet3"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:contentDescription="Helmet3"
+                android:src="@drawable/greenhelmet"
+                android:visibility="invisible" />
+            <ImageView
+                android:id="@+id/helmet4"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:contentDescription="Helmet4"
+                android:src="@drawable/goldhelmet"
+                android:visibility="invisible" />
         </LinearLayout>
 
         <!-- Chest Armor Section -->
@@ -104,6 +120,14 @@
                 android:contentDescription="@string/chest_armor_2"
                 android:src="@drawable/upgradedarmor"
                 android:visibility="invisible" />
+            <ImageView
+                android:id="@+id/armor3"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:contentDescription="Chest Armor 3"
+                android:src="@drawable/greenpants"
+                android:visibility="invisible" />
         </LinearLayout>
 
         <!-- Pants Section -->
@@ -137,6 +161,14 @@
                 android:layout_marginStart="16dp"
                 android:contentDescription="@string/pants_2"
                 android:src="@drawable/upgradedpants"
+                android:visibility="invisible" />
+            <ImageView
+                android:id="@+id/pants3"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:contentDescription="Pants 3"
+                android:src="@drawable/greenpants"
                 android:visibility="invisible" />
         </LinearLayout>
 
