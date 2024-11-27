@@ -76,6 +76,11 @@ public class inventory_page extends AppCompatActivity {
         setupPants2();
         setupArmor2();
         setupHelmet2();
+        setupHelmet2();
+        setupHelmet3();
+        setupHelmet4();
+        setupArmor3();
+        setupPants3();
         trackHelmet();
         trackChest();
         trackPants();
@@ -299,6 +304,135 @@ public class inventory_page extends AppCompatActivity {
             }
         });
     }
+    private void setupHelmet3() {
+        ImageView helmet3 = findViewById(R.id.helmet3);
+        helmet3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.green_helmet_popup, null);
+                PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                popUpWindow.showAsDropDown(v);
+
+                Button helmet3Close = popUpView.findViewById(R.id.greenhelmetclose);
+                helmet3Close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popUpWindow.dismiss();
+                    }
+                });
+
+                Button equipButton = popUpView.findViewById(R.id.equipbutton);
+                equipButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SharedPreferences sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedTracker.edit();
+                        editor.putInt("helmet", 3); // ID for upgraded helmet
+                        editor.apply();
+                        trackHelmet();
+                        popUpWindow.dismiss();
+                    }
+                });
+            }
+        });
+    }
+    private void setupHelmet4() {
+        ImageView helmet4 = findViewById(R.id.helmet4);
+        helmet4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.gold_helmet_popup, null);
+                PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                popUpWindow.showAsDropDown(v);
+
+                Button helmet4Close = popUpView.findViewById(R.id.goldhelmetclose);
+                helmet4Close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popUpWindow.dismiss();
+                    }
+                });
+
+                Button equipButton = popUpView.findViewById(R.id.equipbutton);
+                equipButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SharedPreferences sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedTracker.edit();
+                        editor.putInt("helmet", 4); // ID for upgraded helmet
+                        editor.apply();
+                        trackHelmet();
+                        popUpWindow.dismiss();
+                    }
+                });
+            }
+        });
+    }
+    private void setupArmor3() {
+        ImageView armor3 = findViewById(R.id.armor3);
+        armor3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.green_chestplate_popup, null);
+                PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                popUpWindow.showAsDropDown(v);
+
+                Button greenarmorClose = popUpView.findViewById(R.id.greenarmorclose);
+                greenarmorClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popUpWindow.dismiss();
+                    }
+                });
+
+                Button equipButton = popUpView.findViewById(R.id.equipbutton);
+                equipButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SharedPreferences sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedTracker.edit();
+                        editor.putInt("chest", 3); // ID for upgraded armor
+                        editor.apply();
+                        trackChest();
+                        popUpWindow.dismiss();
+                    }
+                });
+            }
+        });
+    }
+
+    private void setupPants3() {
+        ImageView pants3 = findViewById(R.id.pants3);
+        pants2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.green_pants_popup, null);
+                PopupWindow popUpWindow = new PopupWindow(popUpView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+                popUpWindow.showAsDropDown(v);
+
+                Button pants3Close = popUpView.findViewById(R.id.greenpantsclose);
+                pants3Close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        popUpWindow.dismiss();
+                    }
+                });
+
+                Button equipButton = popUpView.findViewById(R.id.equipbutton);
+                equipButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        SharedPreferences sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedTracker.edit();
+                        editor.putInt("pants", 3); // ID for upgraded pants
+                        editor.apply();
+                        trackPants();
+                        popUpWindow.dismiss();
+                    }
+                });
+            }
+        });
+    }
 
     @Override
     protected void onResume() {
@@ -310,9 +444,6 @@ public class inventory_page extends AppCompatActivity {
     }
     private void loadInventoryEquipment() {
         sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
-        int helmetID = sharedTracker.getInt("helmet", 0);
-        int chestID = sharedTracker.getInt("chest", 0);
-        int pantsID = sharedTracker.getInt("pants", 0);
         int swordID=sharedTracker.getInt("sword", 0);
         boolean task1Completed = sharedTracker.getBoolean("task_1_completed", false);
         boolean task2Completed = sharedTracker.getBoolean("task_2_completed", false);
