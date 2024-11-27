@@ -403,7 +403,7 @@ public class inventory_page extends AppCompatActivity {
 
     private void setupPants3() {
         ImageView pants3 = findViewById(R.id.pants3);
-        pants2.setOnClickListener(new View.OnClickListener() {
+        pants3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 View popUpView = LayoutInflater.from(v.getContext()).inflate(R.layout.green_pants_popup, null);

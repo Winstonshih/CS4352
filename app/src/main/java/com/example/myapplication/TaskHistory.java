@@ -118,6 +118,11 @@ public class TaskHistory extends AppCompatActivity {
             helmet.setImageResource(R.drawable.helmet);
         } else if (helmetID == 2) {
             helmet.setImageResource(R.drawable.upgradedhelmet);
+        }else if(helmetID==3){
+            helmet.setImageResource(R.drawable.greenhelmet);
+        }else if(helmetID==4)
+        {
+            helmet.setImageResource(R.drawable.goldhelmet);
         }
 
         // Load chest image
@@ -125,6 +130,8 @@ public class TaskHistory extends AppCompatActivity {
             chest.setImageResource(R.drawable.armor);
         } else if (chestID == 2) {
             chest.setImageResource(R.drawable.upgradedarmor);
+        }  else if (chestID == 3) {
+            chest.setImageResource(R.drawable.greenarmor);
         }
 
         // Load pants image
@@ -132,6 +139,8 @@ public class TaskHistory extends AppCompatActivity {
             pants.setImageResource(R.drawable.pants);
         } else if (pantsID == 2) {
             pants.setImageResource(R.drawable.upgradedpants);
+        } else if (pantsID == 3) {
+            pants.setImageResource(R.drawable.greenpants);
         }
 
         // Control sword visibility based on equipment status
