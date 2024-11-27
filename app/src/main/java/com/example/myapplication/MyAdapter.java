@@ -130,26 +130,33 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         switch (item.getReward()) {
             case "Diamond helmet (+30 Protection)":
                 editor.putInt("helmet", 2);
+                editor.putBoolean("task_1_completed", true);
                 break;
             case "Diamond Armor (+30 Protection)":
                 editor.putInt("chest", 2);
+                editor.putBoolean("task_2_completed", true);
                 break;
             case "Diamond pants (+30 Protection)":
                 editor.putInt("pants", 2);
-                editor.putBoolean("person color", true);
-                editor.putBoolean("person", true);
+                editor.putBoolean("task_3_completed", true);
+//                editor.putBoolean("person color", true);
+//                editor.putBoolean("person", true);
                 break;
             case "Jade helmet (+50 Protection)":
                 editor.putInt("helmet", 3);
+                editor.putBoolean("task_4_completed", true);
                 break;
             case "Jade Armor (+50 Protection)":
                 editor.putInt("chest", 3);
+                editor.putBoolean("task_5_completed", true);
                 break;
             case "Jade pants (+50 Protection)":
                 editor.putInt("pants", 3);
+                editor.putBoolean("task_6_completed", true);
                 break;
             case "Gold helmet (+70 Protection)":
                 editor.putInt("helmet", 4);
+                editor.putBoolean("task_7_completed", true);
                 editor.putBoolean("empty list", true);
                 break;
             default:

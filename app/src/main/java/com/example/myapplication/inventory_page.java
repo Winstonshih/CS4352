@@ -28,7 +28,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class inventory_page extends AppCompatActivity {
-    private ImageView helmet1, armor1, pants1, helmet2, armor2, pants2, weapon1;
+    private ImageView helmet1, armor1, pants1, helmet2, armor2, pants2, weapon1, helmet3, helmet4, pants3, armor3;
     private Button rewardsButton, homeButton;
     private SharedPreferences sharedTracker;
 
@@ -44,6 +44,10 @@ public class inventory_page extends AppCompatActivity {
         armor2 = findViewById(R.id.armor2);
         pants2 = findViewById(R.id.pants2);
         weapon1=findViewById(R.id.weapon1);
+        armor3=findViewById(R.id.armor3);
+        helmet3=findViewById(R.id.helmet3);
+        helmet4=findViewById(R.id.helmet4);
+        pants3=findViewById(R.id.pants3);
         //set buttons
         rewardsButton = findViewById(R.id.rewardsButton);
         homeButton = findViewById(R.id.homeButton);
@@ -310,9 +314,20 @@ public class inventory_page extends AppCompatActivity {
         int chestID = sharedTracker.getInt("chest", 0);
         int pantsID = sharedTracker.getInt("pants", 0);
         int swordID=sharedTracker.getInt("sword", 0);
-        helmet2.setVisibility(helmetID == 2 ? View.VISIBLE : View.INVISIBLE);
-        armor2.setVisibility(chestID == 2 ? View.VISIBLE : View.INVISIBLE);
-        pants2.setVisibility(pantsID == 2 ? View.VISIBLE : View.INVISIBLE);
+        boolean task1Completed = sharedTracker.getBoolean("task_1_completed", false);
+        boolean task2Completed = sharedTracker.getBoolean("task_2_completed", false);
+        boolean task3Completed = sharedTracker.getBoolean("task_3_completed", false);
+        boolean task4Completed = sharedTracker.getBoolean("task_4_completed", false);
+        boolean task5Completed = sharedTracker.getBoolean("task_5_completed", false);
+        boolean task6Completed = sharedTracker.getBoolean("task_6_completed", false);
+        boolean task7Completed = sharedTracker.getBoolean("task_7_completed", false);
+        helmet2.setVisibility(task1Completed ? View.VISIBLE : View.INVISIBLE);
+        armor2.setVisibility(task2Completed ? View.VISIBLE : View.INVISIBLE);
+        pants2.setVisibility(task3Completed ? View.VISIBLE : View.INVISIBLE);
+        helmet3.setVisibility(task4Completed ? View.VISIBLE : View.INVISIBLE);
+        armor3.setVisibility(task5Completed ? View.VISIBLE : View.INVISIBLE);
+        pants3.setVisibility(task6Completed ? View.VISIBLE : View.INVISIBLE);
+        helmet4.setVisibility(task7Completed ? View.VISIBLE : View.INVISIBLE);
         weapon1.setVisibility(swordID==2?View.VISIBLE:View.INVISIBLE);
     }
     private void trackChest()
@@ -321,8 +336,7 @@ public class inventory_page extends AppCompatActivity {
         int equippedArmorId=sharedTracker.getInt("chest", 0);
         armor1.setAlpha(equippedArmorId==1?1.0f:0.5f);
         armor2.setAlpha(equippedArmorId==2?1.0f:0.5f);
-        armor1.setVisibility(View.VISIBLE);
-        armor2.setVisibility(View.VISIBLE);
+        armor3.setAlpha(equippedArmorId==3?1.0f:0.5f);
     }
     private void trackHelmet()
     {
@@ -330,9 +344,8 @@ public class inventory_page extends AppCompatActivity {
         int equippedHelmetId = sharedTracker.getInt("helmet", 0);
         helmet1.setAlpha(equippedHelmetId == 1 ? 1.0f : 0.5f);
         helmet2.setAlpha(equippedHelmetId == 2 ? 1.0f : 0.5f);
-        // Ensure both helmets are visible
-        helmet1.setVisibility(View.VISIBLE);
-        helmet2.setVisibility(View.VISIBLE);
+        helmet3.setAlpha(equippedHelmetId == 3 ? 1.0f : 0.5f);
+        helmet4.setAlpha(equippedHelmetId == 4 ? 1.0f : 0.5f);
     }
     private void trackPants()
     {
@@ -340,8 +353,7 @@ public class inventory_page extends AppCompatActivity {
         int equippedPantsId=sharedTracker.getInt("pants", 0);
         pants1.setAlpha(equippedPantsId==1?1.0f:0.5f);
         pants2.setAlpha(equippedPantsId==2?1.0f:0.5f);
-        pants1.setVisibility(View.VISIBLE);
-        pants2.setVisibility(View.VISIBLE);
+        pants3.setAlpha(equippedPantsId==2?1.0f:0.5f);
     }
 //    private void ButtonTracker(){
 //        rewardsButton = findViewById(R.id.rewardsButton);
