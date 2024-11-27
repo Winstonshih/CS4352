@@ -126,7 +126,7 @@
                 android:layout_height="64dp"
                 android:layout_marginStart="16dp"
                 android:contentDescription="Chest Armor 3"
-                android:src="@drawable/greenpants"
+                android:src="@drawable/greenarmor"
                 android:visibility="invisible" />
         </LinearLayout>
 

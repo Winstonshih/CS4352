@@ -353,7 +353,7 @@ public class inventory_page extends AppCompatActivity {
         int equippedPantsId=sharedTracker.getInt("pants", 0);
         pants1.setAlpha(equippedPantsId==1?1.0f:0.5f);
         pants2.setAlpha(equippedPantsId==2?1.0f:0.5f);
-        pants3.setAlpha(equippedPantsId==2?1.0f:0.5f);
+        pants3.setAlpha(equippedPantsId==3?1.0f:0.5f);
     }
 //    private void ButtonTracker(){
 //        rewardsButton = findViewById(R.id.rewardsButton);
