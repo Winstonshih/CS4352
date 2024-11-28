@@ -85,6 +85,7 @@ public class TaskHistory extends AppCompatActivity {
         Button homeButton = findViewById(R.id.homeButton);
         Button editmenubutton = findViewById(R.id.editmenubutton);
         ImageView personImage=findViewById(R.id.personImage);
+        Button help=findViewById(R.id.helpbutton);
         inventoryButton.setOnClickListener(view ->
                 startActivity(new Intent(TaskHistory.this, inventory_page.class))
         );
@@ -100,6 +101,10 @@ public class TaskHistory extends AppCompatActivity {
         editmenubutton.setOnClickListener(view ->
                 startActivity(new Intent(TaskHistory.this, Input_Info_Activity_2.class))
         );
+        help.setOnClickListener(view ->
+                startActivity(new Intent(TaskHistory.this, task_history_documentation.class))
+        );
+
     }
     public void updateArmorUI() {
         loadEquipment();
