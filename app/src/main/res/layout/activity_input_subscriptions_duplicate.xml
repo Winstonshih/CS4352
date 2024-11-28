@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/mainDuplicate"
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -46,7 +46,7 @@
 
         <!-- Subscription Container for Input Fields -->
         <LinearLayout
-            android:id="@+id/subscriptionContainerDuplicate"
+            android:id="@+id/subscriptionContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -54,7 +54,7 @@
 
             <!-- Subscription Name Input -->
             <EditText
-                android:id="@+id/sub_nameDuplicate"
+                android:id="@+id/sub_name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
@@ -62,12 +62,14 @@
                 android:drawableLeft="@drawable/baseline_control_point_24"
                 android:drawablePadding="12dp"
                 android:fontFamily="sans-serif"
+
                 android:hint="Subscription 1"
+
                 android:padding="12dp"
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/sub_amountDuplicate"
+                android:id="@+id/sub_amount"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
@@ -77,11 +79,13 @@
                 android:hint="Amount"
                 android:inputType="number"
                 android:padding="12dp"
+
                 android:textSize="16sp"
                 android:fontFamily="sans-serif" />
 
+
             <EditText
-                android:id="@+id/sub_name_2Duplicate"
+                android:id="@+id/sub_name_2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
@@ -90,11 +94,12 @@
                 android:drawablePadding="12dp"
                 android:fontFamily="sans-serif"
                 android:hint="Subscription 2"
+
                 android:padding="12dp"
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/sub_amount_2Duplicate"
+                android:id="@+id/sub_amount_2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
@@ -105,11 +110,12 @@
                 android:inputType="number"
                 android:padding="12dp"
                 android:textColor="@color/black"
+
                 android:textSize="16sp"
                 android:fontFamily="sans-serif" />
 
             <EditText
-                android:id="@+id/sub_name_3Duplicate"
+                android:id="@+id/sub_name_3"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
@@ -119,11 +125,12 @@
                 android:fontFamily="sans-serif"
                 android:hint="Subscription 3"
                 android:padding="12dp"
+
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/sub_amount_3Duplicate"
+                android:id="@+id/sub_amount_3"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="10dp"
@@ -139,26 +146,28 @@
 
         </LinearLayout>
 
+
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/addMoreDuplicate"
+            android:id="@+id/back"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
-            android:backgroundTint="@color/sky_blue"
-            android:text="Add More"
+            android:backgroundTint="@color/dark_red"
+            android:text="Back"
             android:textSize="18sp"
             android:textColor="@color/white"
             app:cornerRadius="30dp"
             android:elevation="4dp"
             android:paddingVertical="10dp" />
 
+
         <Button
-            android:id="@+id/submitDuplicate"
+            android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/dark_green"
-            android:text="Submit"
+            android:text="Next"
             android:textSize="18sp"
             android:textColor="@color/white"
             app:cornerRadius="30dp"

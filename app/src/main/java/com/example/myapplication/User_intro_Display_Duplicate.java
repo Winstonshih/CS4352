@@ -10,84 +10,73 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.Services.userIntroServices;
+
 import java.util.Map;
 
 public class User_intro_Display_Duplicate extends AppCompatActivity {
-    // Updated display fields for the duplicate activity
-    TextView incomeDuplicate;
-    TextView expensesDuplicate;
-    TextView amountDuplicate;
-    Button startButtonDuplicate;
+    //what we are going to update in the display
+    TextView income;
+    TextView expenses;
+    TextView amount;
+    TextView username;
+    Button startButton;
+    Button backButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_user_intro_display_duplicate);
+        income = findViewById(R.id.income);
+        expenses = findViewById(R.id.expenses);
+        amount = findViewById(R.id.amount);
+        username = findViewById(R.id.username);
+        startButton = findViewById(R.id.startButton);
+        backButton = findViewById(R.id.backButton);
 
-        incomeDuplicate = findViewById(R.id.incomeDuplicate);
-        expensesDuplicate = findViewById(R.id.expensesDuplicate);
-        amountDuplicate = findViewById(R.id.amountDuplicate);
-        startButtonDuplicate = findViewById(R.id.startButtonDuplicate);
 
 
 
-        SharedPreferences sharedList = getSharedPreferences("GamePagePrefsDuplicate", MODE_PRIVATE);
-        SharedPreferences.Editor listEditor = sharedList.edit();
-        listEditor.clear();
-        listEditor.apply();
 
-        SharedPreferences sharedPreferences = getSharedPreferences("money_trackerDuplicate", MODE_PRIVATE);
-        SharedPreferences.Editor moneyEditor = sharedPreferences.edit();
-        SharedPreferences preferences = getSharedPreferences("subscriptionsDuplicate", MODE_PRIVATE);
-        SharedPreferences.Editor editor_s = preferences.edit();
+        //dont touch anything after this
 
-        Map<String, ?> money_tracker = sharedPreferences.getAll();
-        Map<String, ?> subscriptions = preferences.getAll();
-        long income_have = sharedPreferences.getLong("income", 0);
-        incomeDuplicate.setText("$ " + income_have);
+        userIntroServices services = new userIntroServices(this);
+        Long incomeCalculated = services.getIncome();
+        Long expensesCalculated = services.getExpenses();
+        Long amountSaved = services.getAmountSaved();
+        String usernameReceived = services.getUsername();
+        username.setText(usernameReceived);
+        income.setText("$ " + String.valueOf(incomeCalculated));
+        expenses.setText("$ " + String.valueOf(expensesCalculated));
 
-        long total = 0;
-
-        for (Map.Entry<String, ?> entry : money_tracker.entrySet()) {
-            String key = entry.getKey();
-            Object value = entry.getValue();
-            if (!key.toLowerCase().contains("income")) {
-                if (value instanceof Integer) {
-                    total += (Integer) value;
-                } else if (value instanceof Long) {
-                    total += (Long) value;
-                }
-            }
+        if(amountSaved > 0){
+            amount.setTextColor(getResources().getColor(R.color.dark_green));
+            amount.setText("$ " + String.valueOf(amountSaved));
         }
+        else if (amountSaved < 0){
+            amount.setTextColor(getResources().getColor(R.color.dark_red));
+            amount.setText("$ " + String.valueOf(amountSaved));
 
-        for (Map.Entry<String, ?> entry : subscriptions.entrySet()) {
-            String key = entry.getKey();
-            Object value = entry.getValue();
-            if (!key.toLowerCase().contains("income")) {
-                if (value instanceof Integer) {
-                    total += (Integer) value;
-                } else if (value instanceof Long) {
-                    total += (Long) value;
-                }
-            }
         }
-
-        expensesDuplicate.setText("$ " + total);
-        long amount_saved = income_have - total;
-        if (amount_saved > 0) {
-            amountDuplicate.setTextColor(getResources().getColor(R.color.dark_green));
-            amountDuplicate.setText("$ " + amount_saved);
-        } else if (amount_saved < 0) {
-            amountDuplicate.setTextColor(getResources().getColor(R.color.dark_red));
-            amountDuplicate.setText("$ " + amount_saved);
-        } else {
-            amountDuplicate.setText("$ " + amount_saved);
+        else{
+            amount.setText("$ " + String.valueOf(amountSaved));
         }
+        //print
+        services.printSharedPreferences();
+        backButton.setOnClickListener(view -> finish()); // Navigate back to the previous activity
+        //now that all the text and such has been updated we just wait for them to start
+        startButton.setOnClickListener(new View.OnClickListener() {
+                                           @Override
+                                           public void onClick(View v) {
+                                               //when they click the button we move to the next activity
+                                               Intent intent = new Intent(User_intro_Display_Duplicate.this, main_game_page.class);
+                                               startActivity(intent);
+                                           }
+                                       }
+        );
 
-        startButtonDuplicate.setOnClickListener(v -> {
-            Intent intent = new Intent(User_intro_Display_Duplicate.this, main_game_page.class);
-            startActivity(intent);
-        });
     }
+
 }
