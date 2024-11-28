@@ -158,6 +158,7 @@ public class main_game_page extends AppCompatActivity {
         Button rewardsButton = findViewById(R.id.rewardsButton);
         Button taskHistoryButton = findViewById(R.id.taskHistory);
         Button editmenubutton = findViewById(R.id.editmenubutton);
+        Button help=findViewById(R.id.helpbutton);
         inventoryButton.setOnClickListener(view ->
                 startActivity(new Intent(main_game_page.this, inventory_page.class))
         );
@@ -172,6 +173,9 @@ public class main_game_page extends AppCompatActivity {
         );
         editmenubutton.setOnClickListener(view ->
                 startActivity(new Intent(main_game_page.this, Input_Info_Activity_2.class))
+        );
+        help.setOnClickListener(view ->
+                startActivity(new Intent(main_game_page.this, logged_in_help_documentation.class))
         );
 
 
