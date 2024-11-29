@@ -251,18 +251,21 @@ public class main_game_page extends AppCompatActivity {
     private void is_empty_list(){
         //set the relative layout to gone
         relativeLayout = findViewById(R.id.relativeLayout);
-
+        Button rewardButton = findViewById(R.id.rewardsButton);
         //IF ITS TRUE THAT IT IS EMPTY
         if (sharedTracker.getBoolean("empty list", false)){
             //MAKE POP UP SHOW THAT WAIT 1 WEEK FOR NEXT GOAL
             //make it visible
             System.out.println("Checker: empty list");
             relativeLayout.setVisibility(View.VISIBLE);
+            rewardButton.setEnabled(true);
+            Toast.makeText(main_game_page.this, "You unlocked rewards page!", Toast.LENGTH_SHORT).show();
         }
         else{
             System.out.println("Checker: not empty list");
             //so it is gone first
             relativeLayout.setVisibility(View.GONE);
+            rewardButton.setEnabled(false);
         }
     }
 
