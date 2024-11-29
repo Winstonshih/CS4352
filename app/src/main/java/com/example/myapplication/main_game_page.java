@@ -258,14 +258,11 @@ public class main_game_page extends AppCompatActivity {
             //make it visible
             System.out.println("Checker: empty list");
             relativeLayout.setVisibility(View.VISIBLE);
-            rewardButton.setEnabled(true);
-            Toast.makeText(main_game_page.this, "You unlocked rewards page!", Toast.LENGTH_SHORT).show();
         }
         else{
             System.out.println("Checker: not empty list");
             //so it is gone first
             relativeLayout.setVisibility(View.GONE);
-            rewardButton.setEnabled(false);
         }
     }
 
