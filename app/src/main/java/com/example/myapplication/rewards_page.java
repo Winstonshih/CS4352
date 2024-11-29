@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,7 +30,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class rewards_page extends AppCompatActivity {
     private SharedPreferences sharedTracker;
-
+    private LinearLayout rewardButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,12 +87,38 @@ public class rewards_page extends AppCompatActivity {
     }
 
     private void setUpSword() {
-        LinearLayout rewardButton = findViewById(R.id.unlockableAward);
+        rewardButton = findViewById(R.id.unlockableAward);
+        //Textview of the button
+        TextView rewardText = findViewById(R.id.unlockableAwardText);
+        //LinearLayout locked message
+        LinearLayout lockedMessage = findViewById(R.id.lockMessage);
+
         //use one last tracker if the sword is available
         sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
-        if (sharedTracker.getBoolean("last sword", false)) {
+
+        //if there is an empty list,
+        if (sharedTracker.getBoolean("accepted", false)) {
+            //make everything invisible and disable the button
             rewardButton.setVisibility(View.INVISIBLE);
             rewardButton.setEnabled(false);
+            lockedMessage.setVisibility(View.INVISIBLE);
+        }
+        else if (sharedTracker.getBoolean("empty list", false)) {
+            //change the color of the reward button
+            rewardButton.setBackgroundColor(getResources().getColor(R.color.dark_green));
+            //change the text in textview
+            rewardText.setText("UNLOCKED");
+            //Linear Layout make invisible
+            lockedMessage.setVisibility(View.INVISIBLE);
+            //disable the button
+            rewardButton.setEnabled(true);
+
+        }
+        //if its not
+        else {
+            //set the  button to false enable
+            rewardButton.setEnabled(false);
+
         }
 
         rewardButton.setOnClickListener(v -> {
@@ -111,9 +138,15 @@ public class rewards_page extends AppCompatActivity {
                 editor.apply();
                 popUpWindow.dismiss();
                 Toast.makeText(rewards_page.this, "Sword equipped!", Toast.LENGTH_SHORT).show();
+                rewardButton.setEnabled(false);
+                rewardButton.setVisibility(View.INVISIBLE);
+                //set accepted from Shared tracker to false
+                sharedTracker.edit().putBoolean("accepted", true).apply();
+                // Start the main game page
                 Intent intent = new Intent(rewards_page.this, main_game_page.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+
                 finish();
             });
         });

@@ -79,6 +79,8 @@ public class User_intro_Display extends AppCompatActivity {
         trackerEditor.putBoolean("last tracker2",false);
         trackerEditor.putBoolean("last sword",false);
         trackerEditor.putBoolean("empty list", false);
+        //tracker for the reward page
+        trackerEditor.putBoolean("accepted", false);
 
         //the current
         //every time their is an increase in numbers, then a new part of the inventory is added

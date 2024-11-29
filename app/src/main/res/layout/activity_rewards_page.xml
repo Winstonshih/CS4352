@@ -9,6 +9,37 @@
     android:id="@+id/main">
 
 
+    <LinearLayout
+        android:id="@+id/unlockableAward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@color/shadow_grey"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lockedAwardsCarousel">
+
+        <ImageView
+            android:id="@+id/unlockableAwardImage"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:contentDescription="@string/UnlockableAward"
+            android:src="@drawable/sword" />
+
+        <TextView
+            android:id="@+id/unlockableAwardText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/LOCKED"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/inventoryTitle"
         android:layout_width="wrap_content"
@@ -422,54 +453,55 @@
             </LinearLayout>
         </LinearLayout>
     </HorizontalScrollView>
+
+
     <LinearLayout
-        android:id="@+id/unlockableAward"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:id="@+id/lockMessage"
+        android:layout_width="266dp"
+        android:layout_height="67dp"
+        android:background="@color/shadow_grey"
         android:gravity="center"
-        android:background="@color/dark_green"
-        android:layout_marginTop="32dp"
+        android:orientation="vertical"
         android:padding="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/lockedAwardsCarousel"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <ImageView
-            android:id="@+id/unlockableAwardImage"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@drawable/sword"
-            android:contentDescription="@string/UnlockableAward"/>
+        app:layout_constraintTop_toBottomOf="@+id/unlockableAward"
+        app:layout_constraintVertical_bias="0.289">
+
         <TextView
-            android:id="@+id/unlockableAwardText"
+            android:id="@+id/lockMessageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/UNLOCK"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
             android:gravity="center"
-            android:layout_marginTop="8dp" />
+            android:text="Complete the task list to unlock reward"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
     </LinearLayout>
+
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="87dp"
         android:layout_height="87dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/homeButton"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/shadow_grey"
-            style="@style/Widget.MaterialComponents.Button.TextButton" />
+            android:backgroundTint="@color/shadow_grey" />
+
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/baseline_home_24"
             android:layout_gravity="center"
-            app:tint="@color/white"
-            android:contentDescription="@string/home_logo_icon"/>
+            android:contentDescription="@string/home_logo_icon"
+            android:src="@drawable/baseline_home_24"
+            app:tint="@color/white" />
     </FrameLayout>
 
 
