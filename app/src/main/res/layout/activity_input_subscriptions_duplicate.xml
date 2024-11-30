@@ -1,50 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:background="@drawable/new_background">
 
     <LinearLayout
-        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:background="@color/white"
         android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:padding="16dp">
+        android:padding="24dp">
 
+
+        <!-- Title -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:gravity="top"
-            android:padding="10dp"
-            android:text="Subscriptions"
-            android:textSize="30sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif-medium"
             android:letterSpacing="0.05"
+            android:padding="10dp"
             android:shadowColor="@color/grey"
             android:shadowDx="2"
             android:shadowDy="2"
             android:shadowRadius="3"
-            android:layout_gravity="center_horizontal" />
+            android:text="Subscriptions"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/sky_blue"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
+        <!-- Subtitle -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:gravity="top"
-            android:paddingLeft="10dp"
-            android:text="Per Month"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:textStyle="italic"
-            android:fontFamily="sans-serif"
             android:letterSpacing="0.05"
             android:layout_marginBottom="16dp"
-            android:layout_gravity="center_horizontal" />
+            android:paddingLeft="10dp"
+            android:text="Ex: Netfllix, 30, or Leave Empty"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
-        <!-- Subscription Container for Input Fields -->
+        <!-- Subscription Container -->
         <LinearLayout
             android:id="@+id/subscriptionContainer"
             android:layout_width="match_parent"
@@ -52,7 +54,7 @@
             android:orientation="vertical"
             android:padding="8dp">
 
-            <!-- Subscription Name Input -->
+            <!-- Subscription 1 -->
             <EditText
                 android:id="@+id/sub_name"
                 android:layout_width="match_parent"
@@ -62,9 +64,7 @@
                 android:drawableLeft="@drawable/baseline_control_point_24"
                 android:drawablePadding="12dp"
                 android:fontFamily="sans-serif"
-
                 android:hint="Subscription 1"
-
                 android:padding="12dp"
                 android:textSize="16sp" />
 
@@ -77,13 +77,12 @@
                 android:drawableLeft="@drawable/baseline_attach_money_24"
                 android:drawablePadding="12dp"
                 android:hint="Amount"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:padding="12dp"
-
                 android:textSize="16sp"
                 android:fontFamily="sans-serif" />
 
-
+            <!-- Subscription 2 -->
             <EditText
                 android:id="@+id/sub_name_2"
                 android:layout_width="match_parent"
@@ -94,7 +93,6 @@
                 android:drawablePadding="12dp"
                 android:fontFamily="sans-serif"
                 android:hint="Subscription 2"
-
                 android:padding="12dp"
                 android:textSize="16sp" />
 
@@ -107,13 +105,13 @@
                 android:drawableLeft="@drawable/baseline_attach_money_24"
                 android:drawablePadding="12dp"
                 android:hint="Amount"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:padding="12dp"
                 android:textColor="@color/black"
-
                 android:textSize="16sp"
                 android:fontFamily="sans-serif" />
 
+            <!-- Subscription 3 -->
             <EditText
                 android:id="@+id/sub_name_3"
                 android:layout_width="match_parent"
@@ -125,7 +123,6 @@
                 android:fontFamily="sans-serif"
                 android:hint="Subscription 3"
                 android:padding="12dp"
-
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -138,15 +135,14 @@
                 android:drawableLeft="@drawable/baseline_attach_money_24"
                 android:drawablePadding="12dp"
                 android:hint="Amount"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:padding="12dp"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:fontFamily="sans-serif" />
-
         </LinearLayout>
 
-
+        <!-- Buttons -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/back"
             android:layout_width="match_parent"
@@ -156,10 +152,8 @@
             android:text="Back"
             android:textSize="18sp"
             android:textColor="@color/white"
-            app:cornerRadius="30dp"
             android:elevation="4dp"
             android:paddingVertical="10dp" />
-
 
         <Button
             android:id="@+id/submit"
@@ -170,16 +164,8 @@
             android:text="Next"
             android:textSize="18sp"
             android:textColor="@color/white"
-            app:cornerRadius="30dp"
             android:elevation="4dp"
-            android:paddingVertical="10dp" />
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_gravity="center_vertical"
-            android:padding="10dp"
-            app:srcCompat="@drawable/logo" />
+            android:paddingVertical="10dp"
+            />
     </LinearLayout>
 </ScrollView>
