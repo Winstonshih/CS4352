@@ -261,7 +261,7 @@ public class main_game_page extends AppCompatActivity {
             relativeLayout.setVisibility(View.VISIBLE);
             //enable the inventory button
             inventoryButton.setEnabled(true);
-            inventoryButton.setText("Inventory");
+            inventoryButton.setText("INVENTORY");
         }
         else{
             System.out.println("Checker: not empty list");

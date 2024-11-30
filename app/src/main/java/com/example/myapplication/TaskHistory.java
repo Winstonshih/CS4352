@@ -45,7 +45,7 @@ public class TaskHistory extends AppCompatActivity {
         setupRecyclerView();
 
         sharedPreferences = getSharedPreferences("GamePagePrefs", MODE_PRIVATE);
-
+        sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
         viewModel = new ViewModelProvider(this).get(TaskHistoryViewModel.class);
 
         adapter = new MyAdapter(this, new ArrayList<>());
@@ -106,9 +106,27 @@ public class TaskHistory extends AppCompatActivity {
         );
 
     }
+    protected void onResume()
+    {
+        super.onResume();
+        loadEquipment();
+        inventoryButtonTracker();
+    }
     public void updateArmorUI() {
         loadEquipment();
+        inventoryButtonTracker();
         //  buttonTracker();
+    }
+    private void inventoryButtonTracker()
+    {
+        Button inventoryButton = findViewById(R.id.inventoryButton);
+        if (sharedTracker.getBoolean("empty list", false)){
+            inventoryButton.setEnabled(true);
+            inventoryButton.setText("INVENTORY");
+        }else{
+            inventoryButton.setEnabled(false);
+            inventoryButton.setText("Complete Tasks");
+        }
     }
     private void loadEquipment() {
         sharedTracker = getSharedPreferences("tracker", MODE_PRIVATE);
@@ -157,6 +175,9 @@ public class TaskHistory extends AppCompatActivity {
         }
         editor.apply();
     }
+
+}
+
 //    private void loadHistory()
 //    {
 //        List<History> historyList = new ArrayList<>();
@@ -167,4 +188,4 @@ public class TaskHistory extends AppCompatActivity {
 //        historyList.add(new History(3, "Add $20 to Savings Account", "Diamond pants (+30 Protection)", R.drawable.upgradedpants));
 //        h.setValue(historyList);
 //    }
-}
+//}

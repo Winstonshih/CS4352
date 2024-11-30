@@ -31,7 +31,12 @@ public class main_character_stats_page extends AppCompatActivity {
         updateArmorUI();
         updateStats();
     }
-
+    protected void onResume()
+    {
+        super.onResume();
+        updateArmorUI();
+        inventoryButtonTracker();
+    }
     private void setupButtons() {
         inventoryButton = findViewById(R.id.inventoryButton);
         rewardsButton = findViewById(R.id.rewardsButton);
@@ -157,9 +162,20 @@ public class main_character_stats_page extends AppCompatActivity {
             // Reset attack value if sword is not equipped
             editor.putString("attack", "0");
         }
-
+        inventoryButtonTracker();
         // Apply the changes to the shared preferences
         editor.apply();
+    }
+    private void inventoryButtonTracker()
+    {
+        Button inventoryButton = findViewById(R.id.inventoryButton);
+        if (TRACKER.getBoolean("empty list", false)){
+            inventoryButton.setEnabled(true);
+            inventoryButton.setText("INVENTORY");
+        }else{
+            inventoryButton.setEnabled(false);
+            inventoryButton.setText("Complete Tasks");
+        }
     }
 //    private void setColorButton(){
 //        Button homeButton = findViewById(R.id.homeButton);
