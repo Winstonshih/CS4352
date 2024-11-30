@@ -252,17 +252,24 @@ public class main_game_page extends AppCompatActivity {
         //set the relative layout to gone
         relativeLayout = findViewById(R.id.relativeLayout);
         Button rewardButton = findViewById(R.id.rewardsButton);
+        Button inventoryButton = findViewById(R.id.inventoryButton);
         //IF ITS TRUE THAT IT IS EMPTY
         if (sharedTracker.getBoolean("empty list", false)){
             //MAKE POP UP SHOW THAT WAIT 1 WEEK FOR NEXT GOAL
             //make it visible
             System.out.println("Checker: empty list");
             relativeLayout.setVisibility(View.VISIBLE);
+            //enable the inventory button
+            inventoryButton.setEnabled(true);
+            inventoryButton.setText("Inventory");
         }
         else{
             System.out.println("Checker: not empty list");
             //so it is gone first
             relativeLayout.setVisibility(View.GONE);
+            inventoryButton.setEnabled(false);
+            inventoryButton.setText("Complete Tasks");
+
         }
     }
 
