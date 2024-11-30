@@ -174,5 +174,12 @@
             android:elevation="4dp"
             android:paddingVertical="10dp" />
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
+            android:padding="10dp"
+            app:srcCompat="@drawable/logo" />
     </LinearLayout>
 </ScrollView>
