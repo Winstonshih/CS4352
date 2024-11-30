@@ -10,22 +10,36 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class task_history_instructions extends AppCompatActivity {
+public class SignUpDocumentation extends AppCompatActivity {
 
-    private Button back;
+    private Button taskButton, instructionsButton, backButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_instructions);
+        setContentView(R.layout.activity_help_documentation);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        back=findViewById(R.id.backButton);
-        back.setOnClickListener(v -> {
-            Intent intent = new Intent(this, task_history_documentation.class);
+        taskButton=findViewById(R.id.TasksButton);
+        backButton=findViewById(R.id.backButton);
+        instructionsButton=findViewById(R.id.instructionsButton);
+        backButton.setOnClickListener(v -> {
+
+            Intent intent = new Intent(this, SignUp.class);
+            startActivity(intent);
+        });
+        taskButton.setOnClickListener(v -> {
+
+            Intent intent = new Intent(this, SignUpTaskOverview.class);
+            startActivity(intent);
+        });
+        instructionsButton.setOnClickListener(v -> {
+
+            Intent intent = new Intent(this, SignUpInstructions.class);
             startActivity(intent);
         });
     }

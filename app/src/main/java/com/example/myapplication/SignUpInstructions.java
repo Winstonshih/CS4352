@@ -10,7 +10,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class task_history_instructions extends AppCompatActivity {
+public class SignUpInstructions extends AppCompatActivity {
 
     private Button back;
     @Override
@@ -25,7 +25,8 @@ public class task_history_instructions extends AppCompatActivity {
         });
         back=findViewById(R.id.backButton);
         back.setOnClickListener(v -> {
-            Intent intent = new Intent(this, task_history_documentation.class);
+            // Navigate to SignUp activity
+            Intent intent = new Intent(this, SignUpDocumentation.class);
             startActivity(intent);
         });
     }

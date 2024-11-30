@@ -24,7 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SignUp extends AppCompatActivity {
 EditText newLogin, newPassword;
-Button signUp, back;
+Button signUp, back, help;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +33,7 @@ Button signUp, back;
         newLogin=findViewById(R.id.createUsername);
         newPassword=findViewById(R.id.createPassword);
         signUp=findViewById(R.id.signUpButton2);
+        help=findViewById(R.id.helpButton);
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +70,14 @@ Button signUp, back;
                 startActivity(i);
             }
         });
-
+        help.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                Intent i=new Intent(SignUp.this, SignUpDocumentation.class);
+                startActivity(i);
+            }
+        });
     }
 
     private void addAccount(String username, String password) {

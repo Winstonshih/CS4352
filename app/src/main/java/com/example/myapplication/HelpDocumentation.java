@@ -27,17 +27,17 @@ public class HelpDocumentation extends AppCompatActivity {
         backButton=findViewById(R.id.backButton);
         instructionsButton=findViewById(R.id.instructionsButton);
         backButton.setOnClickListener(v -> {
-            // Navigate to SignUp activity
+
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         });
         taskButton.setOnClickListener(v -> {
-            // Navigate to SignUp activity
+
             Intent intent = new Intent(this, TaskOverview.class);
             startActivity(intent);
         });
         instructionsButton.setOnClickListener(v -> {
-            // Navigate to SignUp activity
+
             Intent intent = new Intent(this, Instructions.class);
             startActivity(intent);
         });
