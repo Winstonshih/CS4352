@@ -268,7 +268,7 @@ public class main_game_page extends AppCompatActivity {
             //so it is gone first
             relativeLayout.setVisibility(View.GONE);
             inventoryButton.setEnabled(false);
-            inventoryButton.setText("Complete Tasks");
+            inventoryButton.setText("COMPLETE TASKS");
 
         }
     }

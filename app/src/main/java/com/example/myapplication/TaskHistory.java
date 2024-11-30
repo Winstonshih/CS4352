@@ -125,7 +125,7 @@ public class TaskHistory extends AppCompatActivity {
             inventoryButton.setText("INVENTORY");
         }else{
             inventoryButton.setEnabled(false);
-            inventoryButton.setText("Complete Tasks");
+            inventoryButton.setText("COMPLETE TASKS");
         }
     }
     private void loadEquipment() {
