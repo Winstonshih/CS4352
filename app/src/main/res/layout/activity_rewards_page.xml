@@ -11,14 +11,15 @@
 
     <LinearLayout
         android:id="@+id/unlockableAward"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_width="110dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="48dp"
         android:background="@color/shadow_grey"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lockedAwardsCarousel">
 
@@ -55,12 +56,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/lockedRewardsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="monospace"
+        android:text="Future Earnable Rewards"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inventoryTitle" />
+
 
     <HorizontalScrollView
         android:id="@+id/lockedAwardsCarousel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintTop_toBottomOf="@id/inventoryTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -71,40 +86,42 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="16dp">
+
             <LinearLayout
                 android:id="@+id/redArmor"
-                android:layout_width="150dp"
+                android:layout_width="110dp"
                 android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
                 android:layout_marginEnd="16dp"
+                android:background="@android:color/black"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="16dp">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
-                    android:src="@drawable/red_armor"
+                    android:src="@drawable/red_armor" />
 
-                    />
                 <TextView
                     android:id="@+id/locked1Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Red Armor"
                     android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/redHelmet"
-                android:layout_width="150dp"
+                android:layout_width="110dp"
                 android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
                 android:layout_marginEnd="16dp"
+                android:background="@android:color/black"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="16dp">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
@@ -116,37 +133,40 @@
                     android:id="@+id/locked2Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Red Helmet"
                     android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
+                    android:textStyle="bold" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/redPants"
-                android:layout_width="150dp"
+                android:layout_width="110dp"
                 android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
                 android:layout_marginEnd="16dp"
+                android:background="@android:color/black"
+                android:gravity="center"
+                android:orientation="vertical"
                 android:padding="16dp">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:src="@drawable/red_pants"
 
                     />
+
                 <TextView
                     android:id="@+id/locked3Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="Red Pants"
                     android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
+                    android:textStyle="bold" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="150dp"
+                android:layout_width="110dp"
                 android:layout_height="150dp"
                 android:background="@android:color/black"
                 android:orientation="vertical"
@@ -163,7 +183,7 @@
                     android:gravity="center" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="150dp"
+                android:layout_width="110dp"
                 android:layout_height="150dp"
                 android:background="@android:color/black"
                 android:orientation="vertical"
@@ -180,7 +200,7 @@
                     android:gravity="center" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="150dp"
+                android:layout_width="110dp"
                 android:layout_height="150dp"
                 android:background="@android:color/black"
                 android:orientation="vertical"
@@ -197,7 +217,7 @@
                     android:gravity="center" />
             </LinearLayout>
             <LinearLayout
-                android:layout_width="150dp"
+                android:layout_width="110dp"
                 android:layout_height="150dp"
                 android:background="@android:color/black"
                 android:orientation="vertical"
@@ -213,246 +233,22 @@
                     android:textStyle="bold"
                     android:gravity="center" />
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/locked8Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/locked9Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/locked10Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/locked11Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/locked12Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/locked13Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/locked14Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/locked15Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/locked16Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/locked17Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/locked18Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/locked19Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/locked20Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:background="@android:color/black"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_marginEnd="16dp"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/locked21Text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/LOCKED"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-            </LinearLayout>
         </LinearLayout>
     </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/unlockedRewardsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="monospace"
+        android:text="Unlockable Rewards"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lockedAwardsCarousel" />
 
 
     <LinearLayout
