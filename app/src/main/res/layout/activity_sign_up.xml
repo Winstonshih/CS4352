@@ -48,7 +48,7 @@
                 android:id="@+id/createUsername"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="40dp"
+                android:layout_margin="30dp"
                 android:background="@drawable/custom_edittext"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawablePadding="8dp"
