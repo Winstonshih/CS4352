@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/dark_green"
-        android:text="START"
+        android:text="Start"
         android:textSize="18sp"
 
         app:cornerRadius="20dp"
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
         android:backgroundTint="@color/dark_red"
-        android:text="BACK"
+        android:text="Back"
         android:textSize="18sp"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
