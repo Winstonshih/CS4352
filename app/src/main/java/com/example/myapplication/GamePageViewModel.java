@@ -39,9 +39,20 @@ public class GamePageViewModel extends AndroidViewModel {
 
     private void loadItems() {
         List<Item> itemList = new ArrayList<>();
+        //get the shared preferences for subscription data
+        SharedPreferences subscriptionPreferences = getApplication().getSharedPreferences("subscription_data", Application.MODE_PRIVATE);
+        //check if its empty
+        boolean isEmpty = subscriptionPreferences.getAll().isEmpty();
 
         // Load your initial list here
-        itemList.add(new Item(1, "Close a subscription", "Diamond helmet (+30 Protection)", R.drawable.upgradedhelmet, false));
+        if (isEmpty) {
+            itemList.add(new Item(1, "Congratulations! You have no subscriptions!", "Diamond helmet (+30 Protection)", R.drawable.upgradedhelmet, false));
+
+        }
+        else{
+            itemList.add(new Item(1, "Close a subscription", "Diamond helmet (+30 Protection)", R.drawable.upgradedhelmet, false));
+        }
+
         itemList.add(new Item(2, "Make a Savings Account", "Diamond Armor (+30 Protection)", R.drawable.upgradedarmor, false));
         itemList.add(new Item(3, "Add $20 to Savings Account", "Diamond pants (+30 Protection)", R.drawable.upgradedpants, false));
         itemList.add(new Item(4, "Save $20 for a Rainy Day Fund", "Jade helmet (+50 Protection)", R.drawable.greenhelmet, false));
