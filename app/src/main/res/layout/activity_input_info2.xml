@@ -1,54 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:background="@color/grey"
-    android:padding="16dp"
-    tools:context=".Input_Info_Activity">
+    android:id="@+id/main_2"
+    android:background="@drawable/new_background">
 
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:padding="12dp"
-        android:text="Financial Information"
-        android:textSize="28sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-medium"
-        android:letterSpacing="0.05"
-        android:shadowColor="@color/grey"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="3"
-        android:layout_marginBottom="16dp" />
-
-    <EditText
-        android:id="@+id/Income"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_edittext"
-        android:drawableLeft="@drawable/baseline_attach_money_24"
-        android:drawablePadding="12dp"
-        android:hint="Monthly Income"
-        android:padding="12dp"
-        android:inputType="number"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        android:fontFamily="sans-serif"
-        android:shadowColor="@color/grey"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="2" />
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="24dp">
 
+        <!-- Title -->
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="12dp"
+            android:text="Financial Information"
+            android:textSize="27sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.05"
+            android:shadowColor="@color/grey"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="3"
+            android:layout_marginBottom="16dp" />
+        <!-- Financial Information Container -->
+        <LinearLayout
+            android:id="@+id/informationContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+
+            <EditText
+                android:id="@+id/Income"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_edittext"
+                android:drawableLeft="@drawable/baseline_attach_money_24"
+                android:drawablePadding="12dp"
+                android:hint="Monthly Income"
+                android:inputType="numberDecimal"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif" />
 
     <TextView
         android:id="@+id/Expense_Text"
@@ -73,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:text="Food"
-        android:textSize="18dp"
+        android:textSize="15dp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:fontFamily="sans-serif-medium"
@@ -105,7 +110,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Mortgage / Rent"
-        android:textSize="18dp"
+        android:textSize="15dp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:fontFamily="sans-serif-medium"
@@ -137,7 +142,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Water Bill"
-        android:textSize="18dp"
+        android:textSize="15dp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:fontFamily="sans-serif-medium"
@@ -169,7 +174,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Electric Bill"
-        android:textSize="18dp"
+        android:textSize="15dp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:fontFamily="sans-serif-medium"
@@ -201,7 +206,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Gas Bill"
-        android:textSize="18dp"
+        android:textSize="15dp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:fontFamily="sans-serif-medium"
@@ -233,7 +238,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Internet Bill"
-        android:textSize="18dp"
+        android:textSize="15dp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:fontFamily="sans-serif-medium"
@@ -258,7 +263,7 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:fontFamily="sans-serif" />
-
+        </LinearLayout>
 
 
     <Button
@@ -268,28 +273,24 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/dark_red"
         android:text="Back"
-        android:textSize="20sp"
-        android:fontFamily="sans-serif-medium"
+        android:textSize="15sp"
         android:textColor="@color/white"
-        app:cornerRadius="30dp"
         android:elevation="4dp"
-        android:paddingVertical="5dp"
-        android:layout_gravity="center" />
+        android:paddingVertical="10dp" />
 
 
     <Button
         android:id="@+id/nextButton"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/dark_green"
         android:text="Next"
-        android:textSize="20sp"
-        android:fontFamily="sans-serif-medium"
+        android:textSize="15sp"
         android:textColor="@color/white"
-        app:cornerRadius="30dp"
         android:elevation="4dp"
         android:paddingVertical="10dp"
-        android:layout_gravity="center" />
+        />
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
