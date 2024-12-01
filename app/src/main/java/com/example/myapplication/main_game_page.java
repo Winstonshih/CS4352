@@ -172,7 +172,7 @@ public class main_game_page extends AppCompatActivity {
                 startActivity(new Intent(main_game_page.this, main_character_stats_page.class))
         );
         editmenubutton.setOnClickListener(view ->
-                startActivity(new Intent(main_game_page.this, Input_Info_Activity_2.class))
+                startActivity(new Intent(main_game_page.this, Option.class))
         );
         help.setOnClickListener(view ->
                 startActivity(new Intent(main_game_page.this, logged_in_help_documentation.class))

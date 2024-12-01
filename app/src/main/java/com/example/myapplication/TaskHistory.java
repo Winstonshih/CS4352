@@ -99,7 +99,7 @@ public class TaskHistory extends AppCompatActivity {
                 startActivity(new Intent(TaskHistory.this, main_character_stats_page.class))
         );
         editmenubutton.setOnClickListener(view ->
-                startActivity(new Intent(TaskHistory.this, Input_Info_Activity_2.class))
+                startActivity(new Intent(TaskHistory.this, Option.class))
         );
         help.setOnClickListener(view ->
                 startActivity(new Intent(TaskHistory.this, task_history_documentation.class))
