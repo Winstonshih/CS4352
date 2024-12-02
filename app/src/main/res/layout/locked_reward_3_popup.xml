@@ -58,7 +58,7 @@
         android:padding="16dp"
         android:text="@string/lockedReward3Text"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
