@@ -17,9 +17,9 @@
         android:layout_height="48dp"
         android:layout_marginTop="124dp"
         android:fontFamily="monospace"
-        android:text="@string/hello"
+        android:text="Updated Information"
         android:textColor="@color/black"
-        android:textSize="36sp"
+        android:textSize="26dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -38,7 +38,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginText" />
+        app:layout_constraintTop_toBottomOf="@id/loginText"
+        android:visibility="invisible"/>
 
 
     <TextView

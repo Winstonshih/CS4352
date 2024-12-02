@@ -215,6 +215,7 @@
                 android:backgroundTint="@color/shadow_grey"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:text="TASK HISTORY"
+                android:textSize="15dp"
                 android:textColor="@color/white"
                 />
 
