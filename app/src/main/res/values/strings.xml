@@ -5,8 +5,8 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="character_model">Character model</string>
-    <string name="inventory">INVENTORY</string>
-    <string name="rewards">REWARDS</string>
+    <string name="inventory">Inventory</string>
+    <string name="rewards">Rewards</string>
     <string name="home_logo_icon">Home Logo Icon</string>
     <string name="hp_icon">HP Icon</string>
     <string name="hp_text">HP: 50</string>
